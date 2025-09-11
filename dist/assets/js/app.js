@@ -1,2 +1,4 @@
-// src/assets/js/main.js
-console.log("✅ Main JS loaded");
+console.log('App1 loaded');
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM fully loaded for App');
+});
