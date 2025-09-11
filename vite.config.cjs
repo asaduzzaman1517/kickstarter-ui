@@ -35,6 +35,7 @@ const paths = {
 // Helpers
 // -----------------------
 async function compileSCSS(inputFile, outDir, outFileName) {
+  if (!fs.existsSync(inputFile)) return;
   const result = sass.compile(inputFile, { style: "compressed", quietDeps: true });
   const outFile = path.join(outDir, "assets/css", outFileName);
   await fs.ensureDir(path.dirname(outFile));
@@ -64,14 +65,6 @@ async function copyFileOrFolder(src, dest) {
     await fs.copy(src, dest);
     console.log(`✅ Copied folder: ${path.relative(".", src)} → ${path.relative(".", dest)}`);
   }
-}
-
-async function copyBootstrapSCSS() {
-  const src = "node_modules/bootstrap/scss";
-  const dest = "src/assets/scss/bootstrap/scss";
-  await fs.ensureDir(dest);
-  await fs.copy(src, dest);
-  console.log("✅ Bootstrap SCSS copied to src/assets/scss/bootstrap/scss");
 }
 
 async function copyBootstrapJS(outDir) {
@@ -118,28 +111,23 @@ async function compileHTML(outDir) {
 // -----------------------
 // Unified compile function
 // -----------------------
-async function compileAll(outDir, options = { compileBootstrap: true }) {
+async function compileAll(outDir, options = { compileBootstrap: false }) {
   if (options.compileBootstrap) {
     await compileSCSS(paths.src.bootstrapSCSS, outDir, "bootstrap.css");
   }
 
-  // Always compile custom styles
   await compileSCSS(paths.src.styleSCSS, outDir, "style.css");
 
-  // Vendor files
   await copyFileOrFolder("src/assets/scss/vendor", path.join(outDir, "assets/css"));
   await copyFileOrFolder("src/assets/js/vendor", path.join(outDir, "assets/js"));
 
-  // Fonts & Images
   await copyFileOrFolder(paths.src.fonts, path.join(outDir, "assets/fonts"));
   await compileFontSCSS(outDir);
   await copyImages(outDir);
 
-  // JS
   await copyFileOrFolder(paths.src.appJS, path.join(outDir, "assets/js", "app.js"));
   await copyBootstrapJS(outDir);
 
-  // HTML
   await compileHTML(outDir);
 }
 
@@ -176,10 +164,15 @@ export default defineConfig(({ command }) => {
         configureServer(server) {
           fs.ensureDirSync(paths.dev.base);
 
+          // Compile Bootstrap once at dev start
+          compileSCSS(paths.src.bootstrapSCSS, paths.dev.base, "bootstrap.css").then(() => {
+            console.log("✅ Bootstrap SCSS compiled for dev");
+          });
+
           // Copy app.js first
           copyFileOrFolder(paths.src.appJS, path.join(paths.dev.base, "assets/js", "app.js"));
 
-          // Compile dev files (skip bootstrap)
+          // Compile dev files (style.css, fonts, HTML)
           compileAll(paths.dev.base, { compileBootstrap: false });
 
           chokidar
@@ -198,7 +191,6 @@ export default defineConfig(({ command }) => {
               }
 
               if (file.endsWith(".scss")) {
-                // Only compile style.scss and fonts
                 await compileSCSS(paths.src.styleSCSS, paths.dev.base, "style.css");
                 await compileFontSCSS(paths.dev.base);
               }
@@ -215,7 +207,12 @@ export default defineConfig(({ command }) => {
         name: "custom-build",
         apply: "build",
         closeBundle: async () => {
-          // Full build including Bootstrap
+          const bootstrapSrc = "node_modules/bootstrap/scss";
+          const bootstrapDest = "src/assets/scss/bootstrap/scss";
+          await fs.ensureDir(bootstrapDest);
+          await fs.copy(bootstrapSrc, bootstrapDest);
+          console.log("✅ Bootstrap SCSS copied for build");
+
           await compileAll(paths.dist.base, { compileBootstrap: true });
         },
       },
