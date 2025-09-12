@@ -18,7 +18,7 @@ const paths = {
 			"!src/templates/partials/**",
 		],
 		styleSCSS: "src/assets/scss/style.scss",
-		bootstrapSCSS: "src/assets/scss/bootstrap/scss/bootstrap.scss",
+		bootstrapSCSS: "src/assets/scss/bootstrap/bootstrap.scss",
 		bootstrapJS: "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
 		vendorCSS: "src/assets/scss/vendor/*.*",
 		vendorJS: "src/assets/js/vendor/*.*",
@@ -70,6 +70,11 @@ async function copyBootstrapJS(outDir) {
 	const dest = path.join(outDir, "assets/js/bootstrap.bundle.js");
 	await fs.ensureDir(path.dirname(dest));
 	await fs.copy(paths.src.bootstrapJS, dest);
+
+	// Option 1: Remove sourceMappingURL comment to prevent ENOENT warning
+	let content = await fs.readFile(dest, "utf-8");
+	content = content.replace(/\/\/# sourceMappingURL=.*$/gm, "");
+	await fs.writeFile(dest, content, "utf-8");
 }
 
 async function copyImages(outDir) {
@@ -138,6 +143,7 @@ export default defineConfig(({ command }) => {
 		build: {
 			outDir: outDir,
 			emptyOutDir: true,
+			sourcemap: false,
 			rollupOptions: {
 				output: {
 					entryFileNames: "assets/js/[name].js",

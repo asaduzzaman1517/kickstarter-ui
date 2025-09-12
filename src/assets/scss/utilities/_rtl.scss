@@ -1,0 +1,26 @@
+@use "../global" as *;
+[dir="rtl"] {
+	.row-ltr {
+		direction: ltr;
+		& > [class^="col"] {
+			direction: rtl;
+		}
+	}
+
+	.accordion-button::after {
+		margin-left: 0;
+		margin-right: auto;
+	}
+
+	.translate-middle {
+		transform: translate(50%, 50%) !important;
+	}
+
+	.translate-middle-x {
+		transform: translateX(50%) !important;
+	}
+
+	.img-flip {
+		transform: scaleX(-1);
+	}
+}

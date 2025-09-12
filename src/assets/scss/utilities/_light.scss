@@ -1,0 +1,42 @@
+[data-bs-theme="light"] {
+	--bs-body-color: #616a72;
+
+	--bs-primary-bg-subtle: #eaefff;
+	--bs-primary-text-emphasis: #1a3c9b;
+
+	--bs-secondary-bg-subtle: #f6f7fd;
+	--bs-secondary-text-emphasis: #03063a;
+
+	--bs-success-bg-subtle: #e8f9ee;
+	--bs-success-text-emphasis: #044d1d;
+
+	--bs-info-bg-subtle: #e6f9ff;
+	--bs-info-text-emphasis: #024153;
+
+	--bs-warning-bg-subtle: #fef7e6;
+	--bs-warning-text-emphasis: #966c00;
+
+	--bs-danger-bg-subtle: #feeaef;
+	--bs-danger-text-emphasis: #971837;
+
+	--bs-light-bg-subtle: #f8f9fa;
+	--bs-light-text-emphasis: #495058;
+
+	--bs-dark-bg-subtle: #ced4da;
+	--bs-dark-text-emphasis: #0d0e10;
+
+	// Shadow Color
+	--bs-box-shadow: 0px 10px 20px -4px rgba(145, 158, 171, 0.16);
+	--bs-box-shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	--bs-box-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+	.light\:d-none {
+		display: none !important;
+	}
+	.light\:d-block {
+		display: block !important;
+	}
+	.light\:d-inline-block {
+		display: inline-block !important;
+	}
+}

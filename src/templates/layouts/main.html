@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}My Site{% endblock %}</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-  </head>
-  <body>
-    {% include "partials/header.html" %}
+<html lang="en" data-bs-theme="light" {% if dataTheme %} data-theme="{{ dataTheme }}" {% endif %}>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="some description about the site">
+    <meta name="keywords" content="some, keywords, for, the, site">
+    <meta name="author" content="Asaduzzaman Sarker">
+    <title>Site Title</title>
+    <link rel="icon" href="assets/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/ff-1.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body {% block bodyClass %}{% endblock %}>
+    {% if navbar %}
+        {% include "partials/header.html" %}
+    {% endif %}
+
     {% block content %}{% endblock %}
-    {% include "partials/footer.html" %}
-    <script type="module" src="/assets/js/app.js"></script>
-  </body>
+
+    <script type="module" src="assets/js/bootstrap.bundle.js"></script>
+    <script type="module" src="assets/js/swiper.js"></script>
+    <script type="module" src="assets/js/app.js"></script>
+</body>
+
 </html>

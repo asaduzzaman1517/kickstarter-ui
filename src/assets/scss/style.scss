@@ -1,4 +1,100 @@
-body {
-    background-color: #4584f2;
-    color: #c5efff;
-}
+/*---------------------------------------
+    Theme Name:     Theme Name
+    Theme URI:      https://pixellyo.com
+    Description:    Template description
+    Author Name:    Pixellyo
+    Author URI:     https://themeforest.net/user/pixellyo
+    Version:        1.0
+-----------------------------------------
+    Table of contents
+-----------------------------------------
+    1. Global Style
+        1.1 Functions
+        1.2 Variables
+        1.3 Media Query
+        1.4 Normalize
+        1.5 Typography
+    2. Components Style
+        2.1 Accordion Style
+        2.2 Alert Style
+        2.3 Avatar Style
+        2.4 Badge Style
+        2.5 Breadcrumb Style
+        2.6 Button Style
+        2.7 Card Shadow
+        2.8 Card Style
+        2.9 Dropdown Style
+        2.10 Floating Label
+        2.11 Form Check
+        2.12 Form Control
+        2.13 Form Select
+        2.14 Group Selector
+        2.15 Line Clamp
+        2.16 List
+        2.17 Logo Style
+        2.18 Modal Style
+        2.19 Navigation Style 0
+        2.20 Navigation Style 1
+        2.21 Newsletter
+        2.22 Offcanvas
+        2.23 Pagination
+        2.24 Preloader
+        2.25 Progress
+        2.26 Road Map List Style
+        2.27 Road Map Card
+        2.28 Scroller X
+        2.29 Scroller y
+        2.30 Switcher Style
+        2.31 Tab Style 1
+        2.32 Tab Underline Style
+        2.33 Table Style
+        2.34 Text Decoration Style
+        2.35 Text Style
+        2.36 Token Card Style
+        2.37 Token Form Style
+        2.38 Tooltip Style
+    3. Sections Style
+        3.1 About Cloud
+        3.2 About Section 1
+        3.3 About Section 2
+        3.4 About Section 3
+        3.5 Auth Page Left Banner Style
+        3.6 Auth Section
+        3.7 Banner Style
+        3.8 Blog Section 1
+        3.9 Breadcrumb Style
+        3.10 Contact Section
+        3.11 Container Customization
+        3.12 CTA Style 1
+        3.13 CTA Style 2
+        3.14 CTA Style 3
+        3.15 CTA Style 4
+        3.16 FAQ Section 1
+        3.17 FAQ Section 2
+        3.18 Feature Section 1
+        3.19 Footer Style 1
+        3.20 Header Style
+        3.21 Hero 1
+        3.22 Hero 2
+        3.23 Hero 3
+        3.24 How to Buy Section 1
+        3.25 How to Buy Section 2
+        3.26 Recent Blog Section
+        3.27 Road Map Section 1
+        3.28 Road Map Section 2
+        3.29 Road Map Sticky
+        3.30 Section Spacing
+        3.31 Tokenomics Section 1
+        3.32 Tokenomics Section 2
+    4. Utilities Style
+        4.1 Animations
+        4.2 Background
+        4.3 Border
+        4.4 Color
+        4.5 Miscellaneous
+        4.6 Outline
+        4.7 Radius
+---------------------------------------*/
+@use "./components";
+@use "./layouts";
+@use "./utilities";

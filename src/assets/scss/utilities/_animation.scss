@@ -1,0 +1,52 @@
+@keyframes pulse {
+	100% {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+@keyframes imageBeat {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.7);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes scroll-ltr {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-50% - 0.5rem));
+	}
+}
+@keyframes scroll-rtl {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(50% + 0.5rem));
+	}
+}
+@keyframes scrollY-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+@keyframes scrollY-down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(50%);
+  }
+}
+
