@@ -12,11 +12,13 @@
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/simplebar.css">
     <link rel="stylesheet" href="assets/css/ff-1.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body {% block bodyClass %}{% endblock %}>
+    {% include "partials/preloader.html" %}
     {% if navbar %}
         {% include "partials/header.html" %}
     {% endif %}
@@ -25,6 +27,8 @@
 
     <script type="module" src="assets/js/bootstrap.bundle.js"></script>
     <script type="module" src="assets/js/swiper.js"></script>
+    <script type="module" src="assets/js/iconify.js"></script>
+    <script type="module" src="assets/js/simplebar.js"></script>
     <script type="module" src="assets/js/app.js"></script>
 </body>
 
