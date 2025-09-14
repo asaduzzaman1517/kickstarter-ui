@@ -120,35 +120,6 @@
 		from var(--bs-dark-bg-subtle) r g b / var(--bs-bg-opacity)
 	) !important;
 }
-// Theme Specific Background
-.bg-gradient-1 {
-	background-image: linear-gradient(
-		180deg,
-		var(--bs-secondary-text-emphasis) 0%,
-		var(--bs-secondary) 100%
-	) !important;
-}
-.bg-gradient-2 {
-	background-image: linear-gradient(
-		180deg,
-		var(--bs-primary-text-emphasis) 0%,
-		var(--bs-primary) 100%
-	) !important;
-}
-.bg-gradient-3 {
-	background-image: linear-gradient(
-		234deg,
-		var(--bs-primary-text-emphasis) 17.25%,
-		var(--bs-primary) 75.19%
-	) !important;
-}
-.bg-gradient-4 {
-	background-image: linear-gradient(
-		232deg,
-		var(--bs-secondary-text-emphasis) 4%,
-		var(--bs-secondary) 76%
-	) !important;
-}
 
 .hover\:bg-body:hover {
 	--bs-bg-opacity: 1;

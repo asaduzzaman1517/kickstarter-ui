@@ -1,30 +1,5 @@
 @use "../global" as *;
 [data-bs-theme="dark"] {
-	--bs-body-color: #f0f0ff;
-
-	--bs-primary-bg-subtle: #1a3c9b;
-	--bs-primary-text-emphasis: #eaefff;
-
-	--bs-secondary-bg-subtle: #03063a;
-	--bs-secondary-text-emphasis: #f6f7fd;
-
-	--bs-success-bg-subtle: #044d1d;
-	--bs-success-text-emphasis: #e8f9ee;
-
-	--bs-info-bg-subtle: #024153;
-	--bs-info-text-emphasis: #e6f9ff;
-
-	--bs-warning-bg-subtle: #966c00;
-	--bs-warning-text-emphasis: #fef7e6;
-
-	--bs-danger-bg-subtle: #971837;
-	--bs-danger-text-emphasis: #feeaef;
-
-	--bs-light-bg-subtle: #495058;
-	--bs-light-text-emphasis: #f8f9fa;
-
-	--bs-dark-bg-subtle: #0d0e10;
-	--bs-dark-text-emphasis: #ced4da;
 
 	// Shadow Color
 	--bs-box-shadow: 0px 10px 20px -4px rgba(145, 158, 171, 0.16);
