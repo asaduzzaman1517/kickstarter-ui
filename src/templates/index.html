@@ -1,16 +1,20 @@
-{% extends "layouts/main.html" %} {% set navbar = true %} {% set bodyClass = bg-primary %}
-{% set navBtnColor = "fw-semibold text-light" %} {% set primaryHeader =
-"primary-header--dark primary-header--boxed primary-header--fixed top-md-3
-primary-header-crossed:top-0 primary-header-crossed:full-dark" %} {% set logoLight =
-"logo-light.png" %} {% set logoDark = "logo-light.png" %}
-<!-- Content Block -->
+---
+{% extends "layouts/main.html" %}
+{% set navbar = true %}
+{% set bodyClass = bg-primary %}
+{% set navBtnColor = "fw-semibold text-light" %}
+{% set primaryHeader = "primary-header--dark primary-header--boxed primary-header--fixed top-md-3 primary-header-crossed:top-0 primary-header-crossed:full-dark" %}
+{% set logoLight = "logo-light.png" %}
+{% set logoDark = "logo-light.png" %}
+---
+
 {% block content %}
 <div class="section-space-y">
 	<div class="container">
 		<div class="row justify-content-center text-center">
 			<div class="col-md-8">
 				<h1 class="mb-7">Welcome to my website!</h1>
-				<p>This is the home page.</p>
+				<p>This is the home page</p>
 			</div>
 		</div>
 	</div>

@@ -84,6 +84,15 @@ async function copyImages(outDir) {
 }
 
 // -----------------------
+// Copy raw fonts
+// -----------------------
+async function copyFonts(outDir) {
+	if (fs.existsSync("src/assets/fonts")) {
+		await fs.copy("src/assets/fonts", path.join(outDir, "assets/fonts"));
+	}
+}
+
+// -----------------------
 // Nunjucks
 // -----------------------
 const njkEnv = nunjucks.configure(
@@ -122,6 +131,7 @@ async function compileAll(outDir, options = { compileBootstrap: false }) {
 	await copyFileOrFolder("src/assets/js/vendor", path.join(outDir, "assets/js"));
 	await copyFileOrFolder(paths.src.fonts, path.join(outDir, "assets/fonts"));
 	await compileFontSCSS(outDir);
+	await copyFonts(outDir);
 	await copyImages(outDir);
 	await copyFileOrFolder(paths.src.appJS, path.join(outDir, "assets/js", "app.js"));
 	await copyBootstrapJS(outDir);
@@ -134,8 +144,8 @@ async function compileAll(outDir, options = { compileBootstrap: false }) {
 let bootstrapCompiledDev = false; // compile only once at dev start
 
 export default defineConfig(({ command }) => {
-	const isDev = command === "serve";
 	const outDir = paths.dist.base;
+	const entryHTML = path.resolve(outDir, "index.html");
 
 	return {
 		root: outDir, // serve directly from dist
@@ -145,6 +155,7 @@ export default defineConfig(({ command }) => {
 			emptyOutDir: true,
 			sourcemap: false,
 			rollupOptions: {
+				input: entryHTML,
 				output: {
 					entryFileNames: "assets/js/[name].js",
 					assetFileNames: (assetInfo) => {
@@ -204,17 +215,71 @@ export default defineConfig(({ command }) => {
 								);
 							}
 							if (file.endsWith(".scss")) {
-								await compileSCSS(
-									paths.src.styleSCSS,
-									outDir,
-									"style.css"
-								);
-								await compileFontSCSS(outDir);
+								const relative = path
+									.relative("src/assets/scss", file)
+									.replace(/\\/g, "/");
+
+								// Fonts SCSS
+								if (relative.startsWith("fonts/")) {
+									const result = sass.compile(file, {
+										style: "expanded",
+										quietDeps: true,
+									});
+									const outFile = path.join(
+										outDir,
+										"assets/css",
+										path.basename(file).replace(/\.scss$/, ".css")
+									);
+									await fs.ensureDir(path.dirname(outFile));
+									await fs.writeFile(outFile, result.css);
+								}
+								// Main style.scss (and its partials)
+								else if (
+									relative === "style.scss" ||
+									relative.startsWith("_") ||
+									relative.includes("/_")
+								) {
+									await compileSCSS(
+										paths.src.styleSCSS,
+										outDir,
+										"style.css"
+									);
+								}
+
+								// Trigger CSS hot reload
+								server.ws.send({ type: "full-reload" });
+								return;
 							}
+
 							if (file.endsWith(".html")) {
-								await compileHTML(outDir);
+								const relative = path.relative(
+									paths.src.templateRoot,
+									file
+								);
+
+								// Detect if it's a layout or partial
+								if (
+									relative.startsWith("layouts") ||
+									relative.startsWith("partials")
+								) {
+									// Recompile ALL pages since layout/partial affects everything
+									await compileHTML(outDir);
+									server.ws.send({ type: "full-reload" });
+								} else {
+									// Recompile ONLY this page
+									const html = njkEnv.render(relative, {});
+									const outFile = path.join(outDir, relative);
+									await fs.ensureDir(path.dirname(outFile));
+									await fs.writeFile(outFile, html);
+
+									// Tell Vite to reload just this path
+									server.ws.send({
+										type: "full-reload",
+										path: "/" + relative.replace(/\\/g, "/"),
+									});
+								}
+								return;
 							}
-							server.ws.send({ type: "full-reload" });
 						});
 				},
 			},
