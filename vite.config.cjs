@@ -35,10 +35,17 @@ const paths = {
 // -----------------------
 async function compileSCSS(inputFile, outDir, outFileName) {
 	if (!fs.existsSync(inputFile)) return;
-	const result = sass.compile(inputFile, { style: "expanded", quietDeps: true });
-	const outFile = path.join(outDir, "assets/css", outFileName);
-	await fs.ensureDir(path.dirname(outFile));
-	await fs.writeFile(outFile, result.css);
+	try {
+		const result = sass.compile(inputFile, {
+			style: "expanded",
+			quietDeps: true,
+		});
+		const outFile = path.join(outDir, "assets/css", outFileName);
+		await fs.ensureDir(path.dirname(outFile));
+		await fs.writeFile(outFile, result.css);
+	} catch (err) {
+		console.error(`❌ Error compiling ${inputFile}:`, err.message);
+	}
 }
 
 async function compileFontSCSS(outDir) {
@@ -219,35 +226,43 @@ export default defineConfig(({ command }) => {
 									.relative("src/assets/scss", file)
 									.replace(/\\/g, "/");
 
-								// Fonts SCSS
-								if (relative.startsWith("fonts/")) {
-									const result = sass.compile(file, {
-										style: "expanded",
-										quietDeps: true,
-									});
-									const outFile = path.join(
-										outDir,
-										"assets/css",
-										path.basename(file).replace(/\.scss$/, ".css")
-									);
-									await fs.ensureDir(path.dirname(outFile));
-									await fs.writeFile(outFile, result.css);
-								}
-								// Main style.scss (and its partials)
-								else if (
-									relative === "style.scss" ||
-									relative.startsWith("_") ||
-									relative.includes("/_")
-								) {
-									await compileSCSS(
-										paths.src.styleSCSS,
-										outDir,
-										"style.css"
-									);
-								}
+								try {
+									// Fonts SCSS
+									if (relative.startsWith("fonts/")) {
+										const result = sass.compile(file, {
+											style: "expanded",
+											quietDeps: true,
+										});
+										const outFile = path.join(
+											outDir,
+											"assets/css",
+											path.basename(file).replace(/\.scss$/, ".css")
+										);
+										await fs.ensureDir(path.dirname(outFile));
+										await fs.writeFile(outFile, result.css);
+									}
+									// Main style.scss (and its partials)
+									else if (
+										relative === "style.scss" ||
+										relative.startsWith("_") ||
+										relative.includes("/_")
+									) {
+										await compileSCSS(
+											paths.src.styleSCSS,
+											outDir,
+											"style.css"
+										);
+									}
 
-								// Trigger CSS hot reload
-								server.ws.send({ type: "full-reload" });
+									// ✅ Trigger reload only if compilation succeeds
+									server.ws.send({ type: "full-reload" });
+								} catch (err) {
+									console.error(
+										"❌ SCSS Compilation Error:",
+										err.message
+									);
+									// Don't throw — just log. Vite keeps running.
+								}
 								return;
 							}
 
