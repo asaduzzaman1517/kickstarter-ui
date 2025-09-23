@@ -211,6 +211,8 @@ export default defineConfig(({ command }) => {
 								"src/templates/**/*.html",
 								"src/assets/scss/**/*.scss",
 								"src/assets/js/**/*.js",
+								"src/assets/img/**/*.*",
+								"src/assets/fonts/**/*.*",
 							],
 							{ ignoreInitial: true }
 						)
@@ -293,6 +295,20 @@ export default defineConfig(({ command }) => {
 										path: "/" + relative.replace(/\\/g, "/"),
 									});
 								}
+								return;
+							}
+							if (/\.(png|jpe?g|gif|svg|webp|mp4|webm)$/i.test(file)) {
+								const relative = path.relative("src/assets/img", file);
+								const dest = path.join(outDir, "assets/img", relative);
+								await copyFileOrFolder(file, dest);
+								server.ws.send({ type: "full-reload" });
+								return;
+							}
+							if (/\.(woff2?|ttf|eot|otf)$/i.test(file)) {
+								const relative = path.relative("src/assets/fonts", file);
+								const dest = path.join(outDir, "assets/fonts", relative);
+								await copyFileOrFolder(file, dest);
+								server.ws.send({ type: "full-reload" });
 								return;
 							}
 						});
