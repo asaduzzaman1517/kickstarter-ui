@@ -4,6 +4,15 @@
 		.group-hover\:transition {
 			transition: all 0.3s ease;
 		}
+		.group-hover\:opacity-0 {
+			opacity: 0 !important;
+		}
+		.group-hover\:opacity-1 {
+			opacity: 1 !important;
+		}
+		.group-hover\:scale-1 {
+			transform: scale(1.1);
+		}
 
 		.group-hover\:text-heading {
 			color: var(--bs-heading-color) !important;
