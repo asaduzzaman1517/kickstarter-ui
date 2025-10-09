@@ -1,6 +1,28 @@
+/* Text Splash */
 @use "../global" as *;
 .text-splash {
 	--text-splash-clr: var(--bs-border-color);
+	position: relative;
+	isolation: isolate;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		right: calc(100% + 1rem);
+		width: rem(1920);
+		height: 1px;
+		background-color: var(--text-splash-clr);
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: calc(100% + 1rem);
+		width: rem(1920);
+		height: 1px;
+		background-color: var(--text-splash-clr);
+	}
 	&--primary {
 		--text-splash-clr: var(--bs-primary);
 	}
@@ -72,23 +94,5 @@
 	}
 	&--dark-emphasis {
 		--text-splash-clr: var(--bs-dark-text-emphasis);
-	}
-	&::before {
-		content: "";
-		position: absolute;
-		top: 50%;
-		right: calc(100% + 1rem);
-		width: rem(1920);
-		height: 1px;
-		background-color: var(--text-splash-clr);
-	}
-	&::after {
-		content: "";
-		position: absolute;
-		top: 50%;
-		left: calc(100% + 1rem);
-		width: rem(1920);
-		height: 1px;
-		background-color: var(--text-splash-clr);
 	}
 }

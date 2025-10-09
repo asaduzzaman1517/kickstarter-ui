@@ -1,4 +1,4 @@
-// Typography
+/* Typography */
 p {
 	margin: 0 0 1rem;
 	line-height: 1.5;
@@ -89,15 +89,6 @@ small,
 }
 .fs-60 {
 	font-size: 3.75rem;
-}
-.fs-10vw {
-	font-size: clamp(4rem, 10vw + 1rem, 12rem);
-}
-.fs-20vw {
-	font-size: clamp(8rem, 20vw + 1rem, 23.75rem);
-}
-.fs-30vw {
-	font-size: clamp(14rem, 30vw + 1rem, 35.625rem);
 }
 .max-text-3 {
 	max-width: 12ch;

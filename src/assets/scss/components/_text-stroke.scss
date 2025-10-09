@@ -1,3 +1,4 @@
+/* Text Stroke */
 .text-stroke {
 	-webkit-text-stroke-width: 1px;
 	&--light {
@@ -10,14 +11,14 @@
 		-webkit-text-fill-color: transparent;
 		-webkit-text-stroke-color: var(--bs-dark);
 	}
+	&--light-emphasis {
+		color: var(--bs-light-text-emphasis);
+		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke-color: var(--bs-light-text-emphasis);
+	}
 	&--dark-emphasis {
 		color: var(--bs-dark-text-emphasis);
 		-webkit-text-fill-color: transparent;
 		-webkit-text-stroke-color: var(--bs-dark-text-emphasis);
-	}
-	&--secondary {
-		color: var(--bs-primary-text-emphasis);
-		-webkit-text-fill-color: var(--bs-secondary);
-		-webkit-text-stroke-color: var(--bs-light);
 	}
 }

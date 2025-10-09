@@ -10,6 +10,15 @@
 	&-md {
 		--bs-progress-height: 0.75rem;
 	}
+	&-lg {
+		--bs-progress-height: 1rem;
+	}
+	&-xl {
+		--bs-progress-height: 1.25rem;
+	}
+	&-xxl {
+		--bs-progress-height: 1.5rem;
+	}
 	&-stacked {
 		--bs-progress-border-radius: var(--bs-border-radius-xl);
 		.progress-xsm {
@@ -20,6 +29,15 @@
 		}
 		.progress-md {
 			--bs-progress-height: 0.75rem;
+		}
+		.progress-lg {
+			--bs-progress-height: 1rem;
+		}
+		.progress-xl {
+			--bs-progress-height: 1.25rem;
+		}
+		.progress-xxl {
+			--bs-progress-height: 1.5rem;
 		}
 	}
 }

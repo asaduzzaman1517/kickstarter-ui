@@ -318,6 +318,9 @@ export default defineConfig(({ command }) => {
 				name: "custom-build",
 				apply: "build",
 				buildStart: async () => {
+					// Clean dist
+					await fs.emptyDir(paths.dist.base);
+					
 					const bootstrapSrc = "node_modules/bootstrap/scss";
 					const bootstrapDest = "src/assets/scss/bootstrap/scss";
 					await fs.ensureDir(bootstrapDest);

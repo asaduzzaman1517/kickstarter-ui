@@ -40,7 +40,41 @@
 		--_circle-color: rgba(var(--bs-body-bg-rgb), 1);
 		--_inactive-color: var(--bs-dark-bg-subtle);
 	}
-
+	&__input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+		&:checked ~ .switcher__control {
+			background-color: var(--_active-color);
+			&::after {
+				left: calc(var(--_switch-circle) + calc(var(--_switch-space) / 2));
+			}
+		}
+	}
+	&__control {
+		position: relative;
+		width: var(--_switch-width);
+		height: var(--_switch-height);
+		border-radius: calc(var(--_switch-height) / 2);
+		background-color: var(--_inactive-color);
+		transition: background-color 0.15s ease-in;
+		&::after {
+			content: "";
+			position: absolute;
+			left: calc(var(--_switch-space) / 2);
+			top: calc(var(--_switch-space) / 2);
+			width: var(--_switch-circle);
+			height: var(--_switch-circle);
+			border-radius: calc(var(--_switch-circle) / 2);
+			background: var(--_circle-color);
+			transition: left 0.15s ease-in;
+		}
+	}
+	&__text {
+		display: inline-block;
+	}
 	&--primary-subtle {
 		--_active-color: var(--bs-primary-bg-subtle);
 		.switcher__input {
@@ -190,41 +224,5 @@
 				}
 			}
 		}
-	}
-
-	&__input {
-		position: absolute;
-		opacity: 0;
-		cursor: pointer;
-		height: 0;
-		width: 0;
-		&:checked ~ .switcher__control {
-			background-color: var(--_active-color);
-			&::after {
-				left: calc(var(--_switch-circle) + calc(var(--_switch-space) / 2));
-			}
-		}
-	}
-	&__control {
-		position: relative;
-		width: var(--_switch-width);
-		height: var(--_switch-height);
-		border-radius: calc(var(--_switch-height) / 2);
-		background-color: var(--_inactive-color);
-		transition: background-color 0.15s ease-in;
-		&::after {
-			content: "";
-			position: absolute;
-			left: calc(var(--_switch-space) / 2);
-			top: calc(var(--_switch-space) / 2);
-			width: var(--_switch-circle);
-			height: var(--_switch-circle);
-			border-radius: calc(var(--_switch-circle) / 2);
-			background: var(--_circle-color);
-			transition: left 0.15s ease-in;
-		}
-	}
-	&__text {
-		display: inline-block;
 	}
 }

@@ -6,13 +6,20 @@
 		color: rgba(var(--bs-body-color-rgb), 0.5);
 		font-weight: normal;
 	}
+	&-xsm {
+		font-size: 0.75rem;
+		padding: 0.25rem 1rem;
+		line-height: 1.167;
+	}
 	&-sm {
 		padding: 0.25rem 1rem;
 		font-size: 0.875rem;
 		line-height: 1.715;
 	}
 	&-lg {
+		padding: 0.75rem 1rem;
 		border-radius: var(--bs-border-radius-sm);
+		font-size: 1rem;
 	}
 	&[type="file"] {
 		padding-inline-start: 0.5rem;

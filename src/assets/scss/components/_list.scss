@@ -22,12 +22,10 @@
 			}
 		}
 	}
-
 	&-disc {
 		list-style: disc;
 		padding-inline-start: 1rem;
 	}
-
 	&-dot {
 		--dot-clr: var(--bs-primary);
 		--dot-size: 0.375rem;
@@ -56,7 +54,6 @@
 		&--dark {
 			--dot-clr: var(--bs-dark);
 		}
-
 		&--primary-subtle {
 			--dot-clr: var(--bs-primary-bg-subtle);
 		}
@@ -81,7 +78,6 @@
 		&--dark-subtle {
 			--dot-clr: var(--bs-dark-bg-subtle);
 		}
-
 		&--primary-emphasis {
 			--dot-clr: var(--bs-primary-text-emphasis);
 		}
@@ -144,6 +140,40 @@
 		--separate-clr: var(--bs-primary);
 		--separate-space: 0.5rem;
 
+		& > li + li {
+			padding-inline-start: var(--separate-space);
+			margin-inline-start: var(--separate-space);
+			position: relative;
+			isolation: isolate;
+			&::before {
+				content: "";
+				width: 1px;
+				height: 70%;
+				position: absolute;
+				inset-block-start: 50%;
+				inset-inline-start: 0;
+				transform: translateY(-50%);
+				background-color: var(--separate-clr);
+			}
+		}
+		&--xsm {
+			--separate-space: 0.5rem;
+		}
+		&--sm {
+			--separate-space: 0.75rem;
+		}
+		&--md {
+			--separate-space: 1rem;
+		}
+		&--lg {
+			--separate-space: 1.25rem;
+		}
+		&--xl {
+			--separate-space: 1.5rem;
+		}
+		&--xxl {
+			--separate-space: 1.75rem;
+		}
 		&--secondary {
 			--separate-clr: var(--bs-secondary);
 		}
@@ -168,7 +198,6 @@
 		&--dark {
 			--separate-clr: var(--bs-dark);
 		}
-
 		&--primary-subtle {
 			--separate-clr: var(--bs-primary-bg-subtle);
 		}
@@ -193,7 +222,6 @@
 		&--dark-subtle {
 			--separate-clr: var(--bs-dark-bg-subtle);
 		}
-
 		&--primary-emphasis {
 			--separate-clr: var(--bs-primary-text-emphasis);
 		}
@@ -217,38 +245,6 @@
 		}
 		&--dark-emphasis {
 			--separate-clr: var(--bs-dark-text-emphasis);
-		}
-
-		& > li + li {
-			padding-inline-start: var(--separate-space);
-			margin-inline-start: var(--separate-space);
-			position: relative;
-			isolation: isolate;
-			&::before {
-				content: "";
-				width: 1px;
-				height: 70%;
-				position: absolute;
-				inset-block-start: 50%;
-				inset-inline-start: 0;
-				transform: translateY(-50%);
-				background-color: var(--separate-clr);
-			}
-		}
-		&--sm {
-			--separate-space: 0.75rem;
-		}
-		&--md {
-			--separate-space: 1rem;
-		}
-		&--lg {
-			--separate-space: 1.25rem;
-		}
-		&--xl {
-			--separate-space: 1.5rem;
-		}
-		&--xxl {
-			--separate-space: 1.75rem;
 		}
 	}
 	&-flush {
