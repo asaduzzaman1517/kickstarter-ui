@@ -391,84 +391,20 @@ small,
 .accordion {
   --bs-accordion-color: var(--bs-body-color);
   --bs-accordion-bg: var(--bs-body-bg);
+  --bs-accordion-active-color: var(--bs-primary-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-body-color);
+  --bs-accordion-btn-bg: var(--bs-light);
   --bs-accordion-border-color: var(--bs-border-color);
   --bs-accordion-border-width: var(--bs-border-width);
   --bs-accordion-border-radius: var(--bs-border-radius);
   --bs-accordion-inner-border-radius: calc(
   	var(--bs-border-radius) - (var(--bs-border-width))
   );
-  --bs-accordion-btn-padding-x: 1.25rem;
-  --bs-accordion-btn-padding-y: 0.75rem;
-  --bs-accordion-btn-color: var(--bs-body-color);
-  --bs-accordion-btn-bg: var(--bs-accordion-bg);
+  --bs-accordion-btn-padding-x: 1.5rem;
+  --bs-accordion-btn-padding-y: 1rem;
   --bs-accordion-body-padding-x: 1.25rem;
   --bs-accordion-body-padding-y: 1rem;
-  --bs-accordion-active-color: var(--bs-primary-text-emphasis);
-  --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
-}
-.accordion-rounded-0 {
-  --bs-accordion-border-radius: 0;
-  --bs-accordion-inner-border-radius: 0;
-}
-.accordion--primary {
-  --bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-  --bs-accordion-active-bg: rgba(var(--bs-primary-rgb), 1);
-}
-.accordion--secondary {
-  --bs-accordion-active-color: rgba(var(--bs-dark-rgb), 1);
-  --bs-accordion-active-bg: rgba(var(--bs-secondary-rgb), 1);
-}
-.accordion--secondary-subtle {
-  --bs-accordion-active-color: var(--bs-secondary-text-emphasis);
-  --bs-accordion-active-bg: var(--bs-secondary-bg-subtle);
-}
-.accordion--success {
-  --bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-  --bs-accordion-active-bg: rgba(var(--bs-success-rgb), 1);
-}
-.accordion--success-subtle {
-  --bs-accordion-active-color: var(--bs-success-text-emphasis);
-  --bs-accordion-active-bg: var(--bs-success-bg-subtle);
-}
-.accordion--danger {
-  --bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-  --bs-accordion-active-bg: rgba(var(--bs-danger-rgb), 1);
-}
-.accordion--danger-subtle {
-  --bs-accordion-active-color: var(--bs-danger-text-emphasis);
-  --bs-accordion-active-bg: var(--bs-danger-bg-subtle);
-}
-.accordion--warning {
-  --bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-  --bs-accordion-active-bg: rgba(var(--bs-warning-rgb), 1);
-}
-.accordion--warning-subtle {
-  --bs-accordion-active-color: var(--bs-warning-text-emphasis);
-  --bs-accordion-active-bg: var(--bs-warning-bg-subtle);
-}
-.accordion--info {
-  --bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-  --bs-accordion-active-bg: rgba(var(--bs-info-rgb), 1);
-}
-.accordion--info-subtle {
-  --bs-accordion-active-color: var(--bs-info-text-emphasis);
-  --bs-accordion-active-bg: var(--bs-info-bg-subtle);
-}
-.accordion--dark {
-  --bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-  --bs-accordion-active-bg: rgba(var(--bs-dark-rgb), 1);
-}
-.accordion--dark-subtle {
-  --bs-accordion-active-color: var(--bs-dark-text-emphasis);
-  --bs-accordion-active-bg: var(--bs-dark-bg-subtle);
-}
-.accordion--light {
-  --bs-accordion-active-color: rgba(var(--bs-dark-rgb), 1);
-  --bs-accordion-active-bg: rgba(var(--bs-light-rgb), 1);
-}
-.accordion--light-subtle {
-  --bs-accordion-active-color: var(--bs-light-text-emphasis);
-  --bs-accordion-active-bg: var(--bs-light-bg-subtle);
 }
 .accordion-button:focus {
   box-shadow: none;
@@ -491,6 +427,17 @@ small,
 .accordion-button:not(.collapsed)::after {
   background-image: none;
 }
+.accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion-icon-start .accordion-button {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+}
+.accordion-icon-start .accordion-button::after {
+  margin-left: 0;
+}
 .accordion-separate {
   --bs-accordion-border-width: 0;
 }
@@ -503,74 +450,860 @@ small,
 .accordion-separate .accordion-button {
   border-radius: var(--bs-accordion-inner-border-radius);
 }
+.accordion-separate .accordion-button[aria-expanded=true] {
+  border-radius: var(--bs-accordion-inner-border-radius) var(--bs-accordion-inner-border-radius) 0 0;
+}
+.accordion-separate .accordion-collapse.show .accordion-body {
+  border-bottom-left-radius: var(--bs-border-radius);
+  border-bottom-right-radius: var(--bs-border-radius);
+}
 .accordion-separate-body {
   --bs-accordion-border-width: 0;
-  --bs-accordion-bg: transparent;
 }
 .accordion-separate-body .accordion-item + .accordion-item {
   margin-top: 1rem;
 }
 .accordion-separate-body .accordion-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  background-color: transparent;
   border-radius: var(--bs-accordion-inner-border-radius);
 }
 .accordion-separate-body .accordion-button {
   border-radius: var(--bs-accordion-inner-border-radius);
 }
-.accordion-separate-body .accordion-button[aria-expanded=false] {
-  background-color: var(--bs-body-bg);
-}
 .accordion-separate-body .accordion-body {
-  background-color: var(--bs-body-bg);
+  margin-top: 0.5rem;
+}
+.accordion-separate-body .accordion-collapse.show .accordion-body {
   border-radius: var(--bs-border-radius);
 }
-.accordion-connected {
-  --bs-accordion-btn-color: var(--bs-heading-color);
-  --bs-accordion-active-bg: var(--bs-primary);
-  --bs-accordion-active-color: var(--bs-heading-color);
+.accordion-rounded-0 {
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+  --bs-border-radius: 0;
+}
+.accordion-rounded-xs {
+  --bs-accordion-border-radius: 0.25rem;
+  --bs-accordion-inner-border-radius: 0.25rem;
+  --bs-border-radius: 0.25rem;
+}
+.accordion-rounded-sm {
+  --bs-accordion-border-radius: 0.5rem;
+  --bs-accordion-inner-border-radius: 0.5rem;
+  --bs-border-radius: 0.5rem;
+}
+.accordion-rounded-md {
+  --bs-accordion-border-radius: 0.75rem;
+  --bs-accordion-inner-border-radius: 0.75rem;
+  --bs-border-radius: 0.75rem;
+}
+.accordion-rounded-lg {
+  --bs-accordion-border-radius: 1rem;
+  --bs-accordion-inner-border-radius: 1rem;
+  --bs-border-radius: 1rem;
+}
+.accordion-rounded-xl {
+  --bs-accordion-border-radius: 1.25rem;
   --bs-accordion-inner-border-radius: 1.25rem;
-  --bs-accordion-btn-icon-transform: rotate(0deg);
+  --bs-border-radius: 1.25rem;
 }
-.accordion-connected .accordion-button {
-  font-size: 1.25rem;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+.accordion-rounded-xxl {
+  --bs-accordion-border-radius: 1.5rem;
+  --bs-accordion-inner-border-radius: 1.5rem;
+  --bs-border-radius: 1.5rem;
 }
-.accordion-connected .accordion-button:not(.collapsed) {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+.accordion--primary {
+  --bs-accordion-bg: var(--bs-primary);
+  --bs-accordion-color: var(--bs-light);
+  --bs-accordion-btn-bg: var(--bs-primary);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-primary);
+  --bs-accordion-border-color: rgb(from var(--bs-primary-bg-subtle) r g b / 0.5);
 }
-.accordion-connected .accordion-button:not(.collapsed)::after {
-  content: "\f659";
-}
-.accordion-connected .accordion-button::after {
-  content: "\f64d";
-  display: grid;
-  place-content: center;
-  width: 3rem;
-  height: 3rem;
-  margin-inline-start: 0;
-  margin-inline-end: auto;
-  border: 1px solid var(--bs-dark);
-  border-radius: 50%;
-  filter: drop-shadow(0.25rem 0.25rem 0 var(--bs-dark));
+.accordion--primary.accordion-separate-body .accordion-button[aria-expanded=false] {
   background-color: var(--bs-accordion-btn-bg);
-  color: var(--bs-accordion-btn-color);
 }
-.accordion-connected .accordion-button__title {
-  display: block;
-  width: calc(100% - 4.5rem);
+.accordion--primary.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
 }
-.accordion-connected .accordion-body {
-  padding-top: 0.5rem;
-  background-color: var(--bs-primary);
-  border-radius: 0 0 var(--bs-accordion-inner-border-radius) var(--bs-accordion-inner-border-radius);
-  color: var(--bs-heading-color);
+.accordion--primary-head {
+  --bs-accordion-btn-bg: var(--bs-primary);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-primary);
 }
-.accordion-connected .accordion-item + .accordion-item {
-  margin-top: 2rem;
+.accordion--primary-head-active {
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-primary);
+}
+.accordion--primary-body {
+  --bs-accordion-bg: var(--bs-primary);
+  --bs-accordion-color: var(--bs-light);
+}
+.accordion--primary-lead {
+  --bs-accordion-bg: rgb(from var(--bs-primary-bg-subtle) r g b / 0.5);
+  --bs-accordion-color: var(--bs-primary-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-primary-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-primary);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-primary-text-emphasis) r g b / 0.5
+  );
+}
+.accordion--primary-subtle {
+  --bs-accordion-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-color: var(--bs-primary-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-primary-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-active-color: var(--bs-primary-text-emphasis);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-primary-text-emphasis) r g b / 0.25
+  );
+}
+.accordion--primary-subtle.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--primary-subtle.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--primary-subtle-head {
+  --bs-accordion-btn-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-primary-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-active-color: var(--bs-primary-text-emphasis);
+}
+.accordion--primary-subtle-head-active {
+  --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-active-color: var(--bs-primary-text-emphasis);
+}
+.accordion--primary-subtle-body {
+  --bs-accordion-bg: var(--bs-primary-bg-subtle);
+  --bs-accordion-color: var(--bs-primary-text-emphasis);
+}
+.accordion--primary-emphasis {
+  --bs-accordion-bg: var(--bs-primary-text-emphasis);
+  --bs-accordion-color: var(--bs-primary-bg-subtle);
+  --bs-accordion-btn-bg: var(--bs-primary-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-primary-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-primary-text-emphasis);
+  --bs-accordion-active-color: var(--bs-primary-bg-subtle);
+  --bs-accordion-border-color: rgb(from var(--bs-primary-bg-subtle) r g b / 0.25);
+}
+.accordion--primary-emphasis.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--primary-emphasis.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--primary-emphasis-head {
+  --bs-accordion-btn-bg: var(--bs-primary-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-primary-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-primary-text-emphasis);
+  --bs-accordion-active-color: var(--bs-primary-bg-subtle);
+}
+.accordion--primary-emphasis-head-active {
+  --bs-accordion-active-bg: var(--bs-primary-text-emphasis);
+  --bs-accordion-active-color: var(--bs-primary-bg-subtle);
+}
+.accordion--primary-emphasis-body {
+  --bs-accordion-bg: var(--bs-primary-text-emphasis);
+  --bs-accordion-color: var(--bs-primary-bg-subtle);
+}
+.accordion--secondary {
+  --bs-accordion-bg: var(--bs-secondary);
+  --bs-accordion-color: var(--bs-light);
+  --bs-accordion-btn-bg: var(--bs-secondary);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-secondary);
+  --bs-accordion-border-color: rgb(from var(--bs-secondary-bg-subtle) r g b / 0.5);
+}
+.accordion--secondary.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--secondary.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--secondary-head {
+  --bs-accordion-btn-bg: var(--bs-secondary);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-secondary);
+}
+.accordion--secondary-head-active {
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-secondary);
+}
+.accordion--secondary-body {
+  --bs-accordion-bg: var(--bs-secondary);
+  --bs-accordion-color: var(--bs-light);
+}
+.accordion--secondary-lead {
+  --bs-accordion-bg: rgb(from var(--bs-secondary-bg-subtle) r g b / 0.5);
+  --bs-accordion-color: var(--bs-secondary-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-secondary-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-secondary-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-secondary);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-secondary-text-emphasis) r g b / 0.5
+  );
+}
+.accordion--secondary-subtle {
+  --bs-accordion-bg: var(--bs-secondary-bg-subtle);
+  --bs-accordion-color: var(--bs-secondary-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-secondary-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-secondary-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-secondary-bg-subtle);
+  --bs-accordion-active-color: var(--bs-secondary-text-emphasis);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-secondary-text-emphasis) r g b / 0.25
+  );
+}
+.accordion--secondary-subtle.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--secondary-subtle.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--secondary-subtle-head {
+  --bs-accordion-btn-bg: var(--bs-secondary-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-secondary-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-secondary-bg-subtle);
+  --bs-accordion-active-color: var(--bs-secondary-text-emphasis);
+}
+.accordion--secondary-subtle-head-active {
+  --bs-accordion-active-bg: var(--bs-secondary-bg-subtle);
+  --bs-accordion-active-color: var(--bs-secondary-text-emphasis);
+}
+.accordion--secondary-subtle-body {
+  --bs-accordion-bg: var(--bs-secondary-bg-subtle);
+  --bs-accordion-color: var(--bs-secondary-text-emphasis);
+}
+.accordion--secondary-emphasis {
+  --bs-accordion-bg: var(--bs-secondary-text-emphasis);
+  --bs-accordion-color: var(--bs-secondary-bg-subtle);
+  --bs-accordion-btn-bg: var(--bs-secondary-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-secondary-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-secondary-text-emphasis);
+  --bs-accordion-active-color: var(--bs-secondary-bg-subtle);
+  --bs-accordion-border-color: rgb(from var(--bs-secondary-bg-subtle) r g b / 0.25);
+}
+.accordion--secondary-emphasis.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--secondary-emphasis.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--secondary-emphasis-head {
+  --bs-accordion-btn-bg: var(--bs-secondary-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-secondary-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-secondary-text-emphasis);
+  --bs-accordion-active-color: var(--bs-secondary-bg-subtle);
+}
+.accordion--secondary-emphasis-head-active {
+  --bs-accordion-active-bg: var(--bs-secondary-text-emphasis);
+  --bs-accordion-active-color: var(--bs-secondary-bg-subtle);
+}
+.accordion--secondary-emphasis-body {
+  --bs-accordion-bg: var(--bs-secondary-text-emphasis);
+  --bs-accordion-color: var(--bs-secondary-bg-subtle);
+}
+.accordion--success {
+  --bs-accordion-bg: var(--bs-success);
+  --bs-accordion-color: var(--bs-light);
+  --bs-accordion-btn-bg: var(--bs-success);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-success);
+  --bs-accordion-border-color: rgb(from var(--bs-success-bg-subtle) r g b / 0.5);
+}
+.accordion--success.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--success.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--success-head {
+  --bs-accordion-btn-bg: var(--bs-success);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-success);
+}
+.accordion--success-head-active {
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-success);
+}
+.accordion--success-body {
+  --bs-accordion-bg: var(--bs-success);
+  --bs-accordion-color: var(--bs-light);
+}
+.accordion--success-lead {
+  --bs-accordion-bg: rgb(from var(--bs-success-bg-subtle) r g b / 0.5);
+  --bs-accordion-color: var(--bs-success-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-success-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-success-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-success);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-success-text-emphasis) r g b / 0.5
+  );
+}
+.accordion--success-subtle {
+  --bs-accordion-bg: var(--bs-success-bg-subtle);
+  --bs-accordion-color: var(--bs-success-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-success-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-success-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-success-bg-subtle);
+  --bs-accordion-active-color: var(--bs-success-text-emphasis);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-success-text-emphasis) r g b / 0.25
+  );
+}
+.accordion--success-subtle.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--success-subtle.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--success-subtle-head {
+  --bs-accordion-btn-bg: var(--bs-success-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-success-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-success-bg-subtle);
+  --bs-accordion-active-color: var(--bs-success-text-emphasis);
+}
+.accordion--success-subtle-head-active {
+  --bs-accordion-active-bg: var(--bs-success-bg-subtle);
+  --bs-accordion-active-color: var(--bs-success-text-emphasis);
+}
+.accordion--success-subtle-body {
+  --bs-accordion-bg: var(--bs-success-bg-subtle);
+  --bs-accordion-color: var(--bs-success-text-emphasis);
+}
+.accordion--success-emphasis {
+  --bs-accordion-bg: var(--bs-success-text-emphasis);
+  --bs-accordion-color: var(--bs-success-bg-subtle);
+  --bs-accordion-btn-bg: var(--bs-success-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-success-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-success-text-emphasis);
+  --bs-accordion-active-color: var(--bs-success-bg-subtle);
+  --bs-accordion-border-color: rgb(from var(--bs-success-bg-subtle) r g b / 0.25);
+}
+.accordion--success-emphasis.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--success-emphasis.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--success-emphasis-head {
+  --bs-accordion-btn-bg: var(--bs-success-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-success-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-success-text-emphasis);
+  --bs-accordion-active-color: var(--bs-success-bg-subtle);
+}
+.accordion--success-emphasis-head-active {
+  --bs-accordion-active-bg: var(--bs-success-text-emphasis);
+  --bs-accordion-active-color: var(--bs-success-bg-subtle);
+}
+.accordion--success-emphasis-body {
+  --bs-accordion-bg: var(--bs-success-text-emphasis);
+  --bs-accordion-color: var(--bs-success-bg-subtle);
+}
+.accordion--info {
+  --bs-accordion-bg: var(--bs-info);
+  --bs-accordion-color: var(--bs-light);
+  --bs-accordion-btn-bg: var(--bs-info);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-info);
+  --bs-accordion-border-color: rgb(from var(--bs-info-bg-subtle) r g b / 0.5);
+}
+.accordion--info.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--info.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--info-head {
+  --bs-accordion-btn-bg: var(--bs-info);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-info);
+}
+.accordion--info-head-active {
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-info);
+}
+.accordion--info-body {
+  --bs-accordion-bg: var(--bs-info);
+  --bs-accordion-color: var(--bs-light);
+}
+.accordion--info-lead {
+  --bs-accordion-bg: rgb(from var(--bs-info-bg-subtle) r g b / 0.5);
+  --bs-accordion-color: var(--bs-info-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-info-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-info-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-info);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-info-text-emphasis) r g b / 0.5
+  );
+}
+.accordion--info-subtle {
+  --bs-accordion-bg: var(--bs-info-bg-subtle);
+  --bs-accordion-color: var(--bs-info-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-info-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-info-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-info-bg-subtle);
+  --bs-accordion-active-color: var(--bs-info-text-emphasis);
+  --bs-accordion-border-color: rgb(from var(--bs-info-text-emphasis) r g b / 0.25);
+}
+.accordion--info-subtle.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--info-subtle.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--info-subtle-head {
+  --bs-accordion-btn-bg: var(--bs-info-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-info-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-info-bg-subtle);
+  --bs-accordion-active-color: var(--bs-info-text-emphasis);
+}
+.accordion--info-subtle-head-active {
+  --bs-accordion-active-bg: var(--bs-info-bg-subtle);
+  --bs-accordion-active-color: var(--bs-info-text-emphasis);
+}
+.accordion--info-subtle-body {
+  --bs-accordion-bg: var(--bs-info-bg-subtle);
+  --bs-accordion-color: var(--bs-info-text-emphasis);
+}
+.accordion--info-emphasis {
+  --bs-accordion-bg: var(--bs-info-text-emphasis);
+  --bs-accordion-color: var(--bs-info-bg-subtle);
+  --bs-accordion-btn-bg: var(--bs-info-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-info-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-info-text-emphasis);
+  --bs-accordion-active-color: var(--bs-info-bg-subtle);
+  --bs-accordion-border-color: rgb(from var(--bs-info-bg-subtle) r g b / 0.25);
+}
+.accordion--info-emphasis.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--info-emphasis.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--info-emphasis-head {
+  --bs-accordion-btn-bg: var(--bs-info-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-info-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-info-text-emphasis);
+  --bs-accordion-active-color: var(--bs-info-bg-subtle);
+}
+.accordion--info-emphasis-head-active {
+  --bs-accordion-active-bg: var(--bs-info-text-emphasis);
+  --bs-accordion-active-color: var(--bs-info-bg-subtle);
+}
+.accordion--info-emphasis-body {
+  --bs-accordion-bg: var(--bs-info-text-emphasis);
+  --bs-accordion-color: var(--bs-info-bg-subtle);
+}
+.accordion--warning {
+  --bs-accordion-bg: var(--bs-warning);
+  --bs-accordion-color: var(--bs-dark);
+  --bs-accordion-btn-bg: var(--bs-warning);
+  --bs-accordion-btn-color: var(--bs-dark);
+  --bs-accordion-active-color: var(--bs-dark);
+  --bs-accordion-active-bg: var(--bs-warning);
+  --bs-accordion-border-color: rgb(from var(--bs-warning-bg-subtle) r g b / 0.5);
+}
+.accordion--warning.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--warning.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--warning-head {
+  --bs-accordion-btn-bg: var(--bs-warning);
+  --bs-accordion-btn-color: var(--bs-dark);
+  --bs-accordion-active-color: var(--bs-dark);
+  --bs-accordion-active-bg: var(--bs-warning);
+}
+.accordion--warning-head-active {
+  --bs-accordion-active-color: var(--bs-dark);
+  --bs-accordion-active-bg: var(--bs-warning);
+}
+.accordion--warning-body {
+  --bs-accordion-bg: var(--bs-warning);
+  --bs-accordion-color: var(--bs-dark);
+}
+.accordion--warning-lead {
+  --bs-accordion-bg: rgb(from var(--bs-warning-bg-subtle) r g b / 0.5);
+  --bs-accordion-color: var(--bs-warning-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-warning-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-warning);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-warning-text-emphasis) r g b / 0.5
+  );
+}
+.accordion--warning-subtle {
+  --bs-accordion-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-color: var(--bs-warning-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-warning-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-active-color: var(--bs-warning-text-emphasis);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-warning-text-emphasis) r g b / 0.25
+  );
+}
+.accordion--warning-subtle.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--warning-subtle.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--warning-subtle-head {
+  --bs-accordion-btn-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-warning-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-active-color: var(--bs-warning-text-emphasis);
+}
+.accordion--warning-subtle-head-active {
+  --bs-accordion-active-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-active-color: var(--bs-warning-text-emphasis);
+}
+.accordion--warning-subtle-body {
+  --bs-accordion-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-color: var(--bs-warning-text-emphasis);
+}
+.accordion--warning-emphasis {
+  --bs-accordion-bg: var(--bs-warning-text-emphasis);
+  --bs-accordion-color: var(--bs-warning-bg-subtle);
+  --bs-accordion-btn-bg: var(--bs-warning-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-warning-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-warning-text-emphasis);
+  --bs-accordion-active-color: var(--bs-warning-bg-subtle);
+  --bs-accordion-border-color: rgb(from var(--bs-warning-bg-subtle) r g b / 0.25);
+}
+.accordion--warning-emphasis.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--warning-emphasis.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--warning-emphasis-head {
+  --bs-accordion-btn-bg: var(--bs-warning-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-warning-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-warning-text-emphasis);
+  --bs-accordion-active-color: var(--bs-warning-bg-subtle);
+}
+.accordion--warning-emphasis-head-active {
+  --bs-accordion-active-bg: var(--bs-warning-text-emphasis);
+  --bs-accordion-active-color: var(--bs-warning-bg-subtle);
+}
+.accordion--warning-emphasis-body {
+  --bs-accordion-bg: var(--bs-warning-text-emphasis);
+  --bs-accordion-color: var(--bs-warning-bg-subtle);
+}
+.accordion--danger {
+  --bs-accordion-bg: var(--bs-danger);
+  --bs-accordion-color: var(--bs-light);
+  --bs-accordion-btn-bg: var(--bs-danger);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-danger);
+  --bs-accordion-border-color: rgb(from var(--bs-danger-bg-subtle) r g b / 0.5);
+}
+.accordion--danger.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--danger.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--danger-head {
+  --bs-accordion-btn-bg: var(--bs-danger);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-danger);
+}
+.accordion--danger-head-active {
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-danger);
+}
+.accordion--danger-body {
+  --bs-accordion-bg: var(--bs-danger);
+  --bs-accordion-color: var(--bs-light);
+}
+.accordion--danger-lead {
+  --bs-accordion-bg: rgb(from var(--bs-warning-bg-subtle) r g b / 0.5);
+  --bs-accordion-color: var(--bs-warning-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-warning-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-warning);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-warning-text-emphasis) r g b / 0.5
+  );
+}
+.accordion--danger-subtle {
+  --bs-accordion-bg: var(--bs-danger-bg-subtle);
+  --bs-accordion-color: var(--bs-danger-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-danger-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-danger-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-danger-bg-subtle);
+  --bs-accordion-active-color: var(--bs-danger-text-emphasis);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-danger-text-emphasis) r g b / 0.25
+  );
+}
+.accordion--danger-subtle.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--danger-subtle.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--danger-subtle-head {
+  --bs-accordion-btn-bg: var(--bs-danger-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-danger-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-danger-bg-subtle);
+  --bs-accordion-active-color: var(--bs-danger-text-emphasis);
+}
+.accordion--danger-subtle-head-active {
+  --bs-accordion-active-bg: var(--bs-danger-bg-subtle);
+  --bs-accordion-active-color: var(--bs-danger-text-emphasis);
+}
+.accordion--danger-subtle-body {
+  --bs-accordion-bg: var(--bs-danger-bg-subtle);
+  --bs-accordion-color: var(--bs-danger-text-emphasis);
+}
+.accordion--danger-emphasis {
+  --bs-accordion-bg: var(--bs-danger-text-emphasis);
+  --bs-accordion-color: var(--bs-danger-bg-subtle);
+  --bs-accordion-btn-bg: var(--bs-danger-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-danger-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-danger-text-emphasis);
+  --bs-accordion-active-color: var(--bs-danger-bg-subtle);
+  --bs-accordion-border-color: rgb(from var(--bs-danger-bg-subtle) r g b / 0.25);
+}
+.accordion--danger-emphasis.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--danger-emphasis.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--danger-emphasis-head {
+  --bs-accordion-btn-bg: var(--bs-danger-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-danger-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-danger-text-emphasis);
+  --bs-accordion-active-color: var(--bs-danger-bg-subtle);
+}
+.accordion--danger-emphasis-head-active {
+  --bs-accordion-active-bg: var(--bs-danger-text-emphasis);
+  --bs-accordion-active-color: var(--bs-danger-bg-subtle);
+}
+.accordion--danger-emphasis-body {
+  --bs-accordion-bg: var(--bs-danger-text-emphasis);
+  --bs-accordion-color: var(--bs-danger-bg-subtle);
+}
+.accordion--light {
+  --bs-accordion-bg: var(--bs-light);
+  --bs-accordion-color: var(--bs-dark);
+  --bs-accordion-btn-bg: var(--bs-light);
+  --bs-accordion-btn-color: var(--bs-dark);
+  --bs-accordion-active-color: var(--bs-dark);
+  --bs-accordion-active-bg: var(--bs-light);
+  --bs-accordion-border-color: rgb(from var(--bs-dark-bg-subtle) r g b / 0.5);
+}
+.accordion--light.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--light.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--light-head {
+  --bs-accordion-btn-bg: var(--bs-light);
+  --bs-accordion-btn-color: var(--bs-dark);
+  --bs-accordion-active-color: var(--bs-dark);
+  --bs-accordion-active-bg: var(--bs-light);
+}
+.accordion--light-head-active {
+  --bs-accordion-active-color: var(--bs-dark);
+  --bs-accordion-active-bg: var(--bs-light);
+}
+.accordion--light-body {
+  --bs-accordion-bg: var(--bs-light);
+  --bs-accordion-color: var(--bs-dark);
+}
+.accordion--light-lead {
+  --bs-accordion-bg: rgb(from var(--bs-light-bg-subtle) r g b / 0.5);
+  --bs-accordion-color: var(--bs-light-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-light-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-light-text-emphasis);
+  --bs-accordion-active-color: var(--bs-dark);
+  --bs-accordion-active-bg: var(--bs-light);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-light-text-emphasis) r g b / 0.5
+  );
+}
+.accordion--light-subtle {
+  --bs-accordion-bg: var(--bs-light-bg-subtle);
+  --bs-accordion-color: var(--bs-light-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-light-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-light-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-light-bg-subtle);
+  --bs-accordion-active-color: var(--bs-light-text-emphasis);
+  --bs-accordion-border-color: rgb(from var(--bs-light-text-emphasis) r g b / 0.25);
+}
+.accordion--light-subtle.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--light-subtle.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--light-subtle-head {
+  --bs-accordion-btn-bg: var(--bs-light-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-light-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-light-bg-subtle);
+  --bs-accordion-active-color: var(--bs-light-text-emphasis);
+}
+.accordion--light-subtle-head-active {
+  --bs-accordion-active-bg: var(--bs-light-bg-subtle);
+  --bs-accordion-active-color: var(--bs-light-text-emphasis);
+}
+.accordion--light-subtle-body {
+  --bs-accordion-bg: var(--bs-light-bg-subtle);
+  --bs-accordion-color: var(--bs-light-text-emphasis);
+}
+.accordion--light-emphasis {
+  --bs-accordion-bg: var(--bs-light-text-emphasis);
+  --bs-accordion-color: var(--bs-light-bg-subtle);
+  --bs-accordion-btn-bg: var(--bs-light-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-light-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-light-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light-bg-subtle);
+  --bs-accordion-border-color: rgb(from var(--bs-light-bg-subtle) r g b / 0.25);
+}
+.accordion--light-emphasis.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--light-emphasis.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--light-emphasis-head {
+  --bs-accordion-btn-bg: var(--bs-light-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-light-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-light-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light-bg-subtle);
+}
+.accordion--light-emphasis-head-active {
+  --bs-accordion-active-bg: var(--bs-light-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light-bg-subtle);
+}
+.accordion--light-emphasis-body {
+  --bs-accordion-bg: var(--bs-light-text-emphasis);
+  --bs-accordion-color: var(--bs-light-bg-subtle);
+}
+.accordion--dark {
+  --bs-accordion-bg: var(--bs-dark);
+  --bs-accordion-color: var(--bs-light);
+  --bs-accordion-btn-bg: var(--bs-dark);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-dark);
+  --bs-accordion-border-color: rgb(from var(--bs-light-bg-subtle) r g b / 0.5);
+}
+.accordion--dark.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--dark.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--dark-head {
+  --bs-accordion-btn-bg: var(--bs-dark);
+  --bs-accordion-btn-color: var(--bs-light);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-dark);
+}
+.accordion--dark-head-active {
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-dark);
+}
+.accordion--dark-body {
+  --bs-accordion-bg: var(--bs-dark);
+  --bs-accordion-color: var(--bs-light);
+}
+.accordion--dark-lead {
+  --bs-accordion-bg: rgb(from var(--bs-dark-bg-subtle) r g b / 0.5);
+  --bs-accordion-color: var(--bs-dark-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-dark-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-dark-text-emphasis);
+  --bs-accordion-active-color: var(--bs-light);
+  --bs-accordion-active-bg: var(--bs-dark);
+  --bs-accordion-border-color: rgb(
+  	from var(--bs-dark-text-emphasis) r g b / 0.5
+  );
+}
+.accordion--dark-subtle {
+  --bs-accordion-bg: var(--bs-dark-bg-subtle);
+  --bs-accordion-color: var(--bs-dark-text-emphasis);
+  --bs-accordion-btn-bg: var(--bs-dark-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-dark-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-dark-bg-subtle);
+  --bs-accordion-active-color: var(--bs-dark-text-emphasis);
+  --bs-accordion-border-color: rgb(from var(--bs-dark-text-emphasis) r g b / 0.25);
+}
+.accordion--dark-subtle.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--dark-subtle.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--dark-subtle-head {
+  --bs-accordion-btn-bg: var(--bs-dark-bg-subtle);
+  --bs-accordion-btn-color: var(--bs-dark-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-dark-bg-subtle);
+  --bs-accordion-active-color: var(--bs-dark-text-emphasis);
+}
+.accordion--dark-subtle-head-active {
+  --bs-accordion-active-bg: var(--bs-dark-bg-subtle);
+  --bs-accordion-active-color: var(--bs-dark-text-emphasis);
+}
+.accordion--dark-subtle-body {
+  --bs-accordion-bg: var(--bs-dark-bg-subtle);
+  --bs-accordion-color: var(--bs-dark-text-emphasis);
+}
+.accordion--dark-emphasis {
+  --bs-accordion-bg: var(--bs-dark-text-emphasis);
+  --bs-accordion-color: var(--bs-dark-bg-subtle);
+  --bs-accordion-btn-bg: var(--bs-dark-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-dark-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-dark-text-emphasis);
+  --bs-accordion-active-color: var(--bs-dark-bg-subtle);
+  --bs-accordion-border-color: rgb(from var(--bs-dark-bg-subtle) r g b / 0.25);
+}
+.accordion--dark-emphasis.accordion-separate-body .accordion-button[aria-expanded=false] {
+  background-color: var(--bs-accordion-btn-bg);
+}
+.accordion--dark-emphasis.accordion-separate-body .accordion-body {
+  background-color: var(--bs-accordion-bg);
+}
+.accordion--dark-emphasis-head {
+  --bs-accordion-btn-bg: var(--bs-dark-text-emphasis);
+  --bs-accordion-btn-color: var(--bs-dark-bg-subtle);
+  --bs-accordion-active-bg: var(--bs-dark-text-emphasis);
+  --bs-accordion-active-color: var(--bs-dark-bg-subtle);
+}
+.accordion--dark-emphasis-head-active {
+  --bs-accordion-active-bg: var(--bs-dark-text-emphasis);
+  --bs-accordion-active-color: var(--bs-dark-bg-subtle);
+}
+.accordion--dark-emphasis-body {
+  --bs-accordion-bg: var(--bs-dark-text-emphasis);
+  --bs-accordion-color: var(--bs-dark-bg-subtle);
 }
 
 /* Alert Style */

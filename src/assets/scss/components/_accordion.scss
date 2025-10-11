@@ -3,90 +3,21 @@
 .accordion {
 	--bs-accordion-color: var(--bs-body-color);
 	--bs-accordion-bg: var(--bs-body-bg);
+	--bs-accordion-active-color: var(--bs-primary-text-emphasis);
+	--bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+	--bs-accordion-btn-color: var(--bs-body-color);
+	--bs-accordion-btn-bg: var(--bs-light);
 	--bs-accordion-border-color: var(--bs-border-color);
 	--bs-accordion-border-width: var(--bs-border-width);
 	--bs-accordion-border-radius: var(--bs-border-radius);
 	--bs-accordion-inner-border-radius: calc(
 		var(--bs-border-radius) - (var(--bs-border-width))
 	);
-
-	--bs-accordion-btn-padding-x: 1.25rem;
-	--bs-accordion-btn-padding-y: 0.75rem;
-
-	--bs-accordion-btn-color: var(--bs-body-color);
-	--bs-accordion-btn-bg: var(--bs-accordion-bg);
-
+	--bs-accordion-btn-padding-x: 1.5rem;
+	--bs-accordion-btn-padding-y: 1rem;
 	--bs-accordion-body-padding-x: 1.25rem;
 	--bs-accordion-body-padding-y: 1rem;
 
-	--bs-accordion-active-color: var(--bs-primary-text-emphasis);
-	--bs-accordion-active-bg: var(--bs-primary-bg-subtle);
-
-	&-rounded-0 {
-		--bs-accordion-border-radius: 0;
-		--bs-accordion-inner-border-radius: 0;
-	}
-
-	&--primary {
-		--bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-		--bs-accordion-active-bg: rgba(var(--bs-primary-rgb), 1);
-	}
-	&--secondary {
-		--bs-accordion-active-color: rgba(var(--bs-dark-rgb), 1);
-		--bs-accordion-active-bg: rgba(var(--bs-secondary-rgb), 1);
-	}
-	&--secondary-subtle {
-		--bs-accordion-active-color: var(--bs-secondary-text-emphasis);
-		--bs-accordion-active-bg: var(--bs-secondary-bg-subtle);
-	}
-	&--success {
-		--bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-		--bs-accordion-active-bg: rgba(var(--bs-success-rgb), 1);
-	}
-	&--success-subtle {
-		--bs-accordion-active-color: var(--bs-success-text-emphasis);
-		--bs-accordion-active-bg: var(--bs-success-bg-subtle);
-	}
-	&--danger {
-		--bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-		--bs-accordion-active-bg: rgba(var(--bs-danger-rgb), 1);
-	}
-	&--danger-subtle {
-		--bs-accordion-active-color: var(--bs-danger-text-emphasis);
-		--bs-accordion-active-bg: var(--bs-danger-bg-subtle);
-	}
-	&--warning {
-		--bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-		--bs-accordion-active-bg: rgba(var(--bs-warning-rgb), 1);
-	}
-	&--warning-subtle {
-		--bs-accordion-active-color: var(--bs-warning-text-emphasis);
-		--bs-accordion-active-bg: var(--bs-warning-bg-subtle);
-	}
-	&--info {
-		--bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-		--bs-accordion-active-bg: rgba(var(--bs-info-rgb), 1);
-	}
-	&--info-subtle {
-		--bs-accordion-active-color: var(--bs-info-text-emphasis);
-		--bs-accordion-active-bg: var(--bs-info-bg-subtle);
-	}
-	&--dark {
-		--bs-accordion-active-color: rgba(var(--bs-white-rgb), 1);
-		--bs-accordion-active-bg: rgba(var(--bs-dark-rgb), 1);
-	}
-	&--dark-subtle {
-		--bs-accordion-active-color: var(--bs-dark-text-emphasis);
-		--bs-accordion-active-bg: var(--bs-dark-bg-subtle);
-	}
-	&--light {
-		--bs-accordion-active-color: rgba(var(--bs-dark-rgb), 1);
-		--bs-accordion-active-bg: rgba(var(--bs-light-rgb), 1);
-	}
-	&--light-subtle {
-		--bs-accordion-active-color: var(--bs-light-text-emphasis);
-		--bs-accordion-active-bg: var(--bs-light-bg-subtle);
-	}
 	&-button {
 		&:focus {
 			box-shadow: none;
@@ -112,6 +43,19 @@
 			}
 		}
 	}
+	&-body {
+		background-color: var(--bs-accordion-bg);
+	}
+	&-icon-start {
+		.accordion-button {
+			justify-content: flex-end;
+			flex-direction: row-reverse;
+			gap: 0.5rem;
+			&::after {
+				margin-left: 0;
+			}
+		}
+	}
 	&-separate {
 		--bs-accordion-border-width: 0;
 		.accordion-item + .accordion-item {
@@ -122,76 +66,965 @@
 		}
 		.accordion-button {
 			border-radius: var(--bs-accordion-inner-border-radius);
+			&[aria-expanded="true"] {
+				border-radius: var(--bs-accordion-inner-border-radius)
+					var(--bs-accordion-inner-border-radius) 0 0;
+			}
+		}
+		.accordion-collapse.show {
+			.accordion-body {
+				border-bottom-left-radius: var(--bs-border-radius);
+				border-bottom-right-radius: var(--bs-border-radius);
+			}
 		}
 	}
 	&-separate-body {
 		--bs-accordion-border-width: 0;
-		--bs-accordion-bg: transparent;
 		.accordion-item + .accordion-item {
 			margin-top: 1rem;
 		}
 		.accordion-item {
-			display: flex;
-			flex-direction: column;
-			gap: 0.5rem;
+			background-color: transparent;
 			border-radius: var(--bs-accordion-inner-border-radius);
 		}
 		.accordion-button {
 			border-radius: var(--bs-accordion-inner-border-radius);
-			&[aria-expanded="false"] {
-				background-color: var(--bs-body-bg);
-			}
 		}
 		.accordion-body {
-			background-color: var(--bs-body-bg);
-			border-radius: var(--bs-border-radius);
+			margin-top: 0.5rem;
+		}
+		.accordion-collapse.show {
+			.accordion-body {
+				border-radius: var(--bs-border-radius);
+			}
 		}
 	}
-	&-connected {
-		--bs-accordion-btn-color: var(--bs-heading-color);
+	&-rounded {
+		&-0 {
+			--bs-accordion-border-radius: 0;
+			--bs-accordion-inner-border-radius: 0;
+			--bs-border-radius: 0;
+		}
+		&-xs {
+			--bs-accordion-border-radius: 0.25rem;
+			--bs-accordion-inner-border-radius: 0.25rem;
+			--bs-border-radius: 0.25rem;
+		}
+		&-sm {
+			--bs-accordion-border-radius: 0.5rem;
+			--bs-accordion-inner-border-radius: 0.5rem;
+			--bs-border-radius: 0.5rem;
+		}
+		&-md {
+			--bs-accordion-border-radius: 0.75rem;
+			--bs-accordion-inner-border-radius: 0.75rem;
+			--bs-border-radius: 0.75rem;
+		}
+		&-lg {
+			--bs-accordion-border-radius: 1rem;
+			--bs-accordion-inner-border-radius: 1rem;
+			--bs-border-radius: 1rem;
+		}
+		&-xl {
+			--bs-accordion-border-radius: 1.25rem;
+			--bs-accordion-inner-border-radius: 1.25rem;
+			--bs-border-radius: 1.25rem;
+		}
+		&-xxl {
+			--bs-accordion-border-radius: 1.5rem;
+			--bs-accordion-inner-border-radius: 1.5rem;
+			--bs-border-radius: 1.5rem;
+		}
+	}
+
+	&--primary {
+		--bs-accordion-bg: var(--bs-primary);
+		--bs-accordion-color: var(--bs-light);
+		--bs-accordion-btn-bg: var(--bs-primary);
+		--bs-accordion-btn-color: var(--bs-light);
+		--bs-accordion-active-color: var(--bs-light);
 		--bs-accordion-active-bg: var(--bs-primary);
-		--bs-accordion-active-color: var(--bs-heading-color);
-		--bs-accordion-inner-border-radius: 1.25rem;
-		--bs-accordion-btn-icon-transform: rotate(0deg);
-		.accordion-button {
-			font-size: rem(20);
-			flex-direction: row-reverse;
-			justify-content: space-between;
-			&:not(.collapsed) {
-				border-bottom-left-radius: 0;
-				border-bottom-right-radius: 0;
-				&::after {
-					content: "\F659";
+		--bs-accordion-border-color: rgb(from var(--bs-primary-bg-subtle) r g b / 0.5);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
 				}
 			}
-			&::after {
-				content: "\F64D";
-				display: grid;
-				place-content: center;
-				width: 3rem;
-				height: 3rem;
-				margin-inline-start: 0;
-				margin-inline-end: auto;
-				border: 1px solid var(--bs-dark);
-				border-radius: 50%;
-				filter: drop-shadow(0.25rem 0.25rem 0 var(--bs-dark));
-				background-color: var(--bs-accordion-btn-bg);
-				color: var(--bs-accordion-btn-color);
-			}
-			&__title {
-				display: block;
-				width: calc(100% - rem(72));
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
 			}
 		}
-		.accordion-body {
-			padding-top: 0.5rem;
-			background-color: var(--bs-primary);
-			border-radius: 0 0 var(--bs-accordion-inner-border-radius)
-				var(--bs-accordion-inner-border-radius);
-			color: var(--bs-heading-color);
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-primary);
+			--bs-accordion-btn-color: var(--bs-light);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-primary);
 		}
-		.accordion-item + .accordion-item {
-			margin-top: 2rem;
+		&-head-active {
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-primary);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-primary);
+			--bs-accordion-color: var(--bs-light);
+		}
+		&-lead {
+			--bs-accordion-bg: rgb(from var(--bs-primary-bg-subtle) r g b / 0.5);
+			--bs-accordion-color: var(--bs-primary-text-emphasis);
+			--bs-accordion-btn-bg: var(--bs-primary-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-primary-text-emphasis);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-primary);
+			--bs-accordion-border-color: rgb(
+				from var(--bs-primary-text-emphasis) r g b / 0.5
+			);
+		}
+	}
+	&--primary-subtle {
+		--bs-accordion-bg: var(--bs-primary-bg-subtle);
+		--bs-accordion-color: var(--bs-primary-text-emphasis);
+		--bs-accordion-btn-bg: var(--bs-primary-bg-subtle);
+		--bs-accordion-btn-color: var(--bs-primary-text-emphasis);
+		--bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+		--bs-accordion-active-color: var(--bs-primary-text-emphasis);
+		--bs-accordion-border-color: rgb(
+			from var(--bs-primary-text-emphasis) r g b / 0.25
+		);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-primary-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-primary-text-emphasis);
+			--bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+			--bs-accordion-active-color: var(--bs-primary-text-emphasis);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+			--bs-accordion-active-color: var(--bs-primary-text-emphasis);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-primary-bg-subtle);
+			--bs-accordion-color: var(--bs-primary-text-emphasis);
+		}
+	}
+	&--primary-emphasis {
+		--bs-accordion-bg: var(--bs-primary-text-emphasis);
+		--bs-accordion-color: var(--bs-primary-bg-subtle);
+		--bs-accordion-btn-bg: var(--bs-primary-text-emphasis);
+		--bs-accordion-btn-color: var(--bs-primary-bg-subtle);
+		--bs-accordion-active-bg: var(--bs-primary-text-emphasis);
+		--bs-accordion-active-color: var(--bs-primary-bg-subtle);
+		--bs-accordion-border-color: rgb(from var(--bs-primary-bg-subtle) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-primary-text-emphasis);
+			--bs-accordion-btn-color: var(--bs-primary-bg-subtle);
+			--bs-accordion-active-bg: var(--bs-primary-text-emphasis);
+			--bs-accordion-active-color: var(--bs-primary-bg-subtle);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-primary-text-emphasis);
+			--bs-accordion-active-color: var(--bs-primary-bg-subtle);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-primary-text-emphasis);
+			--bs-accordion-color: var(--bs-primary-bg-subtle);
+		}
+	}
+	&--secondary {
+		--bs-accordion-bg: var(--bs-secondary);
+		--bs-accordion-color: var(--bs-light);
+		--bs-accordion-btn-bg: var(--bs-secondary);
+		--bs-accordion-btn-color: var(--bs-light);
+		--bs-accordion-active-color: var(--bs-light);
+		--bs-accordion-active-bg: var(--bs-secondary);
+		--bs-accordion-border-color: rgb(from var(--bs-secondary-bg-subtle) r g b / 0.5);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-secondary);
+			--bs-accordion-btn-color: var(--bs-light);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-secondary);
+		}
+		&-head-active {
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-secondary);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-secondary);
+			--bs-accordion-color: var(--bs-light);
+		}
+		&-lead {
+			--bs-accordion-bg: rgb(from var(--bs-secondary-bg-subtle) r g b / 0.5);
+			--bs-accordion-color: var(--bs-secondary-text-emphasis);
+			--bs-accordion-btn-bg: var(--bs-secondary-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-secondary-text-emphasis);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-secondary);
+			--bs-accordion-border-color: rgb(
+				from var(--bs-secondary-text-emphasis) r g b / 0.5
+			);
+		}
+	}
+	&--secondary-subtle {
+		--bs-accordion-bg: var(--bs-secondary-bg-subtle);
+		--bs-accordion-color: var(--bs-secondary-text-emphasis);
+		--bs-accordion-btn-bg: var(--bs-secondary-bg-subtle);
+		--bs-accordion-btn-color: var(--bs-secondary-text-emphasis);
+		--bs-accordion-active-bg: var(--bs-secondary-bg-subtle);
+		--bs-accordion-active-color: var(--bs-secondary-text-emphasis);
+		--bs-accordion-border-color: rgb(
+			from var(--bs-secondary-text-emphasis) r g b / 0.25
+		);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-secondary-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-secondary-text-emphasis);
+			--bs-accordion-active-bg: var(--bs-secondary-bg-subtle);
+			--bs-accordion-active-color: var(--bs-secondary-text-emphasis);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-secondary-bg-subtle);
+			--bs-accordion-active-color: var(--bs-secondary-text-emphasis);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-secondary-bg-subtle);
+			--bs-accordion-color: var(--bs-secondary-text-emphasis);
+		}
+	}
+	&--secondary-emphasis {
+		--bs-accordion-bg: var(--bs-secondary-text-emphasis);
+		--bs-accordion-color: var(--bs-secondary-bg-subtle);
+		--bs-accordion-btn-bg: var(--bs-secondary-text-emphasis);
+		--bs-accordion-btn-color: var(--bs-secondary-bg-subtle);
+		--bs-accordion-active-bg: var(--bs-secondary-text-emphasis);
+		--bs-accordion-active-color: var(--bs-secondary-bg-subtle);
+		--bs-accordion-border-color: rgb(from var(--bs-secondary-bg-subtle) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-secondary-text-emphasis);
+			--bs-accordion-btn-color: var(--bs-secondary-bg-subtle);
+			--bs-accordion-active-bg: var(--bs-secondary-text-emphasis);
+			--bs-accordion-active-color: var(--bs-secondary-bg-subtle);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-secondary-text-emphasis);
+			--bs-accordion-active-color: var(--bs-secondary-bg-subtle);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-secondary-text-emphasis);
+			--bs-accordion-color: var(--bs-secondary-bg-subtle);
+		}
+	}
+	&--success {
+		--bs-accordion-bg: var(--bs-success);
+		--bs-accordion-color: var(--bs-light);
+		--bs-accordion-btn-bg: var(--bs-success);
+		--bs-accordion-btn-color: var(--bs-light);
+		--bs-accordion-active-color: var(--bs-light);
+		--bs-accordion-active-bg: var(--bs-success);
+		--bs-accordion-border-color: rgb(from var(--bs-success-bg-subtle) r g b / 0.5);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-success);
+			--bs-accordion-btn-color: var(--bs-light);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-success);
+		}
+		&-head-active {
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-success);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-success);
+			--bs-accordion-color: var(--bs-light);
+		}
+		&-lead {
+			--bs-accordion-bg: rgb(from var(--bs-success-bg-subtle) r g b / 0.5);
+			--bs-accordion-color: var(--bs-success-text-emphasis);
+			--bs-accordion-btn-bg: var(--bs-success-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-success-text-emphasis);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-success);
+			--bs-accordion-border-color: rgb(
+				from var(--bs-success-text-emphasis) r g b / 0.5
+			);
+		}
+	}
+	&--success-subtle {
+		--bs-accordion-bg: var(--bs-success-bg-subtle);
+		--bs-accordion-color: var(--bs-success-text-emphasis);
+		--bs-accordion-btn-bg: var(--bs-success-bg-subtle);
+		--bs-accordion-btn-color: var(--bs-success-text-emphasis);
+		--bs-accordion-active-bg: var(--bs-success-bg-subtle);
+		--bs-accordion-active-color: var(--bs-success-text-emphasis);
+		--bs-accordion-border-color: rgb(
+			from var(--bs-success-text-emphasis) r g b / 0.25
+		);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-success-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-success-text-emphasis);
+			--bs-accordion-active-bg: var(--bs-success-bg-subtle);
+			--bs-accordion-active-color: var(--bs-success-text-emphasis);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-success-bg-subtle);
+			--bs-accordion-active-color: var(--bs-success-text-emphasis);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-success-bg-subtle);
+			--bs-accordion-color: var(--bs-success-text-emphasis);
+		}
+	}
+	&--success-emphasis {
+		--bs-accordion-bg: var(--bs-success-text-emphasis);
+		--bs-accordion-color: var(--bs-success-bg-subtle);
+		--bs-accordion-btn-bg: var(--bs-success-text-emphasis);
+		--bs-accordion-btn-color: var(--bs-success-bg-subtle);
+		--bs-accordion-active-bg: var(--bs-success-text-emphasis);
+		--bs-accordion-active-color: var(--bs-success-bg-subtle);
+		--bs-accordion-border-color: rgb(from var(--bs-success-bg-subtle) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-success-text-emphasis);
+			--bs-accordion-btn-color: var(--bs-success-bg-subtle);
+			--bs-accordion-active-bg: var(--bs-success-text-emphasis);
+			--bs-accordion-active-color: var(--bs-success-bg-subtle);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-success-text-emphasis);
+			--bs-accordion-active-color: var(--bs-success-bg-subtle);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-success-text-emphasis);
+			--bs-accordion-color: var(--bs-success-bg-subtle);
+		}
+	}
+	&--info {
+		--bs-accordion-bg: var(--bs-info);
+		--bs-accordion-color: var(--bs-light);
+		--bs-accordion-btn-bg: var(--bs-info);
+		--bs-accordion-btn-color: var(--bs-light);
+		--bs-accordion-active-color: var(--bs-light);
+		--bs-accordion-active-bg: var(--bs-info);
+		--bs-accordion-border-color: rgb(from var(--bs-info-bg-subtle) r g b / 0.5);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-info);
+			--bs-accordion-btn-color: var(--bs-light);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-info);
+		}
+		&-head-active {
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-info);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-info);
+			--bs-accordion-color: var(--bs-light);
+		}
+		&-lead {
+			--bs-accordion-bg: rgb(from var(--bs-info-bg-subtle) r g b / 0.5);
+			--bs-accordion-color: var(--bs-info-text-emphasis);
+			--bs-accordion-btn-bg: var(--bs-info-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-info-text-emphasis);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-info);
+			--bs-accordion-border-color: rgb(
+				from var(--bs-info-text-emphasis) r g b / 0.5
+			);
+		}
+	}
+	&--info-subtle {
+		--bs-accordion-bg: var(--bs-info-bg-subtle);
+		--bs-accordion-color: var(--bs-info-text-emphasis);
+		--bs-accordion-btn-bg: var(--bs-info-bg-subtle);
+		--bs-accordion-btn-color: var(--bs-info-text-emphasis);
+		--bs-accordion-active-bg: var(--bs-info-bg-subtle);
+		--bs-accordion-active-color: var(--bs-info-text-emphasis);
+		--bs-accordion-border-color: rgb(from var(--bs-info-text-emphasis) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-info-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-info-text-emphasis);
+			--bs-accordion-active-bg: var(--bs-info-bg-subtle);
+			--bs-accordion-active-color: var(--bs-info-text-emphasis);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-info-bg-subtle);
+			--bs-accordion-active-color: var(--bs-info-text-emphasis);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-info-bg-subtle);
+			--bs-accordion-color: var(--bs-info-text-emphasis);
+		}
+	}
+	&--info-emphasis {
+		--bs-accordion-bg: var(--bs-info-text-emphasis);
+		--bs-accordion-color: var(--bs-info-bg-subtle);
+		--bs-accordion-btn-bg: var(--bs-info-text-emphasis);
+		--bs-accordion-btn-color: var(--bs-info-bg-subtle);
+		--bs-accordion-active-bg: var(--bs-info-text-emphasis);
+		--bs-accordion-active-color: var(--bs-info-bg-subtle);
+		--bs-accordion-border-color: rgb(from var(--bs-info-bg-subtle) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-info-text-emphasis);
+			--bs-accordion-btn-color: var(--bs-info-bg-subtle);
+			--bs-accordion-active-bg: var(--bs-info-text-emphasis);
+			--bs-accordion-active-color: var(--bs-info-bg-subtle);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-info-text-emphasis);
+			--bs-accordion-active-color: var(--bs-info-bg-subtle);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-info-text-emphasis);
+			--bs-accordion-color: var(--bs-info-bg-subtle);
+		}
+	}
+	&--warning {
+		--bs-accordion-bg: var(--bs-warning);
+		--bs-accordion-color: var(--bs-dark);
+		--bs-accordion-btn-bg: var(--bs-warning);
+		--bs-accordion-btn-color: var(--bs-dark);
+		--bs-accordion-active-color: var(--bs-dark);
+		--bs-accordion-active-bg: var(--bs-warning);
+		--bs-accordion-border-color: rgb(from var(--bs-warning-bg-subtle) r g b / 0.5);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-warning);
+			--bs-accordion-btn-color: var(--bs-dark);
+			--bs-accordion-active-color: var(--bs-dark);
+			--bs-accordion-active-bg: var(--bs-warning);
+		}
+		&-head-active {
+			--bs-accordion-active-color: var(--bs-dark);
+			--bs-accordion-active-bg: var(--bs-warning);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-warning);
+			--bs-accordion-color: var(--bs-dark);
+		}
+		&-lead {
+			--bs-accordion-bg: rgb(from var(--bs-warning-bg-subtle) r g b / 0.5);
+			--bs-accordion-color: var(--bs-warning-text-emphasis);
+			--bs-accordion-btn-bg: var(--bs-warning-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-warning-text-emphasis);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-warning);
+			--bs-accordion-border-color: rgb(
+				from var(--bs-warning-text-emphasis) r g b / 0.5
+			);
+		}
+	}
+	&--warning-subtle {
+		--bs-accordion-bg: var(--bs-warning-bg-subtle);
+		--bs-accordion-color: var(--bs-warning-text-emphasis);
+		--bs-accordion-btn-bg: var(--bs-warning-bg-subtle);
+		--bs-accordion-btn-color: var(--bs-warning-text-emphasis);
+		--bs-accordion-active-bg: var(--bs-warning-bg-subtle);
+		--bs-accordion-active-color: var(--bs-warning-text-emphasis);
+		--bs-accordion-border-color: rgb(
+			from var(--bs-warning-text-emphasis) r g b / 0.25
+		);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-warning-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-warning-text-emphasis);
+			--bs-accordion-active-bg: var(--bs-warning-bg-subtle);
+			--bs-accordion-active-color: var(--bs-warning-text-emphasis);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-warning-bg-subtle);
+			--bs-accordion-active-color: var(--bs-warning-text-emphasis);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-warning-bg-subtle);
+			--bs-accordion-color: var(--bs-warning-text-emphasis);
+		}
+	}
+	&--warning-emphasis {
+		--bs-accordion-bg: var(--bs-warning-text-emphasis);
+		--bs-accordion-color: var(--bs-warning-bg-subtle);
+		--bs-accordion-btn-bg: var(--bs-warning-text-emphasis);
+		--bs-accordion-btn-color: var(--bs-warning-bg-subtle);
+		--bs-accordion-active-bg: var(--bs-warning-text-emphasis);
+		--bs-accordion-active-color: var(--bs-warning-bg-subtle);
+		--bs-accordion-border-color: rgb(from var(--bs-warning-bg-subtle) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-warning-text-emphasis);
+			--bs-accordion-btn-color: var(--bs-warning-bg-subtle);
+			--bs-accordion-active-bg: var(--bs-warning-text-emphasis);
+			--bs-accordion-active-color: var(--bs-warning-bg-subtle);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-warning-text-emphasis);
+			--bs-accordion-active-color: var(--bs-warning-bg-subtle);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-warning-text-emphasis);
+			--bs-accordion-color: var(--bs-warning-bg-subtle);
+		}
+	}
+	&--danger {
+		--bs-accordion-bg: var(--bs-danger);
+		--bs-accordion-color: var(--bs-light);
+		--bs-accordion-btn-bg: var(--bs-danger);
+		--bs-accordion-btn-color: var(--bs-light);
+		--bs-accordion-active-color: var(--bs-light);
+		--bs-accordion-active-bg: var(--bs-danger);
+		--bs-accordion-border-color: rgb(from var(--bs-danger-bg-subtle) r g b / 0.5);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-danger);
+			--bs-accordion-btn-color: var(--bs-light);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-danger);
+		}
+		&-head-active {
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-danger);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-danger);
+			--bs-accordion-color: var(--bs-light);
+		}
+		&-lead {
+			--bs-accordion-bg: rgb(from var(--bs-warning-bg-subtle) r g b / 0.5);
+			--bs-accordion-color: var(--bs-warning-text-emphasis);
+			--bs-accordion-btn-bg: var(--bs-warning-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-warning-text-emphasis);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-warning);
+			--bs-accordion-border-color: rgb(
+				from var(--bs-warning-text-emphasis) r g b / 0.5
+			);
+		}
+	}
+	&--danger-subtle {
+		--bs-accordion-bg: var(--bs-danger-bg-subtle);
+		--bs-accordion-color: var(--bs-danger-text-emphasis);
+		--bs-accordion-btn-bg: var(--bs-danger-bg-subtle);
+		--bs-accordion-btn-color: var(--bs-danger-text-emphasis);
+		--bs-accordion-active-bg: var(--bs-danger-bg-subtle);
+		--bs-accordion-active-color: var(--bs-danger-text-emphasis);
+		--bs-accordion-border-color: rgb(
+			from var(--bs-danger-text-emphasis) r g b / 0.25
+		);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-danger-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-danger-text-emphasis);
+			--bs-accordion-active-bg: var(--bs-danger-bg-subtle);
+			--bs-accordion-active-color: var(--bs-danger-text-emphasis);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-danger-bg-subtle);
+			--bs-accordion-active-color: var(--bs-danger-text-emphasis);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-danger-bg-subtle);
+			--bs-accordion-color: var(--bs-danger-text-emphasis);
+		}
+	}
+	&--danger-emphasis {
+		--bs-accordion-bg: var(--bs-danger-text-emphasis);
+		--bs-accordion-color: var(--bs-danger-bg-subtle);
+		--bs-accordion-btn-bg: var(--bs-danger-text-emphasis);
+		--bs-accordion-btn-color: var(--bs-danger-bg-subtle);
+		--bs-accordion-active-bg: var(--bs-danger-text-emphasis);
+		--bs-accordion-active-color: var(--bs-danger-bg-subtle);
+		--bs-accordion-border-color: rgb(from var(--bs-danger-bg-subtle) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-danger-text-emphasis);
+			--bs-accordion-btn-color: var(--bs-danger-bg-subtle);
+			--bs-accordion-active-bg: var(--bs-danger-text-emphasis);
+			--bs-accordion-active-color: var(--bs-danger-bg-subtle);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-danger-text-emphasis);
+			--bs-accordion-active-color: var(--bs-danger-bg-subtle);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-danger-text-emphasis);
+			--bs-accordion-color: var(--bs-danger-bg-subtle);
+		}
+	}
+	&--light {
+		--bs-accordion-bg: var(--bs-light);
+		--bs-accordion-color: var(--bs-dark);
+		--bs-accordion-btn-bg: var(--bs-light);
+		--bs-accordion-btn-color: var(--bs-dark);
+		--bs-accordion-active-color: var(--bs-dark);
+		--bs-accordion-active-bg: var(--bs-light);
+		--bs-accordion-border-color: rgb(from var(--bs-dark-bg-subtle) r g b / 0.5);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-light);
+			--bs-accordion-btn-color: var(--bs-dark);
+			--bs-accordion-active-color: var(--bs-dark);
+			--bs-accordion-active-bg: var(--bs-light);
+		}
+		&-head-active {
+			--bs-accordion-active-color: var(--bs-dark);
+			--bs-accordion-active-bg: var(--bs-light);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-light);
+			--bs-accordion-color: var(--bs-dark);
+		}
+		&-lead {
+			--bs-accordion-bg: rgb(from var(--bs-light-bg-subtle) r g b / 0.5);
+			--bs-accordion-color: var(--bs-light-text-emphasis);
+			--bs-accordion-btn-bg: var(--bs-light-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-light-text-emphasis);
+			--bs-accordion-active-color: var(--bs-dark);
+			--bs-accordion-active-bg: var(--bs-light);
+			--bs-accordion-border-color: rgb(
+				from var(--bs-light-text-emphasis) r g b / 0.5
+			);
+		}
+	}
+	&--light-subtle {
+		--bs-accordion-bg: var(--bs-light-bg-subtle);
+		--bs-accordion-color: var(--bs-light-text-emphasis);
+		--bs-accordion-btn-bg: var(--bs-light-bg-subtle);
+		--bs-accordion-btn-color: var(--bs-light-text-emphasis);
+		--bs-accordion-active-bg: var(--bs-light-bg-subtle);
+		--bs-accordion-active-color: var(--bs-light-text-emphasis);
+		--bs-accordion-border-color: rgb(from var(--bs-light-text-emphasis) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-light-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-light-text-emphasis);
+			--bs-accordion-active-bg: var(--bs-light-bg-subtle);
+			--bs-accordion-active-color: var(--bs-light-text-emphasis);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-light-bg-subtle);
+			--bs-accordion-active-color: var(--bs-light-text-emphasis);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-light-bg-subtle);
+			--bs-accordion-color: var(--bs-light-text-emphasis);
+		}
+	}
+	&--light-emphasis {
+		--bs-accordion-bg: var(--bs-light-text-emphasis);
+		--bs-accordion-color: var(--bs-light-bg-subtle);
+		--bs-accordion-btn-bg: var(--bs-light-text-emphasis);
+		--bs-accordion-btn-color: var(--bs-light-bg-subtle);
+		--bs-accordion-active-bg: var(--bs-light-text-emphasis);
+		--bs-accordion-active-color: var(--bs-light-bg-subtle);
+		--bs-accordion-border-color: rgb(from var(--bs-light-bg-subtle) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-light-text-emphasis);
+			--bs-accordion-btn-color: var(--bs-light-bg-subtle);
+			--bs-accordion-active-bg: var(--bs-light-text-emphasis);
+			--bs-accordion-active-color: var(--bs-light-bg-subtle);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-light-text-emphasis);
+			--bs-accordion-active-color: var(--bs-light-bg-subtle);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-light-text-emphasis);
+			--bs-accordion-color: var(--bs-light-bg-subtle);
+		}
+	}
+	&--dark {
+		--bs-accordion-bg: var(--bs-dark);
+		--bs-accordion-color: var(--bs-light);
+		--bs-accordion-btn-bg: var(--bs-dark);
+		--bs-accordion-btn-color: var(--bs-light);
+		--bs-accordion-active-color: var(--bs-light);
+		--bs-accordion-active-bg: var(--bs-dark);
+		--bs-accordion-border-color: rgb(from var(--bs-light-bg-subtle) r g b / 0.5);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-dark);
+			--bs-accordion-btn-color: var(--bs-light);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-dark);
+		}
+		&-head-active {
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-dark);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-dark);
+			--bs-accordion-color: var(--bs-light);
+		}
+		&-lead {
+			--bs-accordion-bg: rgb(from var(--bs-dark-bg-subtle) r g b / 0.5);
+			--bs-accordion-color: var(--bs-dark-text-emphasis);
+			--bs-accordion-btn-bg: var(--bs-dark-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-dark-text-emphasis);
+			--bs-accordion-active-color: var(--bs-light);
+			--bs-accordion-active-bg: var(--bs-dark);
+			--bs-accordion-border-color: rgb(
+				from var(--bs-dark-text-emphasis) r g b / 0.5
+			);
+		}
+	}
+	&--dark-subtle {
+		--bs-accordion-bg: var(--bs-dark-bg-subtle);
+		--bs-accordion-color: var(--bs-dark-text-emphasis);
+		--bs-accordion-btn-bg: var(--bs-dark-bg-subtle);
+		--bs-accordion-btn-color: var(--bs-dark-text-emphasis);
+		--bs-accordion-active-bg: var(--bs-dark-bg-subtle);
+		--bs-accordion-active-color: var(--bs-dark-text-emphasis);
+		--bs-accordion-border-color: rgb(from var(--bs-dark-text-emphasis) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-dark-bg-subtle);
+			--bs-accordion-btn-color: var(--bs-dark-text-emphasis);
+			--bs-accordion-active-bg: var(--bs-dark-bg-subtle);
+			--bs-accordion-active-color: var(--bs-dark-text-emphasis);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-dark-bg-subtle);
+			--bs-accordion-active-color: var(--bs-dark-text-emphasis);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-dark-bg-subtle);
+			--bs-accordion-color: var(--bs-dark-text-emphasis);
+		}
+	}
+	&--dark-emphasis {
+		--bs-accordion-bg: var(--bs-dark-text-emphasis);
+		--bs-accordion-color: var(--bs-dark-bg-subtle);
+		--bs-accordion-btn-bg: var(--bs-dark-text-emphasis);
+		--bs-accordion-btn-color: var(--bs-dark-bg-subtle);
+		--bs-accordion-active-bg: var(--bs-dark-text-emphasis);
+		--bs-accordion-active-color: var(--bs-dark-bg-subtle);
+		--bs-accordion-border-color: rgb(from var(--bs-dark-bg-subtle) r g b / 0.25);
+		&.accordion-separate-body {
+			.accordion-button {
+				&[aria-expanded="false"] {
+					background-color: var(--bs-accordion-btn-bg);
+				}
+			}
+			.accordion-body {
+				background-color: var(--bs-accordion-bg);
+			}
+		}
+		&-head {
+			--bs-accordion-btn-bg: var(--bs-dark-text-emphasis);
+			--bs-accordion-btn-color: var(--bs-dark-bg-subtle);
+			--bs-accordion-active-bg: var(--bs-dark-text-emphasis);
+			--bs-accordion-active-color: var(--bs-dark-bg-subtle);
+		}
+		&-head-active {
+			--bs-accordion-active-bg: var(--bs-dark-text-emphasis);
+			--bs-accordion-active-color: var(--bs-dark-bg-subtle);
+		}
+		&-body {
+			--bs-accordion-bg: var(--bs-dark-text-emphasis);
+			--bs-accordion-color: var(--bs-dark-bg-subtle);
 		}
 	}
 }
