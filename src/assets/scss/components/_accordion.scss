@@ -63,6 +63,7 @@
 		}
 		.accordion-item {
 			border-radius: var(--bs-accordion-inner-border-radius);
+			box-shadow: 0 0 1rem rgba(var(--bs-black-rgb), 0.05);
 		}
 		.accordion-button {
 			border-radius: var(--bs-accordion-inner-border-radius);
@@ -89,6 +90,7 @@
 		}
 		.accordion-button {
 			border-radius: var(--bs-accordion-inner-border-radius);
+			box-shadow: 0 0 1rem rgba(var(--bs-black-rgb), 0.05);
 		}
 		.accordion-body {
 			margin-top: 0.5rem;
@@ -96,6 +98,7 @@
 		.accordion-collapse.show {
 			.accordion-body {
 				border-radius: var(--bs-border-radius);
+				box-shadow: 0 0 1rem rgba(var(--bs-black-rgb), 0.05);
 			}
 		}
 	}

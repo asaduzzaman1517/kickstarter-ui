@@ -446,6 +446,7 @@ small,
 }
 .accordion-separate .accordion-item {
   border-radius: var(--bs-accordion-inner-border-radius);
+  box-shadow: 0 0 1rem rgba(var(--bs-black-rgb), 0.05);
 }
 .accordion-separate .accordion-button {
   border-radius: var(--bs-accordion-inner-border-radius);
@@ -469,12 +470,14 @@ small,
 }
 .accordion-separate-body .accordion-button {
   border-radius: var(--bs-accordion-inner-border-radius);
+  box-shadow: 0 0 1rem rgba(var(--bs-black-rgb), 0.05);
 }
 .accordion-separate-body .accordion-body {
   margin-top: 0.5rem;
 }
 .accordion-separate-body .accordion-collapse.show .accordion-body {
   border-radius: var(--bs-border-radius);
+  box-shadow: 0 0 1rem rgba(var(--bs-black-rgb), 0.05);
 }
 .accordion-rounded-0 {
   --bs-accordion-border-radius: 0;
