@@ -1,0 +1,37 @@
+.tab {
+	overflow: hidden;
+	&__links {
+		padding-inline: 0.5rem;
+		&::after {
+			transition: all 0.3s ease;
+		}
+		&:hover {
+			&::after {
+				content: "";
+				position: absolute;
+				inset-inline: 0;
+				inset-block-end: -1px;
+				height: 2px;
+				background-color: var(--bs-primary);
+			}
+		}
+		&.active {
+			border: none;
+			color: var(--bs-primary);
+			&::after {
+				content: "";
+				position: absolute;
+				inset-inline: 0;
+				inset-block-end: -1px;
+				height: 2px;
+				background-color: var(--bs-primary);
+			}
+		}
+	}
+	&__content {
+		display: none;
+		&.active {
+			display: block;
+		}
+	}
+}

@@ -2285,6 +2285,82 @@ small,
   --bs-border-radius: 0.5rem;
 }
 
+.code-snippet--sm pre {
+  max-height: 6.25rem;
+}
+.code-snippet--md pre {
+  max-height: 12.5rem;
+}
+.code-snippet--lg pre {
+  max-height: 18.75rem;
+}
+.code-snippet--expanded pre {
+  max-height: unset;
+}
+.code-snippet :not(pre) > code[class*=language-],
+.code-snippet pre[class*=language-] {
+  margin: 0;
+  background: transparent;
+  font-size: 0.875rem;
+}
+.code-snippet code[class*=language-],
+.code-snippet pre[class*=language-] {
+  color: var(--bs-body-color);
+  text-shadow: 0 1px var(--bs-light-bg-subtle);
+  overflow: auto;
+  scrollbar-color: var(--bs-dark-bg-subtle) rgba(var(--bs-secondary-bg-rgb), 0.5);
+  scrollbar-width: thin;
+}
+.code-snippet code[class*=language-]::-webkit-scrollbar,
+.code-snippet pre[class*=language-]::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+.code-snippet code[class*=language-]::-webkit-scrollbar-track,
+.code-snippet pre[class*=language-]::-webkit-scrollbar-track {
+  background: rgba(var(--bs-secondary-bg-rgb), 0.5);
+}
+.code-snippet code[class*=language-]::-webkit-scrollbar-thumb,
+.code-snippet pre[class*=language-]::-webkit-scrollbar-thumb {
+  background: var(--bs-dark-bg-subtle);
+}
+.code-snippet .token.boolean,
+.code-snippet .token.constant,
+.code-snippet .token.deleted,
+.code-snippet .token.number,
+.code-snippet .token.property,
+.code-snippet .token.symbol,
+.code-snippet .token.tag {
+  color: var(--bs-danger-text-emphasis);
+}
+.code-snippet .token.attr-name,
+.code-snippet .token.builtin,
+.code-snippet .token.char,
+.code-snippet .token.inserted,
+.code-snippet .token.selector,
+.code-snippet .token.string {
+  color: var(--bs-success-text-emphasis);
+}
+.code-snippet .token.atrule,
+.code-snippet .token.attr-value,
+.code-snippet .token.keyword {
+  color: var(--bs-primary-text-emphasis);
+}
+.code-snippet .token.punctuation {
+  color: var(--bs-primary-text-emphasis);
+}
+.code-snippet .token.parameter {
+  color: var(--bs-info-text-emphasis);
+}
+.code-snippet .language-css .token.string,
+.code-snippet .style .token.string,
+.code-snippet .token.entity,
+.code-snippet .token.operator,
+.code-snippet .token.url {
+  color: var(--bs-warning-text-emphasis);
+  background: transparent;
+}
+
 /* Dropdown Style */
 .dropdown-modifier.dropdown-xsm .dropdown-menu {
   --bs-dropdown-min-width: 5rem;
@@ -4322,6 +4398,42 @@ small,
 }
 .tab-underline .btn.active {
   color: var(--bs-btn-active-color);
+}
+
+.tab {
+  overflow: hidden;
+}
+.tab__links {
+  padding-inline: 0.5rem;
+}
+.tab__links::after {
+  transition: all 0.3s ease;
+}
+.tab__links:hover::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -1px;
+  height: 2px;
+  background-color: var(--bs-primary);
+}
+.tab__links.active {
+  border: none;
+  color: var(--bs-primary);
+}
+.tab__links.active::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -1px;
+  height: 2px;
+  background-color: var(--bs-primary);
+}
+.tab__content {
+  display: none;
+}
+.tab__content.active {
+  display: block;
 }
 
 /* Table Style */

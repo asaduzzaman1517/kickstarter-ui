@@ -304,14 +304,63 @@ document.addEventListener("DOMContentLoaded", function () {
 	 * Handle Background Image + Parallax Effect
 	 */
 	const bgElements = document.querySelectorAll("[data-bg]");
-	if (!bgElements.length) return;
+	if (bgElements.length) {
+		// Set background images
+		bgElements.forEach((el) => {
+			const bg = el?.getAttribute("data-bg")?.trim();
+			if (bg) {
+				el.style.backgroundImage = `url("${bg}")`;
+			}
+		});
+	}
 
-	// Set background images
-	bgElements.forEach((el) => {
-		const bg = el?.getAttribute("data-bg")?.trim();
-		if (bg) {
-			el.style.backgroundImage = `url("${bg}")`;
+	/**
+	 * Iterate through each tab group
+	 */
+	const tabGroups = document.querySelectorAll(".tab-group");
+	tabGroups.forEach((group) => {
+		const tabButtons = group.querySelectorAll(".tab__links");
+		const tabContents = group.querySelectorAll(".tab__content");
+
+		if (!tabButtons.length || !tabContents.length) {
+			return;
+		}
+
+		// Attach event listeners to each tab button
+		tabButtons.forEach((button, index) => {
+			button.addEventListener("click", function () {
+				// Remove active class from all buttons and contents in this group
+				tabButtons.forEach((btn) => btn.classList.remove("active"));
+				tabContents.forEach((content) => content.classList.remove("active"));
+
+				// Add active class to clicked button and corresponding content
+				button.classList.add("active");
+				if (tabContents[index]) {
+					tabContents[index].classList.add("active");
+				} else {
+					console.warn(`No content found for tab index ${index} in this group`);
+				}
+			});
+		});
+
+		// Optionally, activate the first tab by default in each group
+		if (tabButtons[0]) {
+			tabButtons[0].click();
 		}
 	});
+
+	/**
+	 * Code Snippets Expand
+	 */
+	const codeExpandBtn = document.querySelectorAll(".code-snippet-expand");
+	if (codeExpandBtn) {
+		codeExpandBtn.forEach((e) => {
+			e.addEventListener("click", () => {
+				const codeExpandNav = e.closest(".tab__header");
+				const codeSnippetsBody = codeExpandNav.nextElementSibling;
+				codeSnippetsBody.classList.toggle("code-snippet--expanded");
+			});
+		});
+	}
 	// You are inside DOMContentLoaded
 });

@@ -1,0 +1,83 @@
+@use "../global" as *;
+.code-snippet {
+	&--sm {
+		pre {
+			max-height: rem(100);
+		}
+	}
+	&--md {
+		pre {
+			max-height: rem(200);
+		}
+	}
+	&--lg {
+		pre {
+			max-height: rem(300);
+		}
+	}
+	&--expanded {
+		pre {
+			max-height: unset;
+		}
+	}
+	:not(pre) > code[class*="language-"],
+	pre[class*="language-"] {
+		margin: 0;
+		background: transparent;
+		font-size: 0.875rem;
+	}
+	code[class*="language-"],
+	pre[class*="language-"] {
+		color: var(--bs-body-color);
+		text-shadow: 0 1px var(--bs-light-bg-subtle);
+		overflow: auto;
+		scrollbar-color: var(--bs-dark-bg-subtle) rgba(var(--bs-secondary-bg-rgb), 0.5);
+		scrollbar-width: thin;
+		&::-webkit-scrollbar {
+			width: 0.25rem;
+			height: 0.25rem;
+		}
+		&::-webkit-scrollbar-track {
+			background: rgba(var(--bs-secondary-bg-rgb), 0.5);
+		}
+		&::-webkit-scrollbar-thumb {
+			background: var(--bs-dark-bg-subtle);
+		}
+	}
+	.token.boolean,
+	.token.constant,
+	.token.deleted,
+	.token.number,
+	.token.property,
+	.token.symbol,
+	.token.tag {
+		color: var(--bs-danger-text-emphasis);
+	}
+	.token.attr-name,
+	.token.builtin,
+	.token.char,
+	.token.inserted,
+	.token.selector,
+	.token.string {
+		color: var(--bs-success-text-emphasis);
+	}
+	.token.atrule,
+	.token.attr-value,
+	.token.keyword {
+		color: var(--bs-primary-text-emphasis);
+	}
+	.token.punctuation {
+		color: var(--bs-primary-text-emphasis);
+	}
+	.token.parameter {
+		color: var(--bs-info-text-emphasis);
+	}
+	.language-css .token.string,
+	.style .token.string,
+	.token.entity,
+	.token.operator,
+	.token.url {
+		color: var(--bs-warning-text-emphasis);
+		background: transparent;
+	}
+}
