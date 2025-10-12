@@ -1,0 +1,27 @@
+/* Background Image */
+@use "../global" as *;
+[data-bg] {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: background-image 0.3s ease-in-out;
+}
+.bg-contain {
+	background-size: contain;
+}
+.bg-fit {
+	background-size: 100% 100%;
+}
+.bg-overlay {
+	--bs-bg-opacity: 0.5;
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+		z-index: -1;
+	}
+}

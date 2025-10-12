@@ -299,4 +299,19 @@ document.addEventListener("DOMContentLoaded", function () {
 			}, 300);
 		}
 	});
+
+	/**
+	 * Handle Background Image + Parallax Effect
+	 */
+	const bgElements = document.querySelectorAll("[data-bg]");
+	if (!bgElements.length) return;
+
+	// Set background images
+	bgElements.forEach((el) => {
+		const bg = el?.getAttribute("data-bg")?.trim();
+		if (bg) {
+			el.style.backgroundImage = `url("${bg}")`;
+		}
+	});
+	// You are inside DOMContentLoaded
 });
