@@ -1,0 +1,64 @@
+@use "../global" as *;
+.doc {
+	&-sidebar {
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		transform: translateX(-100%);
+		background-color: var(--bs-secondary-bg);
+		z-index: 999;
+		transition: all 0.3s ease;
+		@include screen(md) {
+			max-width: rem(280);
+		}
+		@include screen(lg) {
+			height: calc(100vh - #{rem(60)});
+			position: unset;
+			top: auto;
+			left: auto;
+			width: auto;
+			transform: translateX(0);
+			background-color: rgba(var(--bs-secondary-bg-rgb), 0.5);
+		}
+		&.active {
+			transform: translateX(0);
+		}
+		&__body {
+			height: 100%;
+			overflow-y: auto;
+			scrollbar-color: transparent transparent;
+			scrollbar-width: none;
+			&::-webkit-scrollbar {
+				width: 0;
+				height: 0;
+			}
+			&::-webkit-scrollbar-track {
+				background: transparent;
+			}
+			&::-webkit-scrollbar-thumb {
+				background: transparent;
+			}
+		}
+	}
+	&-content {
+		padding-block: 1rem;
+		@include screen(lg) {
+			height: calc(100vh - #{rem(60)});
+			overflow-y: auto;
+			scrollbar-color: transparent transparent;
+			scrollbar-width: none;
+			&::-webkit-scrollbar {
+				width: 0;
+				height: 0;
+			}
+			&::-webkit-scrollbar-track {
+				background: transparent;
+			}
+			&::-webkit-scrollbar-thumb {
+				background: transparent;
+			}
+		}
+	}
+}

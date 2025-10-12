@@ -14,16 +14,30 @@
     <link rel="stylesheet" href="assets/css/simplebar.css">
     <link rel="stylesheet" href="assets/css/prism.css">
     <link rel="stylesheet" href="assets/css/ff-1.css">
+    <link rel="stylesheet" href="assets/css/ff-2.css">
+    <link rel="stylesheet" href="assets/css/ff-3.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body {% block bodyClass %} class="{{bodyClass}}" {% endblock %}>
     {% include "partials/preloader.html" %}
-    {% if navbar %}
-        {% include "partials/header.html" %}
-    {% endif %}
+    {% include "partials/doc-header.html" %}
 
-    {% block content %}{% endblock %}
+    <div class="pt-4 pt-lg-0">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    {% include "partials/doc-mobile-nav.html" %}
+                    {% include "partials/doc-sidebar.html" %}
+                </div>
+                <div class="col-lg-9">
+                    <div class="doc-content">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/bootstrap.bundle.js"></script>
     <script src="assets/js/iconify.js"></script>
