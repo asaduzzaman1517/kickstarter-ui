@@ -1,55 +1,27 @@
 <header class="navbar navbar-expand-lg primary-header {{primaryHeader}}">
 	<div class="container align-items-lg-center py-3 {{primaryHeaderContainer}}">
 		<a class="logo" href="index.html">
-			<img
-				src="assets/img/{{logoLight}}"
-				alt="image"
-				class="logo__img logo__img--light"
-			/>
-			<img
-				src="assets/img/{{logoDark}}"
-				alt="image"
-				class="logo__img logo__img--dark"
-			/>
+			<img src="assets/img/{{logoLight}}" alt="image" class="logo__img logo__img--light">
+			<img src="assets/img/{{logoDark}}" alt="image" class="logo__img logo__img--dark">
 		</a>
-		<button
-			class="navbar-toggler border-0"
-			type="button"
-			data-bs-toggle="collapse"
-			data-bs-target="#navbar0"
-			aria-controls="navbar0"
-			aria-expanded="false"
-			aria-label="Toggle navigation"
-		>
+		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar0"
+			aria-controls="navbar0" aria-expanded="false" aria-label="Toggle navigation">
 			<iconify-icon icon="solar:hamburger-menu-line-duotone"></iconify-icon>
 		</button>
 		<nav class="collapse navbar-collapse" id="navbar0">
 			<div class="d-flex align-items-center gap-3 ms-lg-auto">
-				<a
-					href="#"
-					class="btn btn-sm btn-primary order-lg-2 {% if navBtnColor %} {{navBtnColor}} {% endif %}"
-				>
+				<a href="#" class="btn btn-sm btn-primary order-lg-2 {% if navBtnColor %} {{navBtnColor}} {% endif %}">
 					Buy Now
 				</a>
 				<div class="dropdown dropdown-modifier dropdown-xsm order-lg-1">
-					<button
-						class="btn dropdown-toggle px-4 px-lg-0 fs-14 border-0 align-items-center gap-1"
-						type="button"
-						data-bs-toggle="dropdown"
-						aria-haspopup="true"
-						aria-expanded="false"
-					>
+					<button class="btn dropdown-toggle px-4 px-lg-0 fs-14 border-0 align-items-center gap-1"
+						type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<iconify-icon id="themeDropdownIcon" icon="bi:sun"></iconify-icon>
 					</button>
-					<ul
-						class="dropdown-menu dropdown-menu-end dropdown-menu-light mw-unset"
-					>
+					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-light mw-unset">
 						<li>
-							<button
-								type="button"
-								class="dropdown-item d-flex align-items-center gap-2 fs-14"
-								id="lightTheme"
-							>
+							<button type="button" class="dropdown-item d-flex align-items-center gap-2 fs-14"
+								id="lightTheme">
 								<span class="d-block flex-shrink-0">
 									<iconify-icon icon="bi:sun"></iconify-icon>
 								</span>
@@ -57,11 +29,8 @@
 							</button>
 						</li>
 						<li>
-							<button
-								type="button"
-								class="dropdown-item d-flex align-items-center gap-2 fs-14"
-								id="darkTheme"
-							>
+							<button type="button" class="dropdown-item d-flex align-items-center gap-2 fs-14"
+								id="darkTheme">
 								<span class="d-block flex-shrink-0">
 									<iconify-icon icon="bi:moon-stars"></iconify-icon>
 								</span>
