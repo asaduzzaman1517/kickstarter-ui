@@ -1,0 +1,598 @@
+---
+{% extends "layouts/doc.html" %}
+{% set page = "button" %}
+{% set bodyClass = "bg-body" %}
+{% set primaryHeader = "primary-header--light primary-header--sticky top-0" %}
+{% set navBtnColor = "fw-semibold text-light" %}
+{% set logoLight = "logo-dark.png" %}
+{% set logoDark = "logo-light.png" %}
+---
+
+{% block content %}
+<!-- Button -->
+<div class="section-space-xsm-top">
+    <h6 class="d-flex align-items-center gap-1 fs-20 mb-1">1. Button -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Default Style</span>
+    </h6>
+    <p class="fs-14 text-secondary">
+        Support all Bootstrap colors <code>.primary, secondary, success...-{subtle, emphasis}</code>
+    </p>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <ul class="list list-row gap-4 flex-wrap align-items-center">
+            <li>
+                <button type="button" class="btn btn-primary"> Button </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary-subtle"> Button </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary-emphasis"> Button </button>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        // Regular
+                        <button type="button" class="btn btn-primary"> Button </button>
+
+                        // Light
+                        <button type="button" class="btn btn-primary-subtle"> Button </button>
+
+                        // Dark
+                        <button type="button" class="btn btn-primary-emphasis"> Button </button>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button End -->
+
+<!-- Button Outline -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20 mb-1">2. Button -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Outline Style</span>
+    </h6>
+    <p class="fs-14 text-secondary">
+        Support all Bootstrap colors <code>.btn-outline-{primary, secondary, success..}-{subtle, emphasis}</code>
+    </p>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <ul class="list list-row gap-4 flex-wrap align-items-center">
+            <li>
+                <button type="button" class="btn btn-outline-primary"> Button </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-outline-primary-subtle"> Button </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-outline-primary-emphasis"> Button </button>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        // Regular
+                        <button type="button" class="btn btn-outline-primary"> Button </button>
+
+                        // Light
+                        <button type="button" class="btn btn-outline-primary-subtle"> Button </button>
+
+                        // Dark
+                        <button type="button" class="btn btn-outline-primary-emphasis"> Button </button>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button Outline End -->
+
+<!-- Button with Icon -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">3. Button -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">with Icon</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <button type="button" class="btn btn-primary align-items-center">
+            <iconify-icon icon="solar:home-2-bold-duotone" class="align-middle fs-20 flex-shrink-0"></iconify-icon>
+            <span class="d-inline-block flex-grow-1">
+                Home
+            </span>
+        </button>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <button type="button" class="btn btn-primary align-items-center">
+    <iconify-icon icon="solar:home-2-bold-duotone" class="align-middle fs-20 flex-shrink-0"></iconify-icon>
+    <span class="d-inline-block flex-grow-1">
+        Home
+    </span>
+</button>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button with Icon End -->
+
+<!-- Button Link -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">4. Button -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Link</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <button type="button" class="btn btn-link align-items-center link">
+            <iconify-icon icon="solar:home-2-bold-duotone" class="align-middle fs-20 flex-shrink-0"></iconify-icon>
+            <span class="d-inline-block flex-grow-1">
+                Home
+            </span>
+        </button>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <button type="button" class="btn btn-link align-items-center link">
+    <iconify-icon icon="solar:home-2-bold-duotone" class="align-middle fs-20 flex-shrink-0"></iconify-icon>
+    <span class="d-inline-block flex-grow-1">
+        Home
+    </span>
+</button>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button Link End -->
+
+<!-- Icon Button -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">5. Button -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Icon</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <ul class="list gap-4">
+            <li>
+                <button type="button" class="btn btn-icon btn-primary">
+                    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-icon btn-primary rounded-circle">
+                    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+// Square
+<button type="button" class="btn btn-icon btn-primary">
+    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+</button>
+
+// Circle
+<button type="button" class="btn btn-icon btn-primary rounded-circle">
+    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+</button>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Icon Button End -->
+
+<!-- Button Size -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20 mb-1">6. Button -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Size</span>
+    </h6>
+    <p class="fs-14 text-secondary">
+        4 sizes available <code>.btn-{xsm, sm, lg}</code>
+    </p>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <ul class="list list-row flex-wrap gap-4 align-items-center">
+            <li>
+                <button type="button" class="btn btn-xsm btn-icon btn-primary rounded-circle">
+                    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-sm btn-icon btn-primary rounded-circle">
+                    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-icon btn-primary rounded-circle">
+                    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-lg btn-icon btn-primary rounded-circle">
+                    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+                </button>
+            </li>
+        </ul>
+        <ul class="list list-row flex-wrap gap-4 align-items-center mt-6">
+            <li>
+                <button type="button" class="btn btn-xsm btn-primary">
+                    Home
+                </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-sm btn-primary">
+                    Home
+                </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary">
+                    Home
+                </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-lg btn-primary">
+                    Home
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+// 24px
+<button type="button" class="btn btn-xsm btn-icon btn-primary rounded-circle">
+    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+</button>
+
+// 32px
+<button type="button" class="btn btn-sm btn-icon btn-primary rounded-circle">
+    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+</button>
+
+// 44px
+<button type="button" class="btn btn-icon btn-primary rounded-circle">
+    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+</button>
+
+// 50px
+<button type="button" class="btn btn-lg btn-icon btn-primary rounded-circle">
+    <iconify-icon icon="solar:home-2-bold-duotone"></iconify-icon>
+</button>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button Size End -->
+
+<!-- Skew Button -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">7. Button -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Skew</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <button type="button" class="btn btn-primary btn-skew">
+            <span class="d-inline-block">
+                Home
+            </span>
+        </button>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+<button type="button" class="btn btn-primary btn-skew">
+    <span class="d-inline-block">
+        Home
+    </span>
+</button>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Skew Button End -->
+
+<!-- Button with Sharp Shadow -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">7. Button -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Shadow</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <button type="button" class="btn btn-primary btn-shadow">
+            Home
+        </button>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+<button type="button" class="btn btn-primary btn-shadow">
+    Home
+</button>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button with Sharp Shadow End -->
+{% endblock %}

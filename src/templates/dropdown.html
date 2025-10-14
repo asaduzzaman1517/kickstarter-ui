@@ -1,0 +1,780 @@
+---
+{% extends "layouts/doc.html" %}
+{% set page = "dropdown" %}
+{% set bodyClass = "bg-body" %}
+{% set primaryHeader = "primary-header--light primary-header--sticky top-0" %}
+{% set navBtnColor = "fw-semibold text-light" %}
+{% set logoLight = "logo-dark.png" %}
+{% set logoDark = "logo-light.png" %}
+---
+{% block content %}
+<!-- Dropdown  -->
+<div class="section-space-xsm-top">
+    <h6 class="d-flex align-items-center gap-1 fs-20">1. Dropdown -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Default Style</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="dropdown dropdown-modifier">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Action
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Another action
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Something else here
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="dropdown dropdown-modifier">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Action
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Another action
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Something else here
+                    </a>
+                </li>
+            </ul>
+        </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dropdown End -->
+
+<!-- Dropdown with Divider  -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">2. Dropdown -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">with divider</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="dropdown dropdown-modifier">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Action
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Another action
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Something else here
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="dropdown dropdown-modifier">
+    <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Dropdown
+    </button>
+    <ul class="dropdown-menu">
+        <li>
+            <a class="dropdown-item" href="#">
+                Action
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Another action
+            </a>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+            <a class="dropdown-item active" href="#">
+                Something else here
+            </a>
+        </li>
+    </ul>
+</div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dropdown with Divider End -->
+
+<!-- Dropdown Dark  -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">3. Dropdown -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Dark</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="dropdown dropdown-modifier">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Action
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Another action
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Something else here
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="dropdown dropdown-modifier">
+    <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Dropdown
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+        <li>
+            <a class="dropdown-item active" href="#">
+                Action
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Another action
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Something else here
+            </a>
+        </li>
+    </ul>
+</div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dropdown Dark End -->
+
+<!-- Dropdown Small  -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">4. Dropdown -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Small</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="dropdown dropdown-modifier dropdown-sm">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Light
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Dark
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Default
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="dropdown dropdown-modifier dropdown-sm">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Light
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Dark
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Default
+                    </a>
+                </li>
+            </ul>
+        </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dropdown Small End -->
+
+<!-- Dropdown Medium  -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">5. Dropdown -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Medium</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="dropdown dropdown-modifier dropdown-md">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Light
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Dark
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Default
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="dropdown dropdown-modifier dropdown-md">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Light
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Dark
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Default
+                    </a>
+                </li>
+            </ul>
+        </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dropdown Medium End -->
+
+<!-- Dropdown Large  -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">6. Dropdown -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Large</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="dropdown dropdown-modifier dropdown-xl">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Light
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Dark
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Default
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="dropdown dropdown-modifier dropdown-xl">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Light
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Dark
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Default
+                    </a>
+                </li>
+            </ul>
+        </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dropdown Large End -->
+
+<!-- Scrollable Dropdown -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">7. Dropdown -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Scrollable</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="dropdown dropdown-modifier">
+            <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu dropdown-modifier__body">
+                <li>
+                    <a class="dropdown-item active" href="#">
+                        Breaking Bad
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Game of Thrones
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Better Call Saul
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Ozark
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Dexter
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Stranger Things
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        The Island
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        The Vikings
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Better Call Saul
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Ozark
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">
+                        Dexter
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="dropdown dropdown-modifier">
+    <button class="btn btn-primary dropdown-toggle align-items-center" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Dropdown
+    </button>
+    <ul class="dropdown-menu dropdown-modifier__body">
+        <li>
+            <a class="dropdown-item active" href="#">
+                Breaking Bad
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Game of Thrones
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Better Call Saul
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Ozark
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Dexter
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Stranger Things
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                The Island
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                The Vikings
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Better Call Saul
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Ozark
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                Dexter
+            </a>
+        </li>
+    </ul>
+</div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scrollable Dropdown End -->
+{% endblock %}

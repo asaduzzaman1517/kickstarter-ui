@@ -1618,7 +1618,7 @@ small,
   transform: skew(21deg);
 }
 .btn-shadow {
-  box-shadow: 0.15625rem 0.15625rem 0 var(--bs-dark);
+  box-shadow: 0.25rem 0.25rem 0 var(--bs-dark);
 }
 .btn-shadow:hover {
   box-shadow: 0 0 0 var(--bs-dark);
@@ -2416,49 +2416,49 @@ small,
 .dropdown-modifier .dropdown-item {
   --bs-dropdown-item-border-radius: 0.25rem;
 }
-.dropdown-modifier--secondary .dropdown-menu {
+.dropdown-modifier-secondary .dropdown-menu {
   --bs-dropdown-link-hover-color: var(--bs-secondary-text-emphasis);
   --bs-dropdown-link-hover-bg: var(--bs-secondary-bg-subtle);
   --bs-dropdown-link-active-color: var(--bs-secondary-text-emphasis);
   --bs-dropdown-link-active-bg: var(--bs-secondary-bg-subtle);
   --bs-dropdown-link-disabled-color: var(--bs-secondary-text-emphasis);
 }
-.dropdown-modifier--success .dropdown-menu {
+.dropdown-modifier-success .dropdown-menu {
   --bs-dropdown-link-hover-color: var(--bs-success-text-emphasis);
   --bs-dropdown-link-hover-bg: var(--bs-success-bg-subtle);
   --bs-dropdown-link-active-color: var(--bs-success-text-emphasis);
   --bs-dropdown-link-active-bg: var(--bs-success-bg-subtle);
   --bs-dropdown-link-disabled-color: var(--bs-success-text-emphasis);
 }
-.dropdown-modifier--danger .dropdown-menu {
+.dropdown-modifier-danger .dropdown-menu {
   --bs-dropdown-link-hover-color: var(--bs-danger-text-emphasis);
   --bs-dropdown-link-hover-bg: var(--bs-danger-bg-subtle);
   --bs-dropdown-link-active-color: var(--bs-danger-text-emphasis);
   --bs-dropdown-link-active-bg: var(--bs-danger-bg-subtle);
   --bs-dropdown-link-disabled-color: var(--bs-danger-text-emphasis);
 }
-.dropdown-modifier--warning .dropdown-menu {
+.dropdown-modifier-warning .dropdown-menu {
   --bs-dropdown-link-hover-color: var(--bs-warning-text-emphasis);
   --bs-dropdown-link-hover-bg: var(--bs-warning-bg-subtle);
   --bs-dropdown-link-active-color: var(--bs-warning-text-emphasis);
   --bs-dropdown-link-active-bg: var(--bs-warning-bg-subtle);
   --bs-dropdown-link-disabled-color: var(--bs-warning-text-emphasis);
 }
-.dropdown-modifier--info .dropdown-menu {
+.dropdown-modifier-info .dropdown-menu {
   --bs-dropdown-link-hover-color: var(--bs-info-text-emphasis);
   --bs-dropdown-link-hover-bg: var(--bs-info-bg-subtle);
   --bs-dropdown-link-active-color: var(--bs-info-text-emphasis);
   --bs-dropdown-link-active-bg: var(--bs-info-bg-subtle);
   --bs-dropdown-link-disabled-color: var(--bs-info-text-emphasis);
 }
-.dropdown-modifier--light .dropdown-menu {
+.dropdown-modifier-light .dropdown-menu {
   --bs-dropdown-link-hover-color: var(--bs-light-text-emphasis);
   --bs-dropdown-link-hover-bg: var(--bs-light-bg-subtle);
   --bs-dropdown-link-active-color: var(--bs-light-text-emphasis);
   --bs-dropdown-link-active-bg: var(--bs-light-bg-subtle);
   --bs-dropdown-link-disabled-color: var(--bs-light-text-emphasis);
 }
-.dropdown-modifier--dark .dropdown-menu {
+.dropdown-modifier-dark .dropdown-menu {
   --bs-dropdown-link-hover-color: var(--bs-dark-text-emphasis);
   --bs-dropdown-link-hover-bg: var(--bs-dark-bg-subtle);
   --bs-dropdown-link-active-color: var(--bs-dark-text-emphasis);
