@@ -362,5 +362,57 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 		});
 	}
+
+	/**
+	 * Slide Change on Cursor Move
+	 */
+	const sliders = document.querySelectorAll(".cursor-swipe-slider");
+
+	sliders.forEach((sliderEl, index) => {
+		const swiper = new Swiper(sliderEl, {
+			loop: true,
+			speed: 600,
+			effect: "fade",
+			fadeEffect: {
+				crossFade: true,
+			},
+			pagination: {
+				el: sliderEl.querySelector(".cursor-swipe-slider .swiper-pagination"),
+				clickable: true,
+			},
+		});
+
+		// Cursor control
+		let lastX = null;
+		let canTrigger = true;
+		const threshold = 40; // movement in px to trigger slide
+		const cooldown = 300; // delay before next slide allowed
+
+		sliderEl.addEventListener("mouseenter", (e) => {
+			lastX = e.clientX ?? 0;
+		});
+
+		sliderEl.addEventListener("mousemove", (e) => {
+			if (!canTrigger || lastX === null) return;
+
+			const diff = e.clientX - lastX;
+
+			if (Math.abs(diff) > threshold) {
+				if (diff > 0) {
+					swiper.slideNext();
+				} else {
+					swiper.slidePrev();
+				}
+
+				canTrigger = false;
+				setTimeout(() => (canTrigger = true), cooldown);
+				lastX = e.clientX;
+			}
+		});
+
+		sliderEl.addEventListener("mouseleave", () => {
+			lastX = null;
+		});
+	});
 	// You are inside DOMContentLoaded
 });

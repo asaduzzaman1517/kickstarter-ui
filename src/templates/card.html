@@ -1,0 +1,945 @@
+---
+{% extends "layouts/doc.html" %}
+{% set page = "card" %}
+{% set bodyClass = "bg-body" %}
+{% set primaryHeader = "primary-header--light primary-header--sticky top-0" %}
+{% set navBtnColor = "fw-semibold text-light" %}
+{% set logoLight = "logo-dark.png" %}
+{% set logoDark = "logo-light.png" %}
+---
+
+{% block content %}
+<!-- Product Card 1 -->
+<div class="section-space-xsm-top">
+    <h6 class="d-flex align-items-center gap-1 fs-20">1. Product Card -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">One</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-xl-5">
+                <div class="d-flex flex-column px-6 py-9 rounded bg-white dark:bg-light-subtle shadow h-100 group">
+                    <div class="mb-6">
+                        <div class="d-flex gap-4 align-items-center mb-4">
+                            <div class="flex-grow-1">
+                                <a href="#" class="link d-flex align-items-center gap-1 mb-1">
+                                    <span class="d-block flex-shrink-0 w-2 h-2 rounded-circle bg-primary"></span>
+                                    <span class="d-block flex-grow-1 fs-12 fw-semibold text-primary">
+                                        Toyota
+                                    </span>
+                                </a>
+                                <h6 class="mb-0 fs-16">
+                                    <a href="#" class="link d-block text-heading hover:text-primary">
+                                        Corolla CROSS Hybrid Z
+                                    </a>
+                                </h6>
+                            </div>
+                            <button type="button"
+                                class="btn btn-sm btn-icon btn-dark-subtle rounded-circle flex-shrink-0">
+                                <iconify-icon icon="tdesign:heart"></iconify-icon>
+                            </button>
+                        </div>
+                        <span class="d-block fs-20 fw-bold">
+                            $50,000
+                        </span>
+                    </div>
+                    <a href="#" class="link d-block my-auto text-center">
+                        <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                    </a>
+                    <div class="mt-6 position-relative z-1">
+                        <ul
+                            class="list list-row gap-4 align-items-center justify-content-between flex-wrap transition group-hover:opacity-0">
+                            <li class="text-center">
+                                <iconify-icon icon="line-md:speed-loop" class="fs-24 text-body"></iconify-icon>
+                                <span class="d-block fs-14 text-body">
+                                    100 Miles
+                                </span>
+                            </li>
+                            <li class="text-center">
+                                <iconify-icon icon="bi:fuel-pump" class="fs-24 text-body"></iconify-icon>
+                                <span class="d-block fs-14 text-body">
+                                    Hybrid
+                                </span>
+                            </li>
+                            <li class="text-center">
+                                <iconify-icon icon="icon-park-outline:manual-gear"
+                                    class="fs-24 text-body"></iconify-icon>
+                                <span class="d-block fs-14 text-body">
+                                    Automatic
+                                </span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="btn btn-primary fw-medium position-absolute top-50 start-50 translate-middle opacity-0 transition group-hover:opacity-1">
+                            View More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="d-flex flex-column px-6 py-9 rounded bg-white dark:bg-light-subtle shadow h-100 group">
+                    <div class="mb-6">
+                        <div class="d-flex gap-4 align-items-center mb-4">
+                            <div class="flex-grow-1">
+                                <a href="#" class="link d-flex align-items-center gap-1 mb-1">
+                                    <span class="d-block flex-shrink-0 w-2 h-2 rounded-circle bg-primary"></span>
+                                    <span class="d-block flex-grow-1 fs-12 fw-semibold text-primary">
+                                        Toyota
+                                    </span>
+                                </a>
+                                <h6 class="mb-0 fs-16">
+                                    <a href="#" class="link d-block text-heading hover:text-primary">
+                                        Corolla CROSS Hybrid Z
+                                    </a>
+                                </h6>
+                            </div>
+                            <button type="button"
+                                class="btn btn-sm btn-icon btn-dark-subtle rounded-circle flex-shrink-0">
+                                <iconify-icon icon="tdesign:heart"></iconify-icon>
+                            </button>
+                        </div>
+                        <span class="d-block fs-20 fw-bold">
+                            $50,000
+                        </span>
+                    </div>
+                    <a href="#" class="link d-block my-auto text-center">
+                        <img src="...." alt="image" class="img-fluid">
+                    </a>
+                    <div class="mt-6 position-relative z-1">
+                        <ul
+                            class="list list-row gap-4 align-items-center justify-content-between flex-wrap transition group-hover:opacity-0">
+                            <li class="text-center">
+                                <iconify-icon icon="line-md:speed-loop" class="fs-24 text-body"></iconify-icon>
+                                <span class="d-block fs-14 text-body">
+                                    100 Miles
+                                </span>
+                            </li>
+                            <li class="text-center">
+                                <iconify-icon icon="bi:fuel-pump" class="fs-24 text-body"></iconify-icon>
+                                <span class="d-block fs-14 text-body">
+                                    Hybrid
+                                </span>
+                            </li>
+                            <li class="text-center">
+                                <iconify-icon icon="icon-park-outline:manual-gear"
+                                    class="fs-24 text-body"></iconify-icon>
+                                <span class="d-block fs-14 text-body">
+                                    Automatic
+                                </span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="btn btn-primary fw-medium position-absolute top-50 start-50 translate-middle opacity-0 transition group-hover:opacity-1">
+                            View More
+                        </a>
+                    </div>
+                </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Card 1 End -->
+
+<!-- Product Card 2 -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">2. Product Card -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Two</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-xl-5">
+                <div class="d-flex flex-column align-items-start px-6 py-8 rounded bg-light-subtle shadow h-100 group">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-4 mb-4">
+                        <div class="w-12 text-center">
+                            <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                        </div>
+                        <button type="button" class="btn btn-xsm btn-light align-items-center">
+                            <iconify-icon icon="solar:share-linear"
+                                class="align-middle fs-20 flex-shrink-0"></iconify-icon>
+                            <span class="d-inline-block flex-grow-1">
+                                Share
+                            </span>
+                        </button>
+                    </div>
+                    <a href="#" class="link d-block my-auto text-center">
+                        <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                    </a>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <span
+                                class="badge bg-primary-emphasis text-primary-subtle group-hover:bg-primary group-hover:text-light transition rounded-1">
+                                SEDAN
+                            </span>
+                            <span class="badge bg-light dark:bg-dark text-heading rounded-1">
+                                <iconify-icon icon="stash:person" class="d-inline-block fs-16"></iconify-icon>
+                                <span class="d-inline-block">
+                                    Person
+                                </span>
+                            </span>
+                        </div>
+                        <div class="d-flex gap-4 align-items-center justify-content-between flex-wrap my-4">
+                            <div class="d-flex align-items-center gap-1">
+                                <iconify-icon icon="bi:fuel-pump" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Petrol
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                                <iconify-icon icon="icon-park-outline:manual-gear" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Manual
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                                <iconify-icon icon="mingcute:car-line" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Hatchback
+                                </span>
+                            </div>
+                        </div>
+                        <div
+                            class="py-2 px-4 rounded shadow border border-color border-opacity-0 transition group-hover:border-opacity-100">
+                            <ul
+                                class="list list-row align-items-center flex-wrap list-separate list-separate--md list-separate--half list-separate--border">
+                                <li>
+                                    <span class="d-block fs-12">Deposit</span>
+                                    <span class="d-block fw-bold text-heading">
+                                        $1000
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="d-block fs-12">KM Limit</span>
+                                    <span class="d-block fw-bold text-heading">
+                                        900km
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="d-block fs-12">Credit Card</span>
+                                    <span class="d-block fw-bold text-heading">
+                                        $1000
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center gap-4 flex-wrap my-4">
+                            <div class="flex-grow-1">
+                                <span class="d-block fs-14">
+                                    $100.00 Per Day
+                                </span>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="d-block fw-bold text-heading">
+                                        3 days
+                                    </span>
+                                    <span class="d-block text-danger text-decoration-line-through">
+                                        $300
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <h6 class="mb-0 fs-20">
+                                    $200.00
+                                </h6>
+                            </div>
+                        </div>
+                        <button type="button"
+                            class="btn btn-sm btn-outline-secondary w-100 fw-medium group-hover:bg-primary group-hover:border-primary group-hover:text-light">
+                            Rent Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="d-flex flex-column px-6 py-8 rounded bg-light-subtle shadow h-100 group">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-4 mb-4">
+                        <div class="w-12 text-center">
+                            <img src="...." alt="image" class="img-fluid">
+                        </div>
+                        <button type="button" class="btn btn-xsm btn-light align-items-center">
+                            <iconify-icon icon="solar:share-linear"
+                                class="align-middle fs-20 flex-shrink-0"></iconify-icon>
+                            <span class="d-inline-block flex-grow-1">
+                                Share
+                            </span>
+                        </button>
+                    </div>
+                    <a href="#" class="link d-block my-auto text-center">
+                        <img src="...." alt="image" class="img-fluid">
+                    </a>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <span
+                                class="badge bg-primary-emphasis text-primary-subtle group-hover:bg-primary group-hover:text-light transition rounded-1">
+                                SEDAN
+                            </span>
+                            <span class="badge bg-light dark:bg-dark text-heading rounded-1">
+                                <iconify-icon icon="stash:person" class="d-inline-block fs-16"></iconify-icon>
+                                <span class="d-inline-block">
+                                    Person
+                                </span>
+                            </span>
+                        </div>
+                        <div class="d-flex gap-4 align-items-center justify-content-between flex-wrap my-4">
+                            <div class="d-flex align-items-center gap-1">
+                                <iconify-icon icon="bi:fuel-pump" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Petrol
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                                <iconify-icon icon="icon-park-outline:manual-gear" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Manual
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center gap-1">
+                                <iconify-icon icon="mingcute:car-line" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Hatchback
+                                </span>
+                            </div>
+                        </div>
+                        <div
+                            class="py-2 px-4 rounded shadow border border-color border-opacity-0 transition group-hover:border-opacity-100">
+                            <ul
+                                class="list list-row align-items-center flex-wrap list-separate list-separate--md list-separate--half list-separate--border">
+                                <li>
+                                    <span class="d-block fs-12">Deposit</span>
+                                    <span class="d-block fw-bold text-heading">
+                                        $1000
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="d-block fs-12">KM Limit</span>
+                                    <span class="d-block fw-bold text-heading">
+                                        900km
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="d-block fs-12">Credit Card</span>
+                                    <span class="d-block fw-bold text-heading">
+                                        $1000
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center gap-4 flex-wrap my-4">
+                            <div class="flex-grow-1">
+                                <span class="d-block fs-14">
+                                    $100.00 Per Day
+                                </span>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="d-block fw-bold text-heading">
+                                        3 days
+                                    </span>
+                                    <span class="d-block text-danger text-decoration-line-through">
+                                        $300
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <h6 class="mb-0 fs-20">
+                                    $200.00
+                                </h6>
+                            </div>
+                        </div>
+                        <button type="button"
+                            class="btn btn-sm btn-outline-secondary w-100 fw-medium group-hover:bg-primary group-hover:border-primary group-hover:text-light">
+                            Rent Now
+                        </button>
+                    </div>
+                </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Card 2 End -->
+
+<!-- Product Card 3 -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">3. Product Card -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Three</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-xl-5">
+                <div
+                    class="d-flex flex-column px-6 px-xl-7 py-10 rounded bg-light hover:bg-light-subtle dark:bg-light-subtle border border-primary border-opacity-0 hover:border-opacity-50 transition shadow h-100 group">
+                    <div class="mb-4">
+                        <h6 class="fs-20 mb-2">
+                            Hyundai Tucson
+                        </h6>
+                        <p class="mb-2 fs-14">
+                            Hyundai's unusual looking family SUV contender
+                        </p>
+                        <span
+                            class="badge bg-primary-emphasis text-primary-subtle group-hover:bg-primary group-hover:text-light transition">
+                            Avg saving 25% off
+                        </span>
+                    </div>
+                    <div class="swiper cursor-swipe-slider w-100">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="mt-4 w-100">
+                        <div class="d-flex justify-content-between align-items-center gap-4 flex-wrap">
+                            <div class="flex-shrink-0">
+                                <span class="badge bg-light-subtle text-light-emphasis shadow d-block mb-2 text-start">
+                                    Cash from <span class="text-heading fw-bold">$28,688</span>
+                                </span>
+                                <span class="badge bg-light-subtle text-light-emphasis shadow d-block text-start">
+                                    Lease from <span class="text-heading fw-bold">$280 / Month</span>
+                                </span>
+                            </div>
+                            <a href="#"
+                                class="btn btn-icon btn-dark group-hover:bg-primary group-hover:text-light group-hover:border-primary rounded-circle flex-shrink-0">
+                                <iconify-icon icon="ci:chevron-right"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div
+                    class="d-flex flex-column px-6 px-xl-7 py-10 rounded bg-light hover:bg-light-subtle dark:bg-light-subtle border border-primary border-opacity-0 hover:border-opacity-50 transition shadow h-100 group">
+                    <div class="mb-4">
+                        <h6 class="fs-20 mb-2">
+                            Hyundai Tucson
+                        </h6>
+                        <p class="mb-2 fs-14">
+                            Hyundai's unusual looking family SUV contender
+                        </p>
+                        <span
+                            class="badge bg-primary-emphasis text-primary-subtle group-hover:bg-primary group-hover:text-light transition">
+                            Avg saving 25% off
+                        </span>
+                    </div>
+                    <div class="swiper cursor-swipe-slider w-100">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="...." alt="image" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="...." alt="image" class="img-fluid">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="...." alt="image" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="mt-4 w-100">
+                        <div class="d-flex justify-content-between align-items-center gap-4 flex-wrap">
+                            <div class="flex-shrink-0">
+                                <span class="badge bg-light-subtle text-light-emphasis shadow d-block mb-2 text-start">
+                                    Cash from <span class="text-heading fw-bold">$28,688</span>
+                                </span>
+                                <span class="badge bg-light-subtle text-light-emphasis shadow d-block text-start">
+                                    Lease from <span class="text-heading fw-bold">$280 / Month</span>
+                                </span>
+                            </div>
+                            <a href="#"
+                                class="btn btn-icon btn-dark group-hover:bg-primary group-hover:text-light group-hover:border-primary rounded-circle flex-shrink-0">
+                                <iconify-icon icon="ci:chevron-right"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!--
+                        const sliders = document.querySelectorAll(".cursor-swipe-slider");
+
+	sliders.forEach((sliderEl, index) => {
+		const swiper = new Swiper(sliderEl, {
+			loop: true,
+			speed: 600,
+            effect: "fade",
+			fadeEffect: {
+				crossFade: true,
+			},
+			pagination: {
+				el: sliderEl.querySelector(".cursor-swipe-slider .swiper-pagination"),
+				clickable: true,
+			},
+		});
+
+		// Cursor control
+		let lastX = null;
+		let canTrigger = true;
+		const threshold = 40; // movement in px to trigger slide
+		const cooldown = 300; // delay before next slide allowed
+
+		sliderEl.addEventListener("mouseenter", (e) => {
+			lastX = e.clientX ?? 0;
+		});
+
+		sliderEl.addEventListener("mousemove", (e) => {
+			if (!canTrigger || lastX === null) return;
+
+			const diff = e.clientX - lastX;
+
+			if (Math.abs(diff) > threshold) {
+				if (diff > 0) {
+					swiper.slideNext();
+				} else {
+					swiper.slidePrev();
+				}
+
+				canTrigger = false;
+				setTimeout(() => (canTrigger = true), cooldown);
+				lastX = e.clientX;
+			}
+		});
+
+		sliderEl.addEventListener("mouseleave", () => {
+			lastX = null;
+		});
+	});
+                    --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Card 3 End -->
+
+<!-- Product Card 3 -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">4. Product Card -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Four</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-xl-5">
+                <div class="rounded bg-light-subtle shadow">
+                    <div class="position-relative z-1 rounded-top overflow-hidden">
+                        <div class="swiper cursor-swipe-slider w-100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <button type="button"
+                            class="btn btn-sm btn-icon btn-light rounded-circle position-absolute z-1 top-6 start-6">
+                            <iconify-icon icon="tdesign:heart"></iconify-icon>
+                        </button>
+                        <span
+                            class="badge bg-dark text-light position-absolute start-0 bottom-0 z-1 rounded-top-1 rounded-bottom-0">
+                            Used Car
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <a href="#" class="link d-flex align-items-center gap-1 mb-1">
+                            <span
+                                class="d-block flex-shrink-0 w-2 h-2 rounded-circle bg-secondary dark:bg-light"></span>
+                            <span class="d-block flex-grow-1 fs-12 fw-semibold text-secondary dark:text-light">
+                                TFSI Quattro S Tronic S3
+                            </span>
+                        </a>
+                        <h6 class="fs-18">
+                            <a href="#" class="link d-block text-heading hover:text-primary">
+                                Kia Carnival MPV
+                            </a>
+                        </h6>
+                        <ul class="list list-row flex-wrap row-gap-2 column-gap-3 align-items-center mb-4">
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="basil:user-outline" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        05 Person
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="qlementine-icons:meter-high-16" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        100 Miles
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="bi:fuel-pump" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        Hybrid
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="icon-park-outline:manual-gear" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        Automatic
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="mingcute:car-line" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        300KW
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <h6 class="fs-18 mb-0">
+                            $25,000
+                        </h6>
+                        <hr class="hr-dashed hr-dashed--secondary-emphasis">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center row-gap-2 column-gap-4">
+                            <ul
+                                class="list list-row list-separate list-separate--xsm list-separate--half list-separate--border list-separate--2x align-items-center">
+                                <li>
+                                    <span class="d-block fs-14 fw-medium text-secondary dark:text-light">
+                                        2014
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="d-block fs-14 fw-medium text-secondary dark:text-light">
+                                        10,825 miles
+                                    </span>
+                                </li>
+                            </ul>
+                            <button type="button"
+                                class="btn btn-sm btn-outline-secondary hover:bg-primary hover:border-primary">
+                                View More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="rounded bg-light-subtle shadow">
+                    <div class="position-relative z-1 rounded-top overflow-hidden">
+                        <div class="swiper cursor-swipe-slider w-100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="...." alt="image" class="img-fluid">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="...." alt="image" class="img-fluid">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="...." alt="image" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <button type="button"
+                            class="btn btn-sm btn-icon btn-light rounded-circle position-absolute z-1 top-6 start-6">
+                            <iconify-icon icon="tdesign:heart"></iconify-icon>
+                        </button>
+                        <span
+                            class="badge bg-dark text-light position-absolute start-0 bottom-0 z-1 rounded-top-1 rounded-bottom-0">
+                            Used Car
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <a href="#" class="link d-flex align-items-center gap-1 mb-1">
+                            <span
+                                class="d-block flex-shrink-0 w-2 h-2 rounded-circle bg-secondary dark:bg-light"></span>
+                            <span class="d-block flex-grow-1 fs-12 fw-semibold text-secondary dark:text-light">
+                                TFSI Quattro S Tronic S3
+                            </span>
+                        </a>
+                        <h6 class="fs-18">
+                            <a href="#" class="link d-block text-heading hover:text-primary">
+                                Kia Carnival MPV
+                            </a>
+                        </h6>
+                        <ul class="list list-row flex-wrap row-gap-2 column-gap-3 align-items-center mb-4">
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="basil:user-outline" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        05 Person
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="qlementine-icons:meter-high-16" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        100 Miles
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="bi:fuel-pump" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        Hybrid
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="icon-park-outline:manual-gear" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        Automatic
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="mingcute:car-line" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        300KW
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <h6 class="fs-18 mb-0">
+                            $25,000
+                        </h6>
+                        <hr class="hr-dashed hr-dashed--secondary-emphasis">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center row-gap-2 column-gap-4">
+                            <ul
+                                class="list list-row list-separate list-separate--xsm list-separate--half list-separate--border list-separate--2x align-items-center">
+                                <li>
+                                    <span class="d-block fs-14 fw-medium text-secondary dark:text-light">
+                                        2014
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="d-block fs-14 fw-medium text-secondary dark:text-light">
+                                        10,825 miles
+                                    </span>
+                                </li>
+                            </ul>
+                            <button type="button"
+                                class="btn btn-sm btn-outline-secondary hover:bg-primary hover:border-primary">
+                                View More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!--
+                        const sliders = document.querySelectorAll(".cursor-swipe-slider");
+
+	sliders.forEach((sliderEl, index) => {
+		const swiper = new Swiper(sliderEl, {
+			loop: true,
+			speed: 600,
+			effect: "fade",
+			fadeEffect: {
+				crossFade: true,
+			},
+			pagination: {
+				el: sliderEl.querySelector(".cursor-swipe-slider .swiper-pagination"),
+				clickable: true,
+			},
+		});
+
+		// Cursor control
+		let lastX = null;
+		let canTrigger = true;
+		const threshold = 40; // movement in px to trigger slide
+		const cooldown = 300; // delay before next slide allowed
+
+		sliderEl.addEventListener("mouseenter", (e) => {
+			lastX = e.clientX ?? 0;
+		});
+
+		sliderEl.addEventListener("mousemove", (e) => {
+			if (!canTrigger || lastX === null) return;
+
+			const diff = e.clientX - lastX;
+
+			if (Math.abs(diff) > threshold) {
+				if (diff > 0) {
+					swiper.slideNext();
+				} else {
+					swiper.slidePrev();
+				}
+
+				canTrigger = false;
+				setTimeout(() => (canTrigger = true), cooldown);
+				lastX = e.clientX;
+			}
+		});
+
+		sliderEl.addEventListener("mouseleave", () => {
+			lastX = null;
+		});
+	});
+                    --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Card 3 End -->
+{% endblock %}

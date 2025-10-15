@@ -173,15 +173,24 @@
 		}
 		.group-hover\:bg-body {
 			--bs-bg-opacity: 1;
-			background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
+			background-color: rgba(
+				var(--bs-body-bg-rgb),
+				var(--bs-bg-opacity)
+			) !important;
 		}
 		.group-hover\:bg-body-secondary {
 			--bs-bg-opacity: 1;
-			background-color: rgba(var(--bs-secondary-bg-rgb), var(--bs-bg-opacity)) !important;
+			background-color: rgba(
+				var(--bs-secondary-bg-rgb),
+				var(--bs-bg-opacity)
+			) !important;
 		}
 		.group-hover\:bg-body-tertiary {
 			--bs-bg-opacity: 1;
-			background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
+			background-color: rgba(
+				var(--bs-tertiary-bg-rgb),
+				var(--bs-bg-opacity)
+			) !important;
 		}
 		.group-hover\:bg-black {
 			--bs-bg-opacity: 1;
@@ -198,7 +207,10 @@
 
 		.group-hover\:bg-primary {
 			--bs-bg-opacity: 1;
-			background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+			background-color: rgba(
+				var(--bs-primary-rgb),
+				var(--bs-bg-opacity)
+			) !important;
 		}
 		.group-hover\:bg-primary-subtle {
 			background-color: var(--bs-primary-bg-subtle) !important;
@@ -209,7 +221,10 @@
 
 		.group-hover\:bg-secondary {
 			--bs-bg-opacity: 1;
-			background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+			background-color: rgba(
+				var(--bs-secondary-rgb),
+				var(--bs-bg-opacity)
+			) !important;
 		}
 		.group-hover\:bg-secondary-subtle {
 			background-color: var(--bs-secondary-bg-subtle) !important;
@@ -220,7 +235,10 @@
 
 		.group-hover\:bg-success {
 			--bs-bg-opacity: 1;
-			background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+			background-color: rgba(
+				var(--bs-success-rgb),
+				var(--bs-bg-opacity)
+			) !important;
 		}
 		.group-hover\:bg-success-subtle {
 			background-color: var(--bs-success-bg-subtle) !important;
@@ -242,7 +260,10 @@
 
 		.group-hover\:bg-warning {
 			--bs-bg-opacity: 1;
-			background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity)) !important;
+			background-color: rgba(
+				var(--bs-warning-rgb),
+				var(--bs-bg-opacity)
+			) !important;
 		}
 		.group-hover\:bg-warning-subtle {
 			background-color: var(--bs-warning-bg-subtle) !important;
@@ -329,7 +350,10 @@
 
 		.group-hover\:border-primary {
 			--bs-border-opacity: 1;
-			border-color: rgba(var(--bs-primary-rgb), var(--bs-border-opacity)) !important;
+			border-color: rgba(
+				var(--bs-primary-rgb),
+				var(--bs-border-opacity)
+			) !important;
 		}
 		.group-hover\:border-primary-subtle {
 			border-color: var(--bs-primary-border-subtle) !important;
@@ -340,7 +364,10 @@
 
 		.group-hover\:border-secondary {
 			--bs-border-opacity: 1;
-			border-color: rgba(var(--bs-secondary-rgb), var(--bs-border-opacity)) !important;
+			border-color: rgba(
+				var(--bs-secondary-rgb),
+				var(--bs-border-opacity)
+			) !important;
 		}
 		.group-hover\:border-secondary-subtle {
 			border-color: var(--bs-secondary-border-subtle) !important;
@@ -351,7 +378,10 @@
 
 		.group-hover\:border-success {
 			--bs-border-opacity: 1;
-			border-color: rgba(var(--bs-success-rgb), var(--bs-border-opacity)) !important;
+			border-color: rgba(
+				var(--bs-success-rgb),
+				var(--bs-border-opacity)
+			) !important;
 		}
 		.group-hover\:border-success-subtle {
 			border-color: var(--bs-success-border-subtle) !important;
@@ -373,7 +403,10 @@
 
 		.group-hover\:border-warning {
 			--bs-border-opacity: 1;
-			border-color: rgba(var(--bs-warning-rgb), var(--bs-border-opacity)) !important;
+			border-color: rgba(
+				var(--bs-warning-rgb),
+				var(--bs-border-opacity)
+			) !important;
 		}
 		.group-hover\:border-warning-subtle {
 			border-color: var(--bs-warning-border-subtle) !important;
@@ -422,6 +455,15 @@
 		.group-hover\:border-white {
 			--bs-border-opacity: 1;
 			border-color: rgba(var(--bs-white-rgb), var(--bs-border-opacity)) !important;
+		}
+		.group-hover\:border-color {
+			--bs-border-opacity: 1;
+			border-color: rgb(
+				from var(--bs-border-color) r g b / var(--bs-border-opacity)
+			) !important;
+		}
+		.group-hover\:border-opacity-0 {
+			--bs-border-opacity: 0;
 		}
 		.group-hover\:border-opacity-5 {
 			--bs-border-opacity: 0.05;

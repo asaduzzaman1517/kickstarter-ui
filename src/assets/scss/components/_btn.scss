@@ -5,6 +5,7 @@
 	--bs-btn-padding-y: 0.5rem;
 	--bs-btn-border-radius: 0.25rem;
 	display: inline-flex;
+	justify-content: center;
 	gap: 0.5rem;
 	flex-shrink: 0;
 	&.btn-icon {

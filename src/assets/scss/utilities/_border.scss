@@ -24,6 +24,12 @@
 .border-dark-emphasis {
 	border-color: var(--bs-dark-text-emphasis) !important;
 }
+.border-color {
+	--bs-border-opacity: 1;
+	border-color: rgb(
+		from var(--bs-border-color) r g b / var(--bs-border-opacity)
+	) !important;
+}
 .hover\:border-primary:hover {
 	--bs-border-opacity: 1;
 	border-color: rgba(var(--bs-primary-rgb), var(--bs-border-opacity)) !important;
@@ -123,6 +129,10 @@
 }
 .border-dashed {
 	--bs-border-style: dashed;
+}
+
+.border-opacity-0 {
+	--bs-border-opacity: 0;
 }
 
 .border-opacity-5 {

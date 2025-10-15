@@ -1,0 +1,83 @@
+@use "../global" as *;
+.hr-dashed {
+	--hr-color: var(--bs-secondary);
+	border: none;
+	height: 2px;
+	background-image: repeating-linear-gradient(
+		to right,
+		var(--hr-color) 0 rem(6),
+		transparent rem(6) rem(12)
+	);
+	&--primary {
+		--hr-color: var(--bs-primary);
+	}
+	&--primary-subtle {
+		--hr-color: var(--bs-primary-bg-subtle);
+	}
+	&--primary-emphasis {
+		--hr-color: var(--bs-primary-text-emphasis);
+	}
+	&--secondary {
+		--hr-color: var(--bs-secondary);
+	}
+	&--secondary-subtle {
+		--hr-color: var(--bs-secondary-bg-subtle);
+	}
+	&--secondary-emphasis {
+		--hr-color: var(--bs-secondary-text-emphasis);
+	}
+	&--success {
+		--hr-color: var(--bs-success);
+	}
+	&--success-subtle {
+		--hr-color: var(--bs-success-bg-subtle);
+	}
+	&--success-emphasis {
+		--hr-color: var(--bs-success-text-emphasis);
+	}
+	&--info {
+		--hr-color: var(--bs-info);
+	}
+	&--info-subtle {
+		--hr-color: var(--bs-info-bg-subtle);
+	}
+	&--info-emphasis {
+		--hr-color: var(--bs-info-text-emphasis);
+	}
+	&--warning {
+		--hr-color: var(--bs-warning);
+	}
+	&--warning-subtle {
+		--hr-color: var(--bs-warning-bg-subtle);
+	}
+	&--warning-emphasis {
+		--hr-color: var(--bs-warning-text-emphasis);
+	}
+	&--danger {
+		--hr-color: var(--bs-danger);
+	}
+	&--danger-subtle {
+		--hr-color: var(--bs-danger-bg-subtle);
+	}
+	&--danger-emphasis {
+		--hr-color: var(--bs-danger-text-emphasis);
+	}
+	&--dark {
+		--hr-color: var(--bs-dark);
+	}
+	&--dark-subtle {
+		--hr-color: var(--bs-dark-bg-subtle);
+	}
+	&--dark-emphasis {
+		--hr-color: var(--bs-dark-text-emphasis);
+	}
+	&--light {
+		--hr-color: var(--bs-light);
+	}
+	&--light-subtle {
+		--hr-color: var(--bs-light-bg-subtle);
+	}
+	&--light-emphasis {
+		--hr-color: var(--bs-light-text-emphasis);
+	}
+}
