@@ -572,54 +572,55 @@
                 <div
                     class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
                     <pre><code class="language-javascript"><!--
-                        const sliders = document.querySelectorAll(".cursor-swipe-slider");
+// Used in product card 3, 4, 5
+const sliders = document.querySelectorAll(".cursor-swipe-slider");
 
-	sliders.forEach((sliderEl, index) => {
-		const swiper = new Swiper(sliderEl, {
-			loop: true,
-			speed: 600,
-            effect: "fade",
-			fadeEffect: {
-				crossFade: true,
-			},
-			pagination: {
-				el: sliderEl.querySelector(".cursor-swipe-slider .swiper-pagination"),
-				clickable: true,
-			},
-		});
+sliders.forEach((sliderEl, index) => {
+    const swiper = new Swiper(sliderEl, {
+        loop: true,
+        speed: 600,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: sliderEl.querySelector(".cursor-swipe-slider .swiper-pagination"),
+            clickable: true,
+        },
+    });
 
-		// Cursor control
-		let lastX = null;
-		let canTrigger = true;
-		const threshold = 40; // movement in px to trigger slide
-		const cooldown = 300; // delay before next slide allowed
+    // Cursor control
+    let lastX = null;
+    let canTrigger = true;
+    const threshold = 40; // movement in px to trigger slide
+    const cooldown = 300; // delay before next slide allowed
 
-		sliderEl.addEventListener("mouseenter", (e) => {
-			lastX = e.clientX ?? 0;
-		});
+    sliderEl.addEventListener("mouseenter", (e) => {
+        lastX = e.clientX ?? 0;
+    });
 
-		sliderEl.addEventListener("mousemove", (e) => {
-			if (!canTrigger || lastX === null) return;
+    sliderEl.addEventListener("mousemove", (e) => {
+        if (!canTrigger || lastX === null) return;
 
-			const diff = e.clientX - lastX;
+        const diff = e.clientX - lastX;
 
-			if (Math.abs(diff) > threshold) {
-				if (diff > 0) {
-					swiper.slideNext();
-				} else {
-					swiper.slidePrev();
-				}
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+                swiper.slideNext();
+            } else {
+                swiper.slidePrev();
+            }
 
-				canTrigger = false;
-				setTimeout(() => (canTrigger = true), cooldown);
-				lastX = e.clientX;
-			}
-		});
+            canTrigger = false;
+            setTimeout(() => (canTrigger = true), cooldown);
+            lastX = e.clientX;
+        }
+    });
 
-		sliderEl.addEventListener("mouseleave", () => {
-			lastX = null;
-		});
-	});
+    sliderEl.addEventListener("mouseleave", () => {
+        lastX = null;
+    });
+});
                     --></code></pre>
                 </div>
             </div>
@@ -628,7 +629,7 @@
 </div>
 <!-- Product Card 3 End -->
 
-<!-- Product Card 3 -->
+<!-- Product Card 4 -->
 <div class="section-space-sm-y">
     <h6 class="d-flex align-items-center gap-1 fs-20">4. Product Card -
         <span class="d-inline-block fs-14 text-secondary fw-normal">Four</span>
@@ -889,59 +890,633 @@
                 <div
                     class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
                     <pre><code class="language-javascript"><!--
-                        const sliders = document.querySelectorAll(".cursor-swipe-slider");
+// Used in product card 3, 4, 5
+const sliders = document.querySelectorAll(".cursor-swipe-slider");
 
-	sliders.forEach((sliderEl, index) => {
-		const swiper = new Swiper(sliderEl, {
-			loop: true,
-			speed: 600,
-			effect: "fade",
-			fadeEffect: {
-				crossFade: true,
-			},
-			pagination: {
-				el: sliderEl.querySelector(".cursor-swipe-slider .swiper-pagination"),
-				clickable: true,
-			},
-		});
+sliders.forEach((sliderEl, index) => {
+    const swiper = new Swiper(sliderEl, {
+        loop: true,
+        speed: 600,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: sliderEl.querySelector(".cursor-swipe-slider .swiper-pagination"),
+            clickable: true,
+        },
+    });
 
-		// Cursor control
-		let lastX = null;
-		let canTrigger = true;
-		const threshold = 40; // movement in px to trigger slide
-		const cooldown = 300; // delay before next slide allowed
+    // Cursor control
+    let lastX = null;
+    let canTrigger = true;
+    const threshold = 40; // movement in px to trigger slide
+    const cooldown = 300; // delay before next slide allowed
 
-		sliderEl.addEventListener("mouseenter", (e) => {
-			lastX = e.clientX ?? 0;
-		});
+    sliderEl.addEventListener("mouseenter", (e) => {
+        lastX = e.clientX ?? 0;
+    });
 
-		sliderEl.addEventListener("mousemove", (e) => {
-			if (!canTrigger || lastX === null) return;
+    sliderEl.addEventListener("mousemove", (e) => {
+        if (!canTrigger || lastX === null) return;
 
-			const diff = e.clientX - lastX;
+        const diff = e.clientX - lastX;
 
-			if (Math.abs(diff) > threshold) {
-				if (diff > 0) {
-					swiper.slideNext();
-				} else {
-					swiper.slidePrev();
-				}
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+                swiper.slideNext();
+            } else {
+                swiper.slidePrev();
+            }
 
-				canTrigger = false;
-				setTimeout(() => (canTrigger = true), cooldown);
-				lastX = e.clientX;
-			}
-		});
+            canTrigger = false;
+            setTimeout(() => (canTrigger = true), cooldown);
+            lastX = e.clientX;
+        }
+    });
 
-		sliderEl.addEventListener("mouseleave", () => {
-			lastX = null;
-		});
-	});
+    sliderEl.addEventListener("mouseleave", () => {
+        lastX = null;
+    });
+});
                     --></code></pre>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Product Card 3 End -->
+<!-- Product Card 4 End -->
+
+<!-- Product Card 5 -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">5. Product Card -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Five</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-xl-5">
+                <div
+                    class="rounded bg-light-subtle shadow group border border-color border-opacity-0 hover:border-primary hover:border-opacity-50 transition">
+                    <div class="position-relative z-1 rounded-top overflow-hidden">
+                        <div class="swiper cursor-swipe-slider w-100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <button type="button"
+                            class="btn btn-sm btn-icon btn-light rounded-circle position-absolute z-1 top-6 end-6">
+                            <iconify-icon icon="tdesign:heart"></iconify-icon>
+                        </button>
+                        <span
+                            class="d-inline-block position-absolute start-0 end-0 bottom-0 h-2 bg-light-subtle rounded-top-2 z-1 transition"></span>
+                    </div>
+                    <div class="p-6">
+                        <a href="#" class="link d-flex align-items-center gap-1 mb-1">
+                            <span class="d-block flex-shrink-0 w-2 h-2 rounded-circle bg-primary dark:bg-light"></span>
+                            <span class="d-block flex-grow-1 fs-12 fw-semibold text-primary dark:text-light">
+                                BMW
+                            </span>
+                        </a>
+                        <h6 class="fs-18">
+                            <a href="#" class="link d-block text-heading hover:text-primary">
+                                Kia Carnival MPV
+                            </a>
+                        </h6>
+                        <ul class="list list-row flex-wrap row-gap-2 column-gap-3 align-items-center mb-4">
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="qlementine-icons:meter-high-16" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        100 Miles
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="bi:fuel-pump" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        Hybrid
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="icon-park-outline:manual-gear" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        Automatic
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="d-flex flex-wrap justify-content-between align-items-center row-gap-2 column-gap-4">
+                            <h6 class="fs-18 mb-0">
+                                $25,000
+                            </h6>
+                            <a href="#"
+                                class="btn btn-sm text-primary group-hover:bg-primary group-hover:border-primary group-hover:text-light fw-semibold align-items-center gap-1">
+                                <span class="d-inline-block">
+                                    View More
+                                </span>
+                                <iconify-icon icon="mynaui:chevron-right-solid"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div
+                    class="rounded bg-light-subtle shadow group border border-color border-opacity-0 hover:border-primary hover:border-opacity-50 transition">
+                    <div class="position-relative z-1 rounded-top overflow-hidden">
+                        <div class="swiper cursor-swipe-slider w-100">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="...." alt="image" class="img-fluid">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="...." alt="image" class="img-fluid">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="...." alt="image" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <button type="button"
+                            class="btn btn-sm btn-icon btn-light rounded-circle position-absolute z-1 top-6 end-6">
+                            <iconify-icon icon="tdesign:heart"></iconify-icon>
+                        </button>
+                        <span
+                            class="d-inline-block position-absolute start-0 end-0 bottom-0 h-2 bg-light-subtle rounded-top-2 z-1 transition"></span>
+                    </div>
+                    <div class="p-6">
+                        <a href="#" class="link d-flex align-items-center gap-1 mb-1">
+                            <span class="d-block flex-shrink-0 w-2 h-2 rounded-circle bg-primary dark:bg-light"></span>
+                            <span class="d-block flex-grow-1 fs-12 fw-semibold text-primary dark:text-light">
+                                BMW
+                            </span>
+                        </a>
+                        <h6 class="fs-18">
+                            <a href="#" class="link d-block text-heading hover:text-primary">
+                                Kia Carnival MPV
+                            </a>
+                        </h6>
+                        <ul class="list list-row flex-wrap row-gap-2 column-gap-3 align-items-center mb-4">
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="qlementine-icons:meter-high-16" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        100 Miles
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="bi:fuel-pump" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        Hybrid
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                    <iconify-icon icon="icon-park-outline:manual-gear" class="fs-16"></iconify-icon>
+                                    <span class="d-inlin-block fs-14 fw-medium">
+                                        Automatic
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="d-flex flex-wrap justify-content-between align-items-center row-gap-2 column-gap-4">
+                            <h6 class="fs-18 mb-0">
+                                $25,000
+                            </h6>
+                            <a href="#"
+                                class="btn btn-sm text-primary group-hover:bg-primary group-hover:border-primary group-hover:text-light fw-semibold align-items-center gap-1">
+                                <span class="d-inline-block">
+                                    View More
+                                </span>
+                                <iconify-icon icon="mynaui:chevron-right-solid"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!--
+// Used in product card 3, 4, 5
+const sliders = document.querySelectorAll(".cursor-swipe-slider");
+
+sliders.forEach((sliderEl, index) => {
+    const swiper = new Swiper(sliderEl, {
+        loop: true,
+        speed: 600,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true,
+        },
+        pagination: {
+            el: sliderEl.querySelector(".cursor-swipe-slider .swiper-pagination"),
+            clickable: true,
+        },
+    });
+
+    // Cursor control
+    let lastX = null;
+    let canTrigger = true;
+    const threshold = 40; // movement in px to trigger slide
+    const cooldown = 300; // delay before next slide allowed
+
+    sliderEl.addEventListener("mouseenter", (e) => {
+        lastX = e.clientX ?? 0;
+    });
+
+    sliderEl.addEventListener("mousemove", (e) => {
+        if (!canTrigger || lastX === null) return;
+
+        const diff = e.clientX - lastX;
+
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+                swiper.slideNext();
+            } else {
+                swiper.slidePrev();
+            }
+
+            canTrigger = false;
+            setTimeout(() => (canTrigger = true), cooldown);
+            lastX = e.clientX;
+        }
+    });
+
+    sliderEl.addEventListener("mouseleave", () => {
+        lastX = null;
+    });
+});
+                    
+                    --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Card 5 End -->
+
+<!-- Product Card 6 -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">6. Product Card -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Six</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-xl-5">
+                <div class="d-flex flex-column group rounded bg-light-subtle shadow px-6 py-9 h-100">
+                    <div class="d-flex gap-4 align-items-center mb-4">
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1 fs-18">
+                                <a href="#" class="link d-block text-heading hover:text-primary">
+                                    Corolla CROSS Hybrid Z
+                                </a>
+                            </h6>
+                            <p class="mb-0 fs-14">
+                                Match Pure
+                            </p>
+                        </div>
+                        <button type="button"
+                            class="btn btn-sm btn-icon btn-primary-subtle rounded-circle flex-shrink-0">
+                            <iconify-icon icon="tdesign:heart"></iconify-icon>
+                        </button>
+                    </div>
+                    <ul class="list list-row flex-wrap row-gap-2 column-gap-3 align-items-center mb-3">
+                        <li>
+                            <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                <iconify-icon icon="qlementine-icons:meter-high-16" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    100 Miles
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                <iconify-icon icon="bi:fuel-pump" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Hybrid
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                <iconify-icon icon="icon-park-outline:manual-gear" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Automatic
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-6">
+                        <span class="badge bg-dark group-hover:bg-primary text-light px-1 transition">
+                            <iconify-icon icon="material-symbols:star-rounded" class="fs-16"></iconify-icon>
+                            <span class="d-inline-block">
+                                4.5
+                            </span>
+                        </span>
+                        <span class="d-block fs-14">
+                            Jeep Avenger review
+                        </span>
+                    </div>
+                    <a href="#" class="link d-block my-auto text-center">
+                        <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                    </a>
+                    <div
+                        class="d-flex gap-4 align-items-center py-2 px-3 rounded bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mt-6">
+                        <div class="flex-grow-1">
+                            <span class="d-block fs-12 mb-1">
+                                Lease Volkswagen ID.3
+                            </span>
+                            <h6 class="mb-0 fs-16">
+                                From $500 / month
+                            </h6>
+                        </div>
+                        <button type="button"
+                            class="btn btn-icon btn-dark rounded-circle flex-shrink-0 group-hover:bg-primary group-hover:text-light group-hover:border-primary">
+                            <iconify-icon icon="tabler:arrow-right"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="d-flex flex-column group rounded bg-light-subtle shadow px-6 py-9 h-100">
+                    <div class="d-flex gap-4 align-items-center mb-4">
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1 fs-18">
+                                <a href="#" class="link d-block text-heading hover:text-primary">
+                                    Corolla CROSS Hybrid Z
+                                </a>
+                            </h6>
+                            <p class="mb-0 fs-14">
+                                Match Pure
+                            </p>
+                        </div>
+                        <button type="button"
+                            class="btn btn-sm btn-icon btn-primary-subtle rounded-circle flex-shrink-0">
+                            <iconify-icon icon="tdesign:heart"></iconify-icon>
+                        </button>
+                    </div>
+                    <ul class="list list-row flex-wrap row-gap-2 column-gap-3 align-items-center mb-3">
+                        <li>
+                            <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                <iconify-icon icon="qlementine-icons:meter-high-16" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    100 Miles
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                <iconify-icon icon="bi:fuel-pump" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Hybrid
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-center gap-2 text-secondary dark:text-light">
+                                <iconify-icon icon="icon-park-outline:manual-gear" class="fs-16"></iconify-icon>
+                                <span class="d-inlin-block fs-14 fw-medium">
+                                    Automatic
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-6">
+                        <span class="badge bg-dark group-hover:bg-primary text-light px-1 transition">
+                            <iconify-icon icon="material-symbols:star-rounded" class="fs-16"></iconify-icon>
+                            <span class="d-inline-block">
+                                4.5
+                            </span>
+                        </span>
+                        <span class="d-block fs-14">
+                            Jeep Avenger review
+                        </span>
+                    </div>
+                    <a href="#" class="link d-block my-auto text-center">
+                        <img src="...." alt="image" class="img-fluid">
+                    </a>
+                    <div
+                        class="d-flex gap-4 align-items-center py-2 px-3 rounded bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mt-6">
+                        <div class="flex-grow-1">
+                            <span class="d-block fs-12 mb-1">
+                                Lease Volkswagen ID.3
+                            </span>
+                            <h6 class="mb-0 fs-16">
+                                From $500 / month
+                            </h6>
+                        </div>
+                        <button type="button"
+                            class="btn btn-icon btn-dark rounded-circle flex-shrink-0 group-hover:bg-primary group-hover:text-light group-hover:border-primary">
+                            <iconify-icon icon="tabler:arrow-right"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Card 6 End -->
+
+<!-- Product Card 7 -->
+<div class="section-space-sm-y">
+    <h6 class="d-flex align-items-center gap-1 fs-20">7. Product Card -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">Seven</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-xxl-5">
+                <div
+                    class="d-flex flex-column group rounded bg-light-subtle border border-color hover:border-primary hover:border-opacity-50 transition px-6 py-8 h-100">
+                    <a href="#" class="link d-block text-center rounded overflow-hidden mb-6">
+                        <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                    </a>
+                    <div class="row align-items-center my-auto">
+                        <div class="col-6">
+                            <div class="w-12 text-center mb-2">
+                                <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                            </div>
+                            <h6 class="mb-0 fs-14">
+                                Kia Carnival MPV
+                            </h6>
+                        </div>
+                        <div class="col-6 text-end">
+                            <div class="w-12 text-center ms-auto mb-2">
+                                <img src="assets/img/placeholder-img-169.png" alt="image" class="img-fluid">
+                            </div>
+                            <h6 class="mb-0 fs-14">
+                                Honda S3 Sportback
+                            </h6>
+                        </div>
+                    </div>
+                    <button type="button"
+                        class="btn btn-sm btn-outline-secondary-subtle mt-6 fw-medium hover:bg-primary hover:text-light hover:border-primary group-hover:bg-primary group-hover:text-light group-hover:border-primary">
+                        Compare
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div
+                    class="d-flex flex-column group rounded bg-light-subtle border border-color hover:border-primary hover:border-opacity-50 transition px-6 py-8 h-100">
+                    <a href="#" class="link d-block text-center rounded overflow-hidden mb-6">
+                        <img src="...." alt="image" class="img-fluid">
+                    </a>
+                    <div class="row align-items-center my-auto">
+                        <div class="col-6">
+                            <div class="w-12 text-center mb-2">
+                                <img src="...." alt="image" class="img-fluid">
+                            </div>
+                            <h6 class="mb-0 fs-14">
+                                Kia Carnival MPV
+                            </h6>
+                        </div>
+                        <div class="col-6 text-end">
+                            <div class="w-12 text-center ms-auto mb-2">
+                                <img src="...." alt="image" class="img-fluid">
+                            </div>
+                            <h6 class="mb-0 fs-14">
+                                Honda S3 Sportback
+                            </h6>
+                        </div>
+                    </div>
+                    <button type="button"
+                        class="btn btn-sm btn-outline-secondary-subtle mt-6 fw-medium hover:bg-primary hover:text-light hover:border-primary group-hover:bg-primary group-hover:text-light group-hover:border-primary">
+                        Compare
+                    </button>
+                </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Card 7 End -->
 {% endblock %}

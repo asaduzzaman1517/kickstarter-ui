@@ -1525,7 +1525,7 @@ small,
 .btn.btn-icon:not(.btn-xsm):not(.btn-sm):not(.btn-lg) {
   --bs-btn-padding-x: calc(0.5rem + 1px);
   --bs-btn-padding-y: calc(0.5rem + 1px);
-  --bs-btn-font-size: 1.5rem;
+  --bs-btn-font-size: 1.25rem;
 }
 .btn.btn-pulse {
   --pulse-clr: var(--bs-primary);
