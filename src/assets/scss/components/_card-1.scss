@@ -1,0 +1,30 @@
+@use "../global" as *;
+.card-1 {
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem;
+	min-height: rem(350);
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	@include screen(sm) {
+		padding-block: 2rem;
+	}
+	@include screen(md) {
+		padding: 2.5rem 2rem;
+	}
+	&--xl {
+		@include screen(xl) {
+			min-height: rem(450);
+		}
+	}
+	&--overlay {
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			background-image: linear-gradient(transparent, var(--bs-dark));
+		}
+	}
+}

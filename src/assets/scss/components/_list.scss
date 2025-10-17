@@ -158,6 +158,22 @@
 				background-color: var(--separate-clr);
 			}
 		}
+		& > div + div {
+			padding-inline-start: var(--separate-space);
+			margin-inline-start: var(--separate-space);
+			position: relative;
+			isolation: isolate;
+			&::before {
+				content: "";
+				width: var(--separate-border);
+				height: var(--separate-height);
+				position: absolute;
+				inset-block-start: 50%;
+				inset-inline-start: 0;
+				transform: translateY(-50%);
+				background-color: var(--separate-clr);
+			}
+		}
 		&--2x {
 			--separate-border: 2px;
 		}
