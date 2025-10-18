@@ -1,0 +1,70 @@
+---
+{% extends "layouts/doc.html" %}
+{% set page = "list" %}
+{% set bodyClass = "bg-body" %}
+{% set primaryHeader = "primary-header--light primary-header--sticky top-0" %}
+{% set navBtnColor = "fw-semibold text-light" %}
+{% set logoLight = "logo-dark.png" %}
+{% set logoDark = "logo-light.png" %}
+---
+{% block content %}
+<!-- List  -->
+<div class="section-space-xsm-top">
+    <h6 class="d-flex align-items-center gap-1 fs-20">1. List -
+        <span class="d-inline-block fs-14 text-secondary fw-normal">List Style</span>
+    </h6>
+    <div class="rounded p-4 bg-secondary-subtle-rgb bg-opacity-10 border border-secondary border-opacity-10 mb-4">
+        <ul class="list gap-4">
+            <li class="d-flex align-items-center gap-3">
+                <iconify-icon icon="mdi:engine-outline" class="fs-20"></iconify-icon>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-group">
+        <div class="tab__header d-flex align-items-center justify-content-between gap-4 border-bottom">
+            <div class="tab flex-grow-1">
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    HTML
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    CSS
+                </button>
+                <button class="tab__links position-relative z-1 btn btn-sm hover:text-primary border-0">
+                    JS
+                </button>
+            </div>
+            <button class="btn btn-sm border-0 hover:text-primary align-items-center gap-1 code-snippet-expand">
+                <iconify-icon icon="quill:expand"></iconify-icon>
+                Expand Code
+            </button>
+        </div>
+        <div class="tab__body mt-4">
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-html"><!--
+                        <div class="alert alert-primary" role="alert">
+            A simple primary alert—check it out!
+        </div>
+                    --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-css"><!-- CSS --></code></pre>
+                </div>
+            </div>
+
+            <div class="tab__content">
+                <div
+                    class="code-snippet code-snippet--md overflow-x-auto p-4 rounded-1 bg-body-secondary bg-opacity-40 my-1">
+                    <pre><code class="language-javascript"><!-- JS --></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- List End -->
+{% endblock %}
