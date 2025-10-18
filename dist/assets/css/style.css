@@ -2322,6 +2322,9 @@ small,
   --bs-border-radius: 0.5rem;
 }
 
+.code-snippet--0 pre {
+  max-height: 0;
+}
 .code-snippet--sm pre {
   max-height: 6.25rem;
 }
