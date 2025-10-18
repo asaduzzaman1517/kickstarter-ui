@@ -2502,6 +2502,36 @@ small,
   --bs-dropdown-link-disabled-color: var(--bs-dark-text-emphasis);
 }
 
+.fieldset {
+  --border-style: solid;
+  --border-color: var(--bs-border-color);
+  border-width: 1px;
+  border-style: var(--border-style);
+  border-color: var(--border-color);
+  border-radius: 0.5rem;
+}
+.fieldset--dashed {
+  --border-style: dashed;
+}
+.fieldset__legend {
+  padding-inline-start: 0.25rem;
+  padding-inline-end: 0.25rem;
+  float: unset;
+  width: auto;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--bs-heading-color);
+}
+.fieldset__form-control {
+  padding: 0 !important;
+  border: 0 !important;
+}
+.fieldset__form-select {
+  padding: 0 !important;
+  border: 0 !important;
+}
+
 /* Form Check */
 .form-check-modifier {
   display: inline-flex;
@@ -2839,18 +2869,32 @@ small,
   padding: 0.25rem 1rem;
   line-height: 1.167;
 }
+.form-control-xsm[type=file]::file-selector-button {
+  padding: calc(0.75rem - 2px) 1rem !important;
+}
 .form-control-sm {
   padding: 0.25rem 1rem;
   font-size: 0.875rem;
   line-height: 1.715;
+}
+.form-control-sm[type=file]::file-selector-button {
+  padding: 0.5rem 1rem !important;
 }
 .form-control-lg {
   padding: 0.75rem 1rem;
   border-radius: var(--bs-border-radius-sm);
   font-size: 1rem;
 }
+.form-control-lg[type=file]::file-selector-button {
+  padding: 1.25rem 1rem !important;
+}
 .form-control[type=file] {
   padding-inline-start: 0.5rem;
+  padding-block: 0;
+}
+.form-control[type=file]::file-selector-button {
+  display: inline;
+  padding: calc(1rem - 2px) 1rem;
 }
 
 /* Form Select */

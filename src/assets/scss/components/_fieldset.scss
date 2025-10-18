@@ -1,0 +1,29 @@
+.fieldset {
+	--border-style: solid;
+	--border-color: var(--bs-border-color);
+	border-width: 1px;
+	border-style: var(--border-style);
+	border-color: var(--border-color);
+	border-radius: 0.5rem;
+	&--dashed {
+		--border-style: dashed;
+	}
+	&__legend {
+		padding-inline-start: 0.25rem;
+		padding-inline-end: 0.25rem;
+		float: unset;
+		width: auto;
+		margin-bottom: 0;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--bs-heading-color);
+	}
+	&__form-control {
+		padding: 0 !important;
+		border: 0 !important;
+	}
+	&__form-select {
+		padding: 0 !important;
+		border: 0 !important;
+	}
+}

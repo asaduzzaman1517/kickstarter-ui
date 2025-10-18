@@ -10,18 +10,38 @@
 		font-size: 0.75rem;
 		padding: 0.25rem 1rem;
 		line-height: 1.167;
+		&[type="file"] {
+			&::file-selector-button {
+				padding: calc(0.75rem - 2px) 1rem !important;
+			}
+		}
 	}
 	&-sm {
 		padding: 0.25rem 1rem;
 		font-size: 0.875rem;
 		line-height: 1.715;
+		&[type="file"] {
+			&::file-selector-button {
+				padding: 0.5rem 1rem !important;
+			}
+		}
 	}
 	&-lg {
 		padding: 0.75rem 1rem;
 		border-radius: var(--bs-border-radius-sm);
 		font-size: 1rem;
+		&[type="file"] {
+			&::file-selector-button {
+				padding: 1.25rem 1rem !important;
+			}
+		}
 	}
 	&[type="file"] {
 		padding-inline-start: 0.5rem;
+		padding-block: 0;
+		&::file-selector-button {
+			display: inline;
+			padding: calc(1rem - 2px) 1rem;
+		}
 	}
 }
