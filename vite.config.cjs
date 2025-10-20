@@ -31,15 +31,60 @@ const paths = {
 };
 
 // -----------------------
+// Helper: Silent Sass compiler
+// -----------------------
+function silentCompile(file, options = {}) {
+	const originalWarn = console.warn;
+	const originalError = console.error;
+	const originalWrite = process.stderr.write;
+
+	try {
+		console.warn = () => {};
+		console.error = (msg) => {
+			if (typeof msg === "string" && msg.includes("Deprecation Warning")) return;
+			if (
+				typeof msg === "string" &&
+				msg.includes("repetitive deprecation warnings omitted")
+			)
+				return;
+			originalError(msg);
+		};
+
+		process.stderr.write = (chunk, ...args) => {
+			if (typeof chunk === "string") {
+				if (chunk.includes("Deprecation Warning")) return true;
+				if (chunk.includes("repetitive deprecation warnings omitted"))
+					return true;
+				if (chunk.includes("Run in verbose mode")) return true;
+			}
+			return originalWrite.call(process.stderr, chunk, ...args);
+		};
+
+		const result = sass.compile(file, {
+			style: "expanded",
+			quietDeps: true,
+			quiet: true,
+			...options,
+		});
+
+		return result;
+	} catch (err) {
+		console.error(`❌ Sass Compile Error: ${err.message}`);
+		return { css: "" };
+	} finally {
+		console.warn = originalWarn;
+		console.error = originalError;
+		process.stderr.write = originalWrite;
+	}
+}
+
+// -----------------------
 // Helpers
 // -----------------------
 async function compileSCSS(inputFile, outDir, outFileName) {
 	if (!fs.existsSync(inputFile)) return;
 	try {
-		const result = sass.compile(inputFile, {
-			style: "expanded",
-			quietDeps: true,
-		});
+		const result = silentCompile(inputFile);
 		const outFile = path.join(outDir, "assets/css", outFileName);
 		await fs.ensureDir(path.dirname(outFile));
 		await fs.writeFile(outFile, result.css);
@@ -51,7 +96,7 @@ async function compileSCSS(inputFile, outDir, outFileName) {
 async function compileFontSCSS(outDir) {
 	const files = globSync(paths.src.fontSCSS);
 	for (const file of files) {
-		const result = sass.compile(file, { style: "expanded", quietDeps: true });
+		const result = silentCompile(file);
 		const outFile = path.join(
 			outDir,
 			"assets/css",
@@ -182,10 +227,8 @@ export default defineConfig(({ command }) => {
 				name: "nunjucks-dev",
 				apply: "serve",
 				configureServer: async (server) => {
-					// Clean dist at dev start
 					fs.emptyDirSync(outDir);
 
-					// ✅ Compile Bootstrap SCSS once at dev start
 					if (!bootstrapCompiledDev) {
 						await compileSCSS(
 							paths.src.bootstrapSCSS,
@@ -195,16 +238,12 @@ export default defineConfig(({ command }) => {
 						bootstrapCompiledDev = true;
 					}
 
-					// Copy app.js first
 					await copyFileOrFolder(
 						paths.src.appJS,
 						path.join(outDir, "assets/js", "app.js")
 					);
-
-					// Compile everything else for dev BEFORE Vite serves files
 					await compileAll(outDir, { compileBootstrap: false });
 
-					// Watch files for live reload
 					chokidar
 						.watch(
 							[
@@ -223,18 +262,15 @@ export default defineConfig(({ command }) => {
 									path.join(outDir, "assets/js", path.basename(file))
 								);
 							}
+
 							if (file.endsWith(".scss")) {
 								const relative = path
 									.relative("src/assets/scss", file)
 									.replace(/\\/g, "/");
 
 								try {
-									// Fonts SCSS
 									if (relative.startsWith("fonts/")) {
-										const result = sass.compile(file, {
-											style: "expanded",
-											quietDeps: true,
-										});
+										const result = silentCompile(file);
 										const outFile = path.join(
 											outDir,
 											"assets/css",
@@ -242,9 +278,7 @@ export default defineConfig(({ command }) => {
 										);
 										await fs.ensureDir(path.dirname(outFile));
 										await fs.writeFile(outFile, result.css);
-									}
-									// Main style.scss (and its partials)
-									else if (
+									} else if (
 										relative === "style.scss" ||
 										relative.startsWith("_") ||
 										relative.includes("/_")
@@ -256,14 +290,12 @@ export default defineConfig(({ command }) => {
 										);
 									}
 
-									// ✅ Trigger reload only if compilation succeeds
 									server.ws.send({ type: "full-reload" });
 								} catch (err) {
 									console.error(
 										"❌ SCSS Compilation Error:",
 										err.message
 									);
-									// Don't throw — just log. Vite keeps running.
 								}
 								return;
 							}
@@ -273,23 +305,17 @@ export default defineConfig(({ command }) => {
 									paths.src.templateRoot,
 									file
 								);
-
-								// Detect if it's a layout or partial
 								if (
 									relative.startsWith("layouts") ||
 									relative.startsWith("partials")
 								) {
-									// Recompile ALL pages since layout/partial affects everything
 									await compileHTML(outDir);
 									server.ws.send({ type: "full-reload" });
 								} else {
-									// Recompile ONLY this page
 									const html = njkEnv.render(relative, {});
 									const outFile = path.join(outDir, relative);
 									await fs.ensureDir(path.dirname(outFile));
 									await fs.writeFile(outFile, html);
-
-									// Tell Vite to reload just this path
 									server.ws.send({
 										type: "full-reload",
 										path: "/" + relative.replace(/\\/g, "/"),
@@ -297,6 +323,7 @@ export default defineConfig(({ command }) => {
 								}
 								return;
 							}
+
 							if (/\.(png|jpe?g|gif|svg|webp|mp4|webm)$/i.test(file)) {
 								const relative = path.relative("src/assets/img", file);
 								const dest = path.join(outDir, "assets/img", relative);
@@ -304,6 +331,7 @@ export default defineConfig(({ command }) => {
 								server.ws.send({ type: "full-reload" });
 								return;
 							}
+
 							if (/\.(woff2?|ttf|eot|otf)$/i.test(file)) {
 								const relative = path.relative("src/assets/fonts", file);
 								const dest = path.join(outDir, "assets/fonts", relative);
@@ -318,15 +346,13 @@ export default defineConfig(({ command }) => {
 				name: "custom-build",
 				apply: "build",
 				buildStart: async () => {
-					// Clean dist
 					await fs.emptyDir(paths.dist.base);
-					
+
 					const bootstrapSrc = "node_modules/bootstrap/scss";
 					const bootstrapDest = "src/assets/scss/bootstrap/scss";
 					await fs.ensureDir(bootstrapDest);
 					await fs.copy(bootstrapSrc, bootstrapDest);
 
-					// Generate all files BEFORE Rollup starts
 					await compileAll(paths.dist.base, { compileBootstrap: true });
 				},
 			},
