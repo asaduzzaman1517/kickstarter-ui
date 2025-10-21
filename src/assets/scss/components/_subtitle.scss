@@ -1,0 +1,56 @@
+.subtitle-1 {
+	--subtitle-color: var(--bs-primary);
+	display: inline-block;
+	margin-left: 2rem;
+	position: relative;
+	isolation: isolate;
+	background-color: var(--subtitle-color);
+	color: var(--bs-light);
+	transform: skew(-21deg);
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: calc(100% + 0.5rem);
+		height: 100%;
+		width: 3px;
+		background-color: var(--subtitle-color);
+		pointer-events: none;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: calc(100% + 1rem);
+		height: 100%;
+		width: 3px;
+		background-color: var(--subtitle-color);
+		pointer-events: none;
+	}
+	& > * {
+		padding: 0.25rem 1rem;
+		transform: skew(21deg);
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: calc(100% + 1.5rem);
+			height: 100%;
+			width: 3px;
+			background-color: var(--subtitle-color);
+			pointer-events: none;
+			transform: skew(-21deg);
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: calc(100% + 2rem);
+			height: 100%;
+			width: 3px;
+			background-color: var(--subtitle-color);
+			pointer-events: none;
+			transform: skew(-21deg);
+		}
+	}
+}
