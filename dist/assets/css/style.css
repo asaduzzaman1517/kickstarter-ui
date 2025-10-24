@@ -4920,7 +4920,7 @@ small,
 .subtitle-1 {
   --subtitle-color: var(--bs-primary);
   display: inline-block;
-  margin-left: 2rem;
+  margin-left: 2.25rem;
   position: relative;
   isolation: isolate;
   background-color: var(--subtitle-color);
