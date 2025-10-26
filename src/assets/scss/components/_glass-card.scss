@@ -5,8 +5,8 @@
 	position: relative;
 	isolation: isolate;
 	background: var(--glass-bg);
-	backdrop-filter: blur(20px) saturate(180%);
-	-webkit-backdrop-filter: blur(20px) saturate(180%);
+	backdrop-filter: blur(4px) saturate(180%);
+	-webkit-backdrop-filter: blur(4px) saturate(180%);
 	border: 1px solid rgba(var(--bs-white-rgb), 0.25);
 	transition: all 0.3s ease;
 	&::before {
@@ -25,14 +25,14 @@
 		background: var(--glass-hover-bg);
 	}
 	&--dark {
-		--glass-bg: rgba(var(--bs-black-rgb), 0.55);
-		--glass-hover-bg: rgba(var(--bs-black-rgb), 0.6);
+		--glass-bg: rgba(var(--bs-black-rgb), 0.1);
+		--glass-hover-bg: rgba(var(--bs-black-rgb), 0.5);
 		border: 1px solid rgba(var(--bs-white-rgb), 0.08);
 		&::before {
 			background: linear-gradient(
 				135deg,
 				rgba(var(--bs-white-rgb), 0.08),
-				rgba(var(--bs-white-rgb), 0.3)
+				rgba(var(--bs-dark-rgb), 0.3)
 			);
 		}
 	}
