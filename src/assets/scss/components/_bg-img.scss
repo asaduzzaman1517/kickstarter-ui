@@ -4,10 +4,16 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	transition: all 0.3s ease;
+	transition: background-image 0.3s ease-in-out;
 }
 .bg-contain {
 	background-size: contain;
+}
+.bg-auto {
+	background-size: auto;
+}
+.bg-repeat {
+	background-repeat: repeat;
 }
 .bg-fit {
 	background-size: 100% 100%;
