@@ -143,8 +143,7 @@
 		--separate-border: 1px;
 
 		& > li + li {
-			padding-inline-start: var(--separate-space);
-			margin-inline-start: var(--separate-space);
+			padding-inline: var(--separate-space);
 			position: relative;
 			isolation: isolate;
 			&::before {
@@ -159,8 +158,7 @@
 			}
 		}
 		& > div + div {
-			padding-inline-start: var(--separate-space);
-			margin-inline-start: var(--separate-space);
+			padding-inline: var(--separate-space);
 			position: relative;
 			isolation: isolate;
 			&::before {
